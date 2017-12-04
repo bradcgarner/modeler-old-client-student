@@ -8,13 +8,20 @@ import { Redirect } from 'react-router';
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
-import LandingFooter from './landingFooter';
 
-export function Landing (props) {
+export function NavBar (props) {
   return (
-    <article>
-      <LandingFooter/>
-    </article>
+    <nav>
+      <h1>GRSWM</h1>
+      <ul>
+        <li>Configure</li>
+        <li>Projects</li>
+        <li>Storms</li>
+        <li>Et</li>
+        <li>Hydrographs</li>
+        <li>Analysis</li>
+      </ul>
+    </nav>
   )
 }
 
@@ -24,4 +31,4 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps)(Landing);
+export default connect(mapStateToProps)(NavBar);
