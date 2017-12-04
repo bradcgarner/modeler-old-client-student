@@ -17,15 +17,19 @@ import InputAsideControlled from './inputAsideControlled';
 import InputAsideET from './inputAsideET';
 
 export function InputAside (props) {
+    // asideMain will be 1 of the following, based on props.display.aside
+    const asideMain = <div>
+                      <InputAsideCanvasGeneral/>
+                      <InputAsideCanvasAreas/>
+                      <InputAsideProducts/>
+                      <InputAsideStorms/>
+                      <InputAsideControlled/>
+                      <InputAsideET/>
+                    </div>
   return (
     <aside>
       <h4>aside</h4>
-      <InputAsideCanvasGeneral/>
-      <InputAsideCanvasAreas/>
-      <InputAsideProducts/>
-      <InputAsideStorms/>
-      <InputAsideControlled/>
-      <InputAsideET/>
+     {asideMain}
     </aside>
   )
 }

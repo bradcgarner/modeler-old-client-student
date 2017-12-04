@@ -8,16 +8,20 @@ import { Redirect } from 'react-router';
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
+import LoginForm from './loginForm';
+import LoginNew from './loginNew';
 
 export function Login (props) {
+
+  // loginForm will be 1 of following based on props.display.newAcct
+  const loginForm = <div>
+                    <LoginForm/>
+                    <LoginNew/>
+                  </div>
+  // create account 
   return (
     <article>
-      <p>Login</p>
-      <p>username</p>
-      <p>password</p>
-      <p>log in</p>
-      <p>create account</p>
-      
+      {loginForm}
     </article>
   )
 }

@@ -9,9 +9,11 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-import About from './about';
+import About from './landingAbout';
 
 export function LandingFooter (props) {
+  // gray bar, fixed to bottom of page
+  // get started takes to login page; there is no guest account
   return (
     <footer>
       <h1>landing footer</h1>

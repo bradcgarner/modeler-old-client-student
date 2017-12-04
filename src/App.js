@@ -12,9 +12,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Cover/>
         <Landing/>
         <Login/>
+        <Cover/>
         <NavBar/>
         <Input/>
         <Output/>

@@ -16,14 +16,18 @@ import InputStorms from './inputStorms';
 import InputET from './inputET';
 
 export function Input (props) {
+  // inputMain will be 1 of the following, based on props.display.main
+  const inputMain = <div>
+                    <InputCanvas/>
+                    <InputProducts/>
+                    <InputStorms/>
+                    <InputET/>
+                    </div>
   return (
     <div>
       <h1>Input</h1>
       <InputAside/>
-      <InputCanvas/>
-      <InputProducts/>
-      <InputStorms/>
-      <InputET/>
+      {inputMain}
     </div>
   )
 }
