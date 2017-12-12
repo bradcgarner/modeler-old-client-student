@@ -9,11 +9,13 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 import LandingFooter from './landingFooter';
+import Cover from './cover';
 
 export function Landing (props) {
   // image of USCG, set to 'cover'
   return (
     <article>
+      <Cover/>
       <LandingFooter/>
     </article>
   )

@@ -8,21 +8,12 @@ import { Redirect } from 'react-router';
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
-import LoginForm from './loginForm';
-import LoginNew from './loginNew';
 
-export function Login (props) {
-
-  // loginForm will be 1 of following based on props.display.newAcct
-  const loginForm = <div>
-                    <LoginForm/>
-                    <LoginNew/>
-                  </div>
-  // create account 
+export function InputH2O (props) {
   return (
-    <article>
-      {loginForm}
-    </article>
+    <aside>
+      <h4>storms</h4>
+    </aside>
   )
 }
 
@@ -32,4 +23,4 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps)(InputH2O);

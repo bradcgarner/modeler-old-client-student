@@ -9,19 +9,16 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-export function LoginNew (props) {
+export function UserLogin (props) {
   // create account 
   return (
     <article>
-      <p>Create Account</p>
-      <p>first name</p>
-      <p>last name</p>
-      <p>organization</p>
-      <p>email</p>
+      <p>Login</p>
       <p>username</p>
       <p>password</p>
-      <p>confirm password</p>
+      <p>log in</p>
       <p>create account</p>
+      
     </article>
   )
 }
@@ -32,4 +29,4 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps)(LoginNew);
+export default connect(mapStateToProps)(UserLogin);

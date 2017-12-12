@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
-import { Route, BrowserRouter , Link}  from 'react-router-dom';
-import { Redirect } from 'react-router';
+import { Route, BrowserRouter , Link, Redirect, Switch}  from 'react-router-dom';
 
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
@@ -17,8 +16,11 @@ export function OutputAside (props) {
   return (
     <aside>
       <h4>aside</h4>
-      <OutputAsideGraph/>
-      <OutputAsideTable/>
+      <Switch>
+        <Route exact path = '/app/output/graphs' component = {OutputAsideGraph}/>
+        <Route exact path = '/app/output/analysis' component = {OutputAsideTable}/>
+        <Redirect from = '*' to = '/home'/>
+      </Switch>
     </aside>
   )
 }

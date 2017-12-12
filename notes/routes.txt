@@ -1,0 +1,31 @@
+Routed Components   Redirect To
+app                 home
+app... no login     home
+  landing           home
+  user
+    userLogin       userLogin
+    userCreate      userLogin
+    
+  mainApp
+    input       
+    inputAside      home
+    output
+    outputAside     home
+
+
+
+
+Page                Route                         display.view
+landing             /home                         landing
+about               /home                         about
+login               /user/login                   login 
+create              /user/create                  create 
+configure (gen)     /app/input/configure/general  configGeneral
+configure (areas)   /app/input/configure/areas    configAreas
+products            /app/products                 products      project.product[0]
+storms              /app/input/h2o/storms         storms
+controlled          /app/input/h2o/controlled     controlled
+et                  /app/input/et                 et            project.et[0]
+graphs              /app/output/graphs            graphs        project.graphs...
+analysis            /app/output/analysis          analysis      project.analysis...
+

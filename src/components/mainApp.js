@@ -7,20 +7,20 @@ import { Route, BrowserRouter , Link, Redirect, Switch}  from 'react-router-dom'
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
+import NavBar from './navbar'
+import Input from './input'
+import Output from './output'
 
-export function NavBar (props) {
+export function MainApp (props) {
   return (
-    <nav>
-      <h1>GRSWM</h1>
-      <ul>
-        <li>Configure</li>
-        <li>Projects</li>
-        <li>Storms</li>
-        <li>Et</li>
-        <li>Hydrographs</li>
-        <li>Analysis</li>
-      </ul>
-    </nav>
+    <main>
+      <Switch>
+        <Route path = '/app/input'  component = {Input}/>
+        <Route path = '/app/output' component = {Output}/>
+        <Redirect from = '*' to = '/home'/>
+      </Switch>
+      <NavBar/>
+    </main>
   )
 }
 
@@ -30,4 +30,4 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps)(NavBar);
+export default connect(mapStateToProps)(MainApp);

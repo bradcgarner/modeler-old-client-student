@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import Cover from './components/cover'
 import Landing from './components/landing'
-import Login from './components/login'
-import NavBar from './components/navbar'
-import Input from './components/input'
-import Output from './components/output'
+import User from './components/user'
+import MainApp from './components/mainApp'
+
+
+// edit routes below so that non-logged-in users are redirected to home or login
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Landing/>
-        <Login/>
-        <Cover/>
-        <NavBar/>
-        <Input/>
-        <Output/>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Switch>
+            <Route exact path = '/home' component = {Landing}/>
+            <Route path =       '/user' component = {User}/>
+            <Route path =       '/app'  component = {MainApp}/>
+            <Redirect from = '*' to = '/home'/>
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
