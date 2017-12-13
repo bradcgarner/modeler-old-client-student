@@ -9,6 +9,8 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
+// interior to inputAside. No user input. Displays sources of product efficiency table data.
+// route app/input/products
 export function InputAsideProducts (props) {
   return (
     <div>

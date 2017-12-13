@@ -9,7 +9,11 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-export function InputConfigure (props) {
+// interior to input. Will contain a canvas that allows a drawing as background.
+// user can draw over canvas
+// route app/input/configure
+// 'aside' components have more specific controlling exact paths
+export function InputConfig (props) {
   return (
     <aside>
       <h4>InputConfigure</h4>
@@ -23,4 +27,4 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps)(InputConfigure);
+export default connect(mapStateToProps)(InputConfig);

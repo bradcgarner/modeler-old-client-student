@@ -9,8 +9,9 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
+// form to log in
+// route /user/create
 export function UserLogin (props) {
-  // create account 
   return (
     <article>
       <p>Login</p>

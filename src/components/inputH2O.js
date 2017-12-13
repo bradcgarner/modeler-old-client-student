@@ -9,6 +9,9 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
+// interior to input. Will contain a form to allow user to input individual storms or storm segments.
+// route app/input/h2o
+// 'aside' components have more specific controlling exact paths
 export function InputH2O (props) {
   return (
     <aside>

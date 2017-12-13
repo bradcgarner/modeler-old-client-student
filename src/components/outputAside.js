@@ -11,7 +11,8 @@ import * as actionsProject from '../actions/project';
 import OutputAsideGraphs from './outputAsideGraphs';
 import OutputAsideAnalysis from './outputAsideAnalysis';
 
-
+// container div for output aside. Serves no purpose other than routing and styling.
+// use 'aside' components for specific controlling exact paths
 export function OutputAside (props) {
   return (
     <aside>

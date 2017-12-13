@@ -11,6 +11,8 @@ import * as actionsProject from '../actions/project';
 
 import About from './landingAbout';
 
+// landing page footer prior to login
+// route /home
 export function LandingFooter (props) {
   // gray bar, fixed to bottom of page
   // get started takes to login page; there is no guest account

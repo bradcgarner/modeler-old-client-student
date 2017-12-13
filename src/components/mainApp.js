@@ -11,6 +11,8 @@ import NavBar from './navbar'
 import Input from './input'
 import Output from './output'
 
+// container for application after login
+// routes /app... (controlled path via various grandchildren components)
 export function MainApp (props) {
   return (
     <main>

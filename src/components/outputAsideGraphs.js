@@ -9,6 +9,8 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
+// inside outputAside.  Input for managing graph data (e.g. run graphc for certain dates)
+// route /output/graphs
 export function OutputAsideGraphs (props) {
   return (
     <aside>

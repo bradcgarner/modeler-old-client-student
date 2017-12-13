@@ -9,6 +9,8 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
+// inside outputAside.  Input for managing tabular data (e.g. run report for certain dates)
+// route /output/analysis
 export function OutputAsideAnalysis (props) {
   return (
     <aside>

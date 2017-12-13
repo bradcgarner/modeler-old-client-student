@@ -12,7 +12,9 @@ import OutputAside from './outputAside';
 import OutputGraphs from './outputGraphs';
 import OutputAnalysis from './outputAnalysis';
 
-
+// container div for output. Serves no purpose other than routing and positioning.
+// routes /app/output...
+// 'aside' components have more specific controlling exact paths
 export function Output (props) {
   return (
     <div>

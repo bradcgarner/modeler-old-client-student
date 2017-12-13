@@ -9,6 +9,8 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
+// interior to inputAside. Input of precipitation overall variables and settings.
+// route app/input/h2o/storms
 export function InputAsideStorms (props) {
   return (
     <div>

@@ -9,7 +9,8 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-
+// tabular data output
+// routes /output... 
 export function OutputAnalysis (props) {
   return (
     <div>

@@ -11,6 +11,8 @@ import * as actionsProject from '../actions/project';
 import LandingFooter from './landingFooter';
 import Cover from './cover';
 
+// landing page prior to login
+// route /home
 export function Landing (props) {
   // image of USCG, set to 'cover'
   return (

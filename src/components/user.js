@@ -10,9 +10,9 @@ import * as actionsProject from '../actions/project';
 import UserLogin from './userLogin';
 import UserCreate from './userCreate';
 
+// container for user login or user create. Serves no purpose other than routing and positioning.
+// routes /user
 export function User (props) {
-
-  // loginForm will be 1 of following based on props.display.newAcct
   const loginForm = <div>
     <Switch>
       <Route exact path = '/user/login' component = {UserLogin}/>

@@ -9,6 +9,8 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
+// app name and logo. 
+// routes /home, /user/login, /user/create
 export function Cover (props) {
   return (
     <header>

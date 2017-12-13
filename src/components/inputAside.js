@@ -8,19 +8,20 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-import InputAsideCanvasGeneral from './inputAsideCanvasGeneral';
-import InputAsideCanvasAreas from './inputAsideCanvasAreas';
+import InputAsideConfigGeneral from './inputAsideConfigGeneral';
+import InputAsideConfigAreas from './inputAsideConfigAreas';
 import InputAsideProducts from './inputAsideProducts';
 import InputAsideStorms from './inputAsideStorms';
 import InputAsideControlled from './inputAsideControlled';
 import InputAsideET from './inputAsideET';
 
+// container div for input aside. Serves no purpose other than routing and styling.
+// use 'aside' components for specific controlling exact paths
 export function InputAside (props) {
-  // asideMain will be 1 of the following, based on props.display.aside
   const asideMain = <div>
     <Switch>
-      <Route exact path = '/app/input/configure/general'  component = {InputAsideCanvasGeneral}/>
-      <Route exact path = '/app/input/configure/areas'    component = {InputAsideCanvasAreas}/>
+      <Route exact path = '/app/input/configure/general'  component = {InputAsideConfigGeneral}/>
+      <Route exact path = '/app/input/configure/areas'    component = {InputAsideConfigAreas}/>
       <Route exact path = '/app/input/products'           component = {InputAsideProducts}/>
       <Route exact path = '/app/input/h2o/storms'         component = {InputAsideStorms}/>
       <Route exact path = '/app/input/h2o/controlled'     component = {InputAsideControlled}/>

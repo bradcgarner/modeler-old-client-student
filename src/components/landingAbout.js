@@ -9,6 +9,8 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
+// modal for about to slide up over landing
+// route /home
 export function About (props) {
   // Click on About slides up from footer; changing display slides back down
   // About can include text and a GIF

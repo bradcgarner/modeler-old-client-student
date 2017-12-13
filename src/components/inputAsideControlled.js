@@ -9,6 +9,8 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
+// interior to inputAside. Input of controlled water input.
+// route app/input/h2o/controlled
 export function InputAsideControlled (props) {
   return (
     <div>

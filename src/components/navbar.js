@@ -8,6 +8,8 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
+// nav bar to main app, after login
+// routes /app...
 export function NavBar (props) {
   return (
     <nav>

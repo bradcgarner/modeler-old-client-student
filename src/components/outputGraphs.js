@@ -9,7 +9,8 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-
+// output for graphs. Will contain an image container that will update based on controls in aside.
+// route /app/output/graphs
 export function OutputGraphs (props) {
   return (
     <div>
