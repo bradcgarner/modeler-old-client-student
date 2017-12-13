@@ -9,12 +9,11 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-
-export function OutputTable (props) {
+export function InputConfigure (props) {
   return (
-    <div>
-      <h1>Output Table</h1>
-    </div>
+    <aside>
+      <h4>InputConfigure</h4>
+    </aside>
   )
 }
 
@@ -24,4 +23,4 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps)(OutputTable);
+export default connect(mapStateToProps)(InputConfigure);

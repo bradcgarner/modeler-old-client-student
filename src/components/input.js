@@ -9,7 +9,7 @@ import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
 import InputAside from './inputAside';
-import InputCanvas from './inputCanvas';
+import InputConfigure from './inputConfigure';
 import InputProducts from './inputProducts';
 import InputH2O from './inputH2O';
 import InputET from './inputET';
@@ -17,10 +17,10 @@ import InputET from './inputET';
 export function Input (props) {
   // inputMain will be 1 of the following, based on props.display.main
   const inputMain = <div>
-    <InputCanvas/>
-      <Route path = '/app/input/products' component = {InputProducts}/>
-      <Route path = '/app/input/h2o'      component = {InputH2O}/>
-      <Route path = '/app/input/et'       component = {InputET}/>
+      <Route path = '/app/input/configure' component = {InputConfigure}/>
+      <Route path = '/app/input/products'  component = {InputProducts}/>
+      <Route path = '/app/input/h2o'       component = {InputH2O}/>
+      <Route path = '/app/input/et'        component = {InputET}/>
     </div>
   return (
     <div>

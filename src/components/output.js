@@ -9,8 +9,8 @@ import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
 import OutputAside from './outputAside';
-import OutputGraph from './outputGraph';
-import OutputTable from './outputTable';
+import OutputGraphs from './outputGraphs';
+import OutputAnalysis from './outputAnalysis';
 
 
 export function Output (props) {
@@ -18,8 +18,8 @@ export function Output (props) {
     <div>
       <h1>Output</h1>
       <OutputAside/>
-      <Route path = '/output/graphs' component = {OutputGraph}/>
-      <Route path = '/output/analysis' component = {OutputTable}/>
+      <Route path = '/output/graphs' component = {OutputGraphs}/>
+      <Route path = '/output/analysis' component = {OutputAnalysis}/>
     </div>
   )
 }

@@ -9,11 +9,12 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-export function OutputAsideTable (props) {
+
+export function OutputAnalysis (props) {
   return (
-    <aside>
-      <h4>aside table</h4>
-    </aside>
+    <div>
+      <h1>Output Table</h1>
+    </div>
   )
 }
 
@@ -23,4 +24,4 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps)(OutputAsideTable);
+export default connect(mapStateToProps)(OutputAnalysis);

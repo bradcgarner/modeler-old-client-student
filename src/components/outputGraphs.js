@@ -10,7 +10,7 @@ import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
 
-export function OutputGraph (props) {
+export function OutputGraphs (props) {
   return (
     <div>
       <h1>Output Graph</h1>
@@ -24,4 +24,4 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps)(OutputGraph);
+export default connect(mapStateToProps)(OutputGraphs);

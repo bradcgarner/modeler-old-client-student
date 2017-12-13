@@ -1,31 +1,41 @@
-Routed Components   Redirect To
-app                 home
-app... no login     home
-  landing           home
-  user
-    userLogin       userLogin
-    userCreate      userLogin
-    
-  mainApp
-    input       
-    inputAside      home
-    output
-    outputAside     home
 
-
-
-
-Page                Route                         display.view
-landing             /home                         landing
-about               /home                         about
-login               /user/login                   login 
-create              /user/create                  create 
-configure (gen)     /app/input/configure/general  configGeneral
-configure (areas)   /app/input/configure/areas    configAreas
-products            /app/products                 products      project.product[0]
-storms              /app/input/h2o/storms         storms
-controlled          /app/input/h2o/controlled     controlled
-et                  /app/input/et                 et            project.et[0]
-graphs              /app/output/graphs            graphs        project.graphs...
-analysis            /app/output/analysis          analysis      project.analysis...
-
+Componnent              Route                        Redirect    display.view
+App                                                  /home
+|
+|_Landing               /home                        /home       landing
+|_About                 /home                        /home       about (shows modal)
+|                       |
+|User                   /user
+| |_UserLogin           |   /login                   /user/login 
+| |_UserCreate          |   /create                  /user/login 
+|                       |
+|_MainApp               /app
+  |                         |
+  |_Input                   /input
+  |   |_InputConfigure      |    /configure
+  |   |_InputH2O            v    /h2o
+  |   |_InputEt                  /et
+  |   |_InputProducts            /products
+  |                              |
+  |_InputAside                   |  
+  |   |                          |
+  |   |                          /configure
+  |   |_InputAsideCanvasGeneral  |         /general  /home       configGeneral
+  |   |_InputAsideCanvasAreas    |         /areas    /home       configAreas
+  |   |                          |
+  |   |                          /h2o
+  |   |_InputAsideStorms         |  /storms          /home
+  |   |_InputAsideControlled     |  /controlled      /home
+  |   |                          |
+  |   |_InputAsideEt             /et                 /home       project.et[0]
+  |   |                          |
+  |   |_InputAsideProducts  ^    /products           /home       products      project.product[0]
+  |                         |
+  |_Output                  /output
+  |   |_OutputAnalysis             /analysis                     configGeneral
+  |   |_OutputGraphs               /graphs                       configGeneral
+  |                                |
+  |_OutputAside                    |
+      |_OutputAsideAnalysis        /analysis         /home       project.analysis...
+      |_OutputAsideGraphs          /graphs           /home       project.graphs...
+ 

@@ -8,8 +8,8 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-import OutputAsideGraph from './outputAsideGraph';
-import OutputAsideTable from './outputAsideTable';
+import OutputAsideGraphs from './outputAsideGraphs';
+import OutputAsideAnalysis from './outputAsideAnalysis';
 
 
 export function OutputAside (props) {
@@ -17,8 +17,8 @@ export function OutputAside (props) {
     <aside>
       <h4>aside</h4>
       <Switch>
-        <Route exact path = '/app/output/graphs' component = {OutputAsideGraph}/>
-        <Route exact path = '/app/output/analysis' component = {OutputAsideTable}/>
+        <Route exact path = '/app/output/graphs' component = {OutputAsideGraphs}/>
+        <Route exact path = '/app/output/analysis' component = {OutputAsideAnalysis}/>
         <Redirect from = '*' to = '/home'/>
       </Switch>
     </aside>

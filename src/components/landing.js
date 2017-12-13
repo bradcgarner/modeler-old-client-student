@@ -15,7 +15,6 @@ export function Landing (props) {
   // image of USCG, set to 'cover'
   return (
     <article>
-      <Cover/>
       <LandingFooter/>
     </article>
   )

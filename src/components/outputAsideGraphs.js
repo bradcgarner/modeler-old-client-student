@@ -9,10 +9,10 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-export function InputCanvas (props) {
+export function OutputAsideGraphs (props) {
   return (
     <aside>
-      <h4>canvas</h4>
+      <h4>aside graphs</h4>
     </aside>
   )
 }
@@ -23,4 +23,4 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps)(InputCanvas);
+export default connect(mapStateToProps)(OutputAsideGraphs);

@@ -9,10 +9,10 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-export function OutputAsideGraph (props) {
+export function OutputAsideAnalysis (props) {
   return (
     <aside>
-      <h4>aside graphs</h4>
+      <h4>aside table</h4>
     </aside>
   )
 }
@@ -23,4 +23,4 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps)(OutputAsideGraph);
+export default connect(mapStateToProps)(OutputAsideAnalysis);

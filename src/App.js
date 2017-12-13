@@ -5,6 +5,7 @@ import './App.css';
 import Landing from './components/landing'
 import User from './components/user'
 import MainApp from './components/mainApp'
+import Cover from './components/cover'
 
 
 // edit routes below so that non-logged-in users are redirected to home or login
@@ -20,6 +21,8 @@ class App extends Component {
             <Route path =       '/app'  component = {MainApp}/>
             <Redirect from = '*' to = '/home'/>
           </Switch>
+          <Route path ='/home' component = {Cover}/>
+          <Route path ='/user' component = {Cover}/>
         </div>
       </BrowserRouter>
     );
