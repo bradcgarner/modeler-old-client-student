@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import Landing from './components/landing'
 import User from './components/user'
-import MainApp from './components/mainApp'
+import MainApp from './components/main-app'
 import Cover from './components/cover'
 
 

@@ -8,7 +8,7 @@ import { Redirect } from 'react-router';
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
-import LandingFooter from './landingFooter';
+import LandingFooter from './landing-footer';
 import Cover from './cover';
 
 // landing page prior to login

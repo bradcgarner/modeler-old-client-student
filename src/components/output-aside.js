@@ -8,8 +8,8 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-import OutputAsideGraphs from './outputAsideGraphs';
-import OutputAsideAnalysis from './outputAsideAnalysis';
+import OutputAsideGraphs from './output-aside-graphs';
+import OutputAsideAnalysis from './output-aside-analysis';
 
 // container div for output aside. Serves no purpose other than routing and styling.
 // use 'aside' components for specific controlling exact paths

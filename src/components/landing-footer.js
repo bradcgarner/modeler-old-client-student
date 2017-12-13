@@ -9,7 +9,7 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-import About from './landingAbout';
+import About from './landing-about';
 
 // landing page footer prior to login
 // route /home

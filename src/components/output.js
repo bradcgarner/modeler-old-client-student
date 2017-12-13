@@ -8,9 +8,9 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-import OutputAside from './outputAside';
-import OutputGraphs from './outputGraphs';
-import OutputAnalysis from './outputAnalysis';
+import OutputAside from './output-aside';
+import OutputGraphs from './output-graphs';
+import OutputAnalysis from './output-analysis';
 
 // container div for output. Serves no purpose other than routing and positioning.
 // routes /app/output...

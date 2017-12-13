@@ -7,8 +7,8 @@ import { Route, BrowserRouter , Link, Switch, Redirect}  from 'react-router-dom'
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
-import UserLogin from './userLogin';
-import UserCreate from './userCreate';
+import UserLogin from './user-login';
+import UserCreate from './user-create';
 
 // container for user login or user create. Serves no purpose other than routing and positioning.
 // routes /user

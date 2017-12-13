@@ -8,11 +8,11 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-import InputAside from './inputAside';
-import InputConfig from './inputConfig';
-import InputProducts from './inputProducts';
-import InputH2O from './inputH2O';
-import InputET from './inputET';
+import InputAside from './input-aside';
+import InputConfig from './input-config';
+import InputProducts from './input-products';
+import InputH2O from './input-h2o';
+import InputET from './input-et';
 
 // container div for input. Serves no purpose other than routing and positioning.
 // routes /app/input...

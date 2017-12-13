@@ -8,12 +8,12 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-import InputAsideConfigGeneral from './inputAsideConfigGeneral';
-import InputAsideConfigAreas from './inputAsideConfigAreas';
-import InputAsideProducts from './inputAsideProducts';
-import InputAsideStorms from './inputAsideStorms';
-import InputAsideControlled from './inputAsideControlled';
-import InputAsideET from './inputAsideET';
+import InputAsideConfigGeneral from './input-aside-config-general';
+import InputAsideConfigAreas from './input-aside-config-areas';
+import InputAsideProducts from './input-aside-products';
+import InputAsideStorms from './input-aside-storms';
+import InputAsideControlled from './input-aside-controlled';
+import InputAsideET from './input-aside-et';
 
 // container div for input aside. Serves no purpose other than routing and styling.
 // use 'aside' components for specific controlling exact paths
