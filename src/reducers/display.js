@@ -1,13 +1,10 @@
 import * as actions from '../actions/display'
-
-const initialState = {
-  view: 'landing',
-}
+import { display as initialState } from './initial-state';
 
 export const reducer = (state = initialState, action) => {
 
   if (action.type === actions.GO_TO) {
-    return Object.assign({}, state, action);
+    return {...state, action};
   }
 
   else {

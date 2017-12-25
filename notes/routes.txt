@@ -8,6 +8,7 @@ App                                                  /home
 |User                   /user
 | |_UserLogin           |   /login                   /user/login 
 | |_UserCreate          |   /create                  /user/login 
+| |_UserDashboard       |   /dashboard               /user/login 
 |                       |
 |_MainApp               /app
   |                         |
@@ -20,8 +21,8 @@ App                                                  /home
   |_InputAside                   |  
   |   |                          |
   |   |                          /configure
-  |   |_InputAsideCanvasGeneral  |         /general  /home       configGeneral
-  |   |_InputAsideCanvasAreas    |         /areas    /home       configAreas
+  |   |_InputAsideConfigGeneral  |         /general  /home       configGeneral
+  |   |_InputAsideConfigAreas    |         /areas    /home       configAreas
   |   |                          |
   |   |                          /h2o
   |   |_InputAsideStorms         |  /storms          /home

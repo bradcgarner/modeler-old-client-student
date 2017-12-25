@@ -1,17 +1,10 @@
 import * as actions from '../actions/user'
-
-const initialState = {
-  firstName: 'none',
-  lastName: 'none',
-  username: 'none',
-  authToken: 'none',
-  id: null,
-}
+import { user as initialState } from './initial-state';
 
 export const reducer = (state = initialState, action) => {
 
   if (action.type === actions.LOAD_USER) {
-    return Object.assign({}, state, action);
+    return {...state, action};
   }
 
   else {

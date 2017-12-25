@@ -2,16 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
-import { Route, BrowserRouter , Link}  from 'react-router-dom';
-import { Redirect } from 'react-router';
+import { Link }  from 'react-router-dom';
+
 
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
-import * as actionsProject from '../actions/project';
 
 // form to log in
 // route /user/create
 export function UserLogin (props) {
+
+  const handleSubmitButton = values => {
+    props.dispatch(actionsUser.loadUser())
+  }
+
   return (
     <article>
       <p>Login</p>
@@ -19,6 +23,53 @@ export function UserLogin (props) {
       <p>password</p>
       <p>log in</p>
       <p>create account</p>
+      <form className='asideInputForm'
+          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))}
+        >
+
+          <div>
+            <label
+              className='inputLabel'
+              htmlFor={'username'}>username
+            </label>
+            <Field
+              name='username'
+              id='username'
+              placeholder='username'
+              component='input'
+              type='text'
+              className='inputField'
+              required />
+          </div>
+
+          <div>
+            <label
+              className='inputLabel'
+              htmlFor={'password'}>password
+            </label>
+            <Field
+              name='password'
+              id='password'
+              placeholder='password'
+              component='input'
+              type='password'
+              className='inputField'
+              required />
+          </div>
+
+          <div>
+            <button className='submitButton'
+              type="submit" disabled={props.pristine || props.submitting}>Log In
+            </button>
+            <button className='clearButton'
+              type="button" disabled={props.pristine || props.submitting}
+              onClick={props.reset}>Clear Form
+            </button>
+          </div>
+
+        </form>
+
+        <Link to='/user/create'>Create Account</Link>
       
     </article>
   )
@@ -30,4 +81,7 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps)(UserLogin);
+export default compose(
+  connect(mapStateToProps),
+  reduxForm({form: 'userLogin'})
+)(UserLogin);

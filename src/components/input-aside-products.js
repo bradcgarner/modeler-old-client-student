@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
-import { Route, BrowserRouter , Link}  from 'react-router-dom';
-import { Redirect } from 'react-router';
 
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
@@ -12,9 +10,45 @@ import * as actionsProject from '../actions/project';
 // interior to inputAside. No user input. Displays sources of product efficiency table data.
 // route app/input/products
 export function InputAsideProducts (props) {
+
+  const handleSubmitButton = values => {
+    props.dispatch(actionsProject.placeholder())
+  }
+  
   return (
     <div>
       <h4>aside products</h4>
+
+      <form className='asideInputForm'
+          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))}
+        >
+
+          <div>
+            <label
+              className='inputLabel'
+              htmlFor={'title'}>xxxxxxx
+            </label>
+            <Field
+              name='xxxxx'
+              id='xxxx'
+              component='input'
+              type='text'
+              className='inputField'
+              required />
+          </div>
+
+          <div>
+            <button className='submitButton'
+              type="submit" disabled={props.pristine || props.submitting}>Save
+            </button>
+            <button className='clearButton'
+              type="button" disabled={props.pristine || props.submitting}
+              onClick={props.reset}>Clear Form
+            </button>
+          </div>
+
+        </form>
+
     </div>
   )
 }
@@ -25,4 +59,7 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps)(InputAsideProducts);
+export default compose(
+  connect(mapStateToProps),
+  reduxForm({form: 'xxxxxx'})
+)(InputAsideProducts);

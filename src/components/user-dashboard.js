@@ -5,15 +5,15 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-// modal for about to slide up over landing
-// route /home
-export function About (props) {
-  // Click on About slides up from footer; changing display slides back down
-  // About can include text and a GIF
+// form to create new user
+// route /user/create
+export function UserDashboard () {
+  // create account 
   return (
-    <div>
-      <h3>About</h3>
-    </div>
+    <article>
+      <p>My Projects</p>
+      <p>list each</p>
+    </article>
   )
 }
 
@@ -23,4 +23,4 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps)(About);
+export default connect(mapStateToProps)(UserDashboard);
