@@ -26,6 +26,7 @@ App                                                  /home
   |   |                          |
   |   |                          /h2o
   |   |_InputAsideStorms         |  /storms          /home
+  |   |_InputAsideImport         |  /import          /home
   |   |_InputAsideControlled     |  /controlled      /home
   |   |                          |
   |   |_InputAsideEt             /et                 /home       project.et[0]

@@ -9,7 +9,7 @@ import * as actionsProject from '../actions/project';
 
 // interior to inputAside. Input of controlled water input.
 // route app/input/h2o/controlled
-export function InputAsideControlled (props) {
+export function InputAsideH2oControlled (props) {
 
   const handleSubmitButton = values => {
     props.dispatch(actionsProject.placeholder())
@@ -62,4 +62,4 @@ const mapStateToProps = state => ({
 export default compose(
   connect(mapStateToProps),
   reduxForm({form: 'xxxxxx'})
-)(InputAsideControlled);
+)(InputAsideH2oControlled);

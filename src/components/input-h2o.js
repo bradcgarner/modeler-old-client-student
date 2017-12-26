@@ -7,50 +7,59 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
+import InputH2OLine from './input-h2o-line';
+
 // interior to input. Will contain a form to allow user to input individual storms or storm segments.
 // route app/input/h2o
 // 'aside' components have more specific controlling exact paths
-export function InputH2O (props) {
-
-  const handleSubmitButton = values => {
-    props.dispatch(actionsProject.placeholder())
+export class InputH2O extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      lines: [<InputH2OLine index={0} key={0}/>]
+    }
   }
 
-  return (
-    <aside>
-      <h4>Input H2O</h4>
-      <form className='asideInputForm'
-          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))}
-        >
+  handleSubmitButton = values => {
+    this.props.dispatch(actionsProject.placeholder())
+  }
 
-          <div>
-            <label
-              className='inputLabel'
-              htmlFor={'title'}>xxxxxxx
-            </label>
-            <Field
-              name='xxxxx'
-              id='xxxx'
-              component='input'
-              type='text'
-              className='inputField'
-              required />
-          </div>
+  addLine() {
+    const i = this.state.lines.length;
+    console.log(i)
+    this.setState({
+      lines: [...this.state.lines, <InputH2OLine index={i} key={i}/>]
+    });
+  }
 
-          <div>
-            <button className='submitButton'
-              type="submit" disabled={props.pristine || props.submitting}>Save
-            </button>
-            <button className='clearButton'
-              type="button" disabled={props.pristine || props.submitting}
-              onClick={props.reset}>Clear Form
-            </button>
-          </div>
-
-        </form>
-
-    </aside>
-  )
+  render() {
+    return (
+      <div>
+        <h4>Input H2O</h4>
+        <form className='asideInputForm'
+            onSubmit={this.props.handleSubmit((values) => this.handleSubmitButton(values))}
+          >
+  
+          <div>precip rate minutes hours days total minutes</div>
+          {this.state.lines}
+          <button onClick={()=>this.addLine()}>add line</button>
+  
+            <div>
+              <button className='submitButton'
+                type="submit" disabled={this.props.pristine || this.props.submitting}>Save
+              </button>
+              <button className='clearButton'
+                type="button" disabled={this.props.pristine || this.props.submitting}
+                onClick={this.props.reset}>Clear Form
+              </button>
+            </div>
+  
+          </form>
+  
+      </div>
+    )
+  }
+  
 }
 
 const mapStateToProps = state => ({

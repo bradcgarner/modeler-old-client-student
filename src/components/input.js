@@ -15,8 +15,9 @@ import InputET from './input-et';
 import InputAsideConfigGeneral from './input-aside-config-general';
 import InputAsideConfigAreas from './input-aside-config-areas';
 import InputAsideProducts from './input-aside-products';
-import InputAsideStorms from './input-aside-storms';
-import InputAsideControlled from './input-aside-controlled';
+import InputAsideH2oStorms from './input-aside-h2o-storms';
+import InputAsideH2oImport from './input-aside-h2o-import';
+import InputAsideH2oControlled from './input-aside-h2o-controlled';
 import InputAsideET from './input-aside-et';
 
 // container div for input. Serves no purpose other than routing and positioning.
@@ -33,8 +34,9 @@ export function Input (props) {
           <Route exact path = '/app/input/configure/general'  component = {InputAsideConfigGeneral}/>
           <Route exact path = '/app/input/configure/areas'    component = {InputAsideConfigAreas}/>
           <Route exact path = '/app/input/products'           component = {InputAsideProducts}/>
-          <Route exact path = '/app/input/h2o/storms'         component = {InputAsideStorms}/>
-          <Route exact path = '/app/input/h2o/controlled'     component = {InputAsideControlled}/>
+          <Route exact path = '/app/input/h2o/storms'         component = {InputAsideH2oStorms}/>
+          <Route exact path = '/app/input/h2o/import'         component = {InputAsideH2oImport}/>
+          <Route exact path = '/app/input/h2o/controlled'     component = {InputAsideH2oControlled}/>
           <Route exact path = '/app/input/et'                 component = {InputAsideET}/>
           <Redirect from = '*' to = '/home'/>
         </Switch>

@@ -9,7 +9,7 @@ import * as actionsProject from '../actions/project';
 
 // interior to inputAside. Input of precipitation overall variables and settings.
 // route app/input/h2o/storms
-export function InputAsideStorms (props) {
+export function InputAsideH2oStorms (props) {
 
   const handleSubmitButton = values => {
     props.dispatch(actionsProject.placeholder())
@@ -26,11 +26,25 @@ export function InputAsideStorms (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor={'title'}>xxxxxxx
+              htmlFor={'cycleMins'}>minutes per cycle
             </label>
             <Field
-              name='xxxxx'
-              id='xxxx'
+              name='cycleMins'
+              id='cycleMins'
+              component='input'
+              type='text'
+              className='inputField'
+              required />
+          </div>
+
+          <div>
+            <label
+              className='inputLabel'
+              htmlFor={'eventRestartCycles'}>new event starts after __ cycles without precipitation
+            </label>
+            <Field
+              name='eventRestartCycles'
+              id='eventRestartCycles'
               component='input'
               type='text'
               className='inputField'
@@ -61,5 +75,5 @@ const mapStateToProps = state => ({
 
 export default compose(
   connect(mapStateToProps),
-  reduxForm({form: 'xxxxxx'})
-)(InputAsideStorms);
+  reduxForm({form: 'inputAsideH2oStorms'})
+)(InputAsideH2oStorms);

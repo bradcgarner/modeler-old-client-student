@@ -30,6 +30,7 @@ export function NavBar (props) {
         <li><Link to='/app/input/configure/general'>general</Link></li>
         <li><Link to='/app/input/configure/areas'>areas</Link></li>
         <li><Link to='/app/input/h2o/storms'>storms</Link></li>
+        <li><Link to='/app/input/h2o/import'>import</Link></li>
         <li><Link to='/app/input/h2o/controlled'>controlled</Link></li>
         <li><Link to='/app/input/et'>et</Link></li>
         <li><Link to='/app/input/products'>products</Link></li>
