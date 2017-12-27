@@ -13,13 +13,18 @@ import * as actionsProject from '../actions/project';
 // route app/input/configure/areas
 export function InputAsideConfigAreaSelector (props) {
 
-  const handleSubmitButton = values => {
-    console.log('submitting', values)
-    props.dispatch(actionsProject.placeholder())
+  const selectArea = value => {
+    let selectedValue = value[0];
+    for (let key in value) {
+      if (key !== '0' && typeof value[key] === 'string') {
+        selectedValue += value[key];
+      }
+    }
+    props.dispatch(actionsProject.selectArea(selectedValue));
   }
 
   const addArea = () => {
-    props.dispatch(actionsProject.placeholder())
+    props.dispatch(actionsProject.addArea())
   }
 
 
@@ -34,33 +39,25 @@ export function InputAsideConfigAreaSelector (props) {
   const listAreas = props.project.areas.list;
 
   return (
-    
     <div>
-
-      <form className='asideInputForm'
-          onChange={props.handleSubmit((values) => handleSubmitButton(values))}
-        >
-          <div>
-            <label
-              className='inputLabel'
-              htmlFor='areaName'>area
-            </label>
-            <Field
-              name='areaName'
-              id='areaName'
-              type='text'
-              className='inputField'
-              placeholder='area name'
-              component={renderDropdownList}
-              data={listAreas}
-              textField='type'
-              valueField='type' />
-          </div>
-
-        </form>
-
-        <button className='submitButton' onClick={()=>addArea()}>Add Area</button>
-
+      <form className='asideInputForm'>
+        <div>
+          <label
+            className='inputLabel'
+            htmlFor='name'>area
+          </label>
+          <Field
+            name='name'
+            id='name'
+            type='text'
+            className='inputField'
+            placeholder='area name'
+            component={renderDropdownList}
+            data={listAreas}
+            onChange={(value) => selectArea(value)} />
+        </div>
+      </form>
+      <button onClick={()=>addArea()}>add area</button>
     </div>
   )
 }
@@ -69,7 +66,9 @@ const mapStateToProps = state => ({
   general: state.general,
   display: state.display,
   user: state.user,
-  project: state.project
+  project: state.project,
+  initialValues: {name: state.project.areas[state.project.areas.focus].name},
+  enableReinitialize: true,
 });
 
 export default compose(

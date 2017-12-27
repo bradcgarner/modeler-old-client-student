@@ -10,15 +10,14 @@ export const loadProject = (project) => ({
 });
 
 export const SELECT_AREA = 'SELECT_AREA';
-export const selectArea = focusNum => ({
+export const selectArea = areaName => ({
   type: SELECT_AREA,
-  focusNum,
+  areaName,
 });
 
 export const ADD_AREA = 'ADD_AREA';
-export const addArea = area => ({
+export const addArea = () => ({
   type: ADD_AREA,
-  area,
 });
 
 export const UPDATE_AREA_MINUTES = 'UPDATE_AREA_MINUTES';

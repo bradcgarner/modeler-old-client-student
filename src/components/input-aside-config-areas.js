@@ -16,12 +16,6 @@ export function InputAsideConfigAreas (props) {
 
   // add a link to show ET table
   // add a link to show product details
-
-  const selectArea = areaNum => {
-    props.dispatch(actionsProject.selectArea())
-  }  
-
-  const newArea = '';
   
   const handleSubmitButton = values => {
     props.dispatch(actionsProject.placeholder())
@@ -43,18 +37,12 @@ export function InputAsideConfigAreas (props) {
     onChange={input.onChange} />
 
   // make this reliable
-  const areaNum = props.project.areas.focus;
-  const area = props.project.areas[areaNum];
+  // const areaNum = props.project.areas.focus;
+  // const area = props.project.areas[areaNum];
 
-  const areaName     = `areaName${areaNum}`;
-  const areaSize     = `area${areaNum}`;
-  const areaProduct  = `product${areaNum}`;
-  const areaRunoff   = `runoff${areaNum}`;
-  const areaCDAs     = `cda${areaNum}`;
-  const areaSlope    = `slope${areaNum}`;
-  const areaET       = `etTable${areaNum}`;
 
   const listAreas = props.project.areas.list;
+  const listOtherAreas = props.project.areas.list.filter(area=>area!==props.project.areas[props.project.areas.focus].name);
   const listProducts = props.general.products.list;
   const listEtTables = props.general.etTables.list;
 
@@ -65,18 +53,18 @@ export function InputAsideConfigAreas (props) {
 
       <InputAsideConfigAreaSelector/>
 
-      <form className='asideInputForm'
-          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))}
-        >
+      <form className='asideInputForm' 
+        onSubmit={props.handleSubmit((values) => handleSubmitButton(values))}
+      >
 
           <div>
             <label
               className='inputLabel'
-              htmlFor={areaName}>area name
+              htmlFor='name'>area name
             </label>
             <Field
-              name={areaName}
-              id={areaName}
+              name='name'
+              id='name'
               component='input'
               type='text'
               className='inputField'
@@ -87,11 +75,11 @@ export function InputAsideConfigAreas (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor={areaSize}>size ({props.project.general.areas})
+              htmlFor='area'>size ({props.project.general.areas})
             </label>
             <Field
-              name={areaSize}
-              id={areaSize}
+              name='area'
+              id='area'
               component='input'
               type='text'
               className='inputField'
@@ -102,61 +90,57 @@ export function InputAsideConfigAreas (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor={areaProduct}>covering
+              htmlFor='product'>covering
             </label>
             <Field
-              name={areaProduct}
-              id={areaProduct}
+              name='product'
+              id='product'
               type='text'
               className='inputField'
               component={renderMultiselect}
               data={listProducts}
-              textField='type'
-              valueField='type'
               required />
           </div>
 
           <div>
             <label
               className='inputLabel'
-              htmlFor={areaRunoff}>drains to
+              htmlFor='runoff'>drains to
             </label>
             <Field
-              name={areaRunoff}
-              id={areaRunoff}
+              name='runoff'
+              id='runoff'
               type='text'
               className='inputField'
               component={renderDropdownList}
-              valueField='type'
-              textField='type'
-              data={listAreas} />
+              data={listOtherAreas} />
           </div>
 
           <div>
             <label
               className='inputLabel'
-              htmlFor={areaCDAs}>contributing drainage areas
+              htmlFor='cda'>contributing drainage areas
             </label>
             <Field
-              name={areaCDAs}
-              id={areaCDAs}
+              name='cda'
+              id='cda'
               type='text'
               className='inputField'
               placeholder='area name'
               component={renderMultiselect}
               valueField='type'
               textField='type'
-              data={listAreas} />
+              data={listOtherAreas} />
           </div>
 
           <div>
             <label
               className='inputLabel'
-              htmlFor={areaSlope}>slope (percent)
+              htmlFor='slope'>slope (percent)
             </label>
             <Field
-              name={areaSlope}
-              id={areaSlope}
+              name='slope'
+              id='slope'
               component='input'
               type='text'
               className='inputField'
@@ -167,17 +151,15 @@ export function InputAsideConfigAreas (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor={areaET}>evapotranspiration table
+              htmlFor='etTable'>evapotranspiration table
             </label>
             <Field
-              name={areaET}
-              id={areaET}
+              name='etTable'
+              id='etTable'
               type='text'
               className='inputField'
               placeholder='area name'
               component={renderDropdownList}
-              valueField='type'
-              textField='type'
               data={listEtTables} />
           </div>
 
@@ -201,7 +183,9 @@ const mapStateToProps = state => ({
   general: state.general,
   display: state.display,
   user: state.user,
-  project: state.project
+  project: state.project,
+  initialValues: state.project.areas[state.project.areas.focus],
+  enableReinitialize: true,
 });
 
 export default compose(

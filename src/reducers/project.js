@@ -1,5 +1,6 @@
 import * as actions from '../actions/project';
 import { project as initialState } from './initial-state';
+import { selectArea } from '../actions/project';
 
 export const reducer = (state = initialState, action) => {
 
@@ -11,13 +12,35 @@ export const reducer = (state = initialState, action) => {
   }
 
   else if (action.type === actions.SELECT_AREA) {
-    const areas = {...state.areas, focusNum: action.focusNum}
+    let focus = 0; // so we default to something vs undefined
+    for (let key in state.areas) {
+      if (state.areas[key].name === action.areaName) {
+        focus = state.areas[key].id
+      }
+    }
+    const areas = {...state.areas, focus}
     return {...state, areas };
   }
 
   else if (action.type === actions.ADD_AREA) {
-    const list = [...state.areas.list, action.name];
-    const areas = {...state.areas, [action.id]: areas, list }
+    let id = 0;
+    for (let key in state.areas) {
+      if (state.areas[key].id >= id) {
+        id = state.areas[key].id + 1;
+      }
+    }
+    const newArea = { 
+      id,
+      name: 'new area',
+      area: null,
+      product: null, 
+      runoff: null,   
+      cda: null,
+      slope: null,
+      etTable: null, 
+    };
+    const list = [...state.areas.list, newArea.name];
+    const areas = {...state.areas, [id]: newArea, list, focus: id }
     return {...state, areas };
   }
 

@@ -34,11 +34,21 @@ export const project = {
     list: [ 'a','b' ],    // used for value lists
     0: {             // area id primary key
       id: 0,         // area id primary key
-      name: '',      // text name
+      name: 'a',      // text name
       area: 0,       // integer
       product: 0,   // product id foreign key
       runoff: 0,   // area id foreign key
       cda: [0,0,0], // area ids foreign keys
+      slope: 0,      // integer %
+      etTable: 0,         // table id foreign key
+    }, 
+    1: {             // area id primary key
+      id: 1,         // area id primary key
+      name: 'b',      // text name
+      area: 0,       // integer
+      product: 0,   // product id foreign key
+      runoff: 0,   // area id foreign key
+      cda: [1], // area ids foreign keys
       slope: 0,      // integer %
       etTable: 0,         // table id foreign key
     }, 
