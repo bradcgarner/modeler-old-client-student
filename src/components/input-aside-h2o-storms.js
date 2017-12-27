@@ -12,7 +12,7 @@ import * as actionsProject from '../actions/project';
 export function InputAsideH2oStorms (props) {
 
   const handleSubmitButton = values => {
-    props.dispatch(actionsProject.placeholder())
+    props.dispatch(actionsProject.updateStormSettings(values))
   }
   
   return (
@@ -57,7 +57,7 @@ export function InputAsideH2oStorms (props) {
             </button>
             <button className='clearButton'
               type="button" disabled={props.pristine || props.submitting}
-              onClick={props.reset}>Clear Form
+              onClick={props.reset}>Reset
             </button>
           </div>
 
@@ -70,7 +70,12 @@ export function InputAsideH2oStorms (props) {
 const mapStateToProps = state => ({
   display: state.display,
   user: state.user,
-  project: state.project
+  project: state.project,
+  initialValues: {
+    intervalMins: state.project.general.intervalMins, 
+    eventGapThreshold: state.project.general.eventGapThreshold
+  },
+  enableReinitialize: true,
 });
 
 export default compose(

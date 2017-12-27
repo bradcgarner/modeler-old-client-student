@@ -1,51 +1,65 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { reduxForm, Field } from 'redux-form';
+import DropdownList from 'react-widgets/lib/DropdownList'
 
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
+import * as actionsGeneral from '../actions/general';
 
 // interior to inputAside. No user input. Displays sources of product efficiency table data.
 // route app/input/products
 export function InputAsideProducts (props) {
 
-  const selectProduct = id => {
-    props.dispatch(actionsProject.placeholder())
-  }
-
-  const productsSelectedList = [];
-  const productsNotSelectedList = [];
-  for (let key in props.general.products) {
-    const theProduct = {...props.general.products[key]};
-    if (key !== 'list') {
-      if (props.project.products.key) {
-        theProduct.used = true;
-        productsSelectedList.push(theProduct);
-      } else {
-        productsNotSelectedList.push(theProduct);      
+  const selectProduct = value => {
+    let selectedValue = value[0];
+    for (let key in value) {
+      if (key !== '0' && typeof value[key] === 'string') {
+        selectedValue += value[key];
       }
     }
+    props.dispatch(actionsGeneral.selectProduct(selectedValue))
   }
-  const productsList = [...productsSelectedList, ...productsNotSelectedList];
-  const productsListFormatted = productsList.map((product,index) => {
-    return <li onClick={()=>selectProduct(product.id)} key={index}>{product.name}</li>
-  })
+
+  const renderDropdownList = ({ input, data, valueField, textField }) =>
+  <DropdownList {...input}
+    data={data}
+    valueField={valueField}
+    textField={textField}
+    onChange={input.onChange} />
+
+  const productsList = props.general.products.list;
   
   return (
     <div>
-      <h4>aside products</h4>
-      <ul>
-        {productsListFormatted} 
-      </ul>
+      <form className='asideInputForm'>
+        <div>
+          <label
+            className='inputLabel'
+            htmlFor='name'>product
+          </label>
+          <Field
+            name='name'
+            id='name'
+            type='text'
+            className='inputField'
+            component={renderDropdownList}
+            data={productsList}
+            onChange={(value) => selectProduct(value)} />
+        </div>
+      </form>
     </div>
   )
 }
 
 const mapStateToProps = state => ({
-  display: state.display,
   general: state.general,
-  user: state.user,
-  project: state.project
+  project: state.project,
 });
 
-export default connect(mapStateToProps)(InputAsideProducts);
+export default compose(
+  connect(mapStateToProps),
+  reduxForm({form: 'inputAsideProducts'})
+)(InputAsideProducts);

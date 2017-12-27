@@ -14,7 +14,7 @@ import StartEndDates from './start-end-dates';
 export function OutputAsideRanges (props) {
 
   const handleSubmitButton = values => {
-    props.dispatch(actionsProject.placeholder())
+    props.dispatch(actionsProject.loadRangeSettings(values))
   }
 
   // set this so that we toggle between date ranges and event ranges, not both

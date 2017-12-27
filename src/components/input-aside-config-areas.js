@@ -18,7 +18,7 @@ export function InputAsideConfigAreas (props) {
   // add a link to show product details
   
   const handleSubmitButton = values => {
-    props.dispatch(actionsProject.placeholder())
+    props.dispatch(actionsProject.updateArea(values))
   }
 
   const renderMultiselect = ({ input, data, valueField, textField }) =>
@@ -75,7 +75,7 @@ export function InputAsideConfigAreas (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor='area'>size ({props.project.general.areas})
+              htmlFor='area'>size ({props.project.general.area})
             </label>
             <Field
               name='area'
@@ -169,7 +169,7 @@ export function InputAsideConfigAreas (props) {
             </button>
             <button className='clearButton'
               type="button" disabled={props.pristine || props.submitting}
-              onClick={props.reset}>Clear Form
+              onClick={props.reset}>Reset
             </button>
           </div>
 

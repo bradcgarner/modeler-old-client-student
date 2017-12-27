@@ -12,7 +12,7 @@ import * as actionsProject from '../actions/project';
 export function OutputAsideAnalysis (props) {
 
   const handleSubmitButton = values => {
-    props.dispatch(actionsProject.placeholder())
+    props.dispatch(actionsProject.loadAnalysisSettings(values))
   }
   
   return (
@@ -26,11 +26,11 @@ export function OutputAsideAnalysis (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor={'title'}>some analysis option...
+              htmlFor={'xxx'}>some analysis option...
             </label>
             <Field
-              name='xxxxx'
-              id='xxxx'
+              name='xxx'
+              id='xxx'
               component='input'
               type='text'
               className='inputField'
@@ -56,7 +56,11 @@ export function OutputAsideAnalysis (props) {
 const mapStateToProps = state => ({
   display: state.display,
   user: state.user,
-  project: state.project
+  project: state.project,
+  initialValues: {
+    xxx: 'xxx',
+  },
+  enableReinitialize: true,
 });
 
 export default compose(

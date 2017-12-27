@@ -1,14 +1,17 @@
-area selector to toggle on change
-get storm inputs to subtotal before submitting
+drop-down lists for months and days
+    toggle days based on month
+    auto-corect invalid date
+form validation
+get output events and dates to toggle and only submit 1 or the other
+show name of project at top
+TESTS!!!
+asides to show sources for ET and product efficiency
+
 confirm all measurements with JSON used by Python
 styling: table column widths and colors
-asides to show sources for ET and product efficiency
-get output events and dates to toggle and only submit 1 or the other
 get storm import to show map
 canvas to show 
 allow to upload background image for canvas
-form validation
-
 
 
 Componnent              Route                        Redirect    display.view

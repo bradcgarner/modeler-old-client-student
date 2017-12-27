@@ -14,7 +14,7 @@ import * as actionsProject from '../actions/project';
 export function InputAsideConfigGeneral (props) {
 
   const handleSubmitButton = values => {
-    props.dispatch(actionsProject.placeholder())
+    props.dispatch(actionsProject.updateGeneralSettings(values))
   }
 
   const renderDropdownList = ({ input, data, valueField, textField }) =>
@@ -40,11 +40,11 @@ export function InputAsideConfigGeneral (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor={'areaUnit'}>area unit of measurement
+              htmlFor={'area'}>area unit of measurement
             </label>
             <Field
-              name='areaUnit'
-              id='areaUnit'
+              name='area'
+              id='area'
               component={renderSelectList}
               data={props.general.area}
               className='inputField'
@@ -54,11 +54,11 @@ export function InputAsideConfigGeneral (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor={'volumeUnit'}>volume unit of measurement
+              htmlFor={'volume'}>volume unit of measurement
             </label>
             <Field
-              name='volumeUnit'
-              id='volumeUnit'
+              name='volume'
+              id='volume'
               component={renderSelectList}
               data={props.general.volume}
               className='inputField'
@@ -68,11 +68,11 @@ export function InputAsideConfigGeneral (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor={'thicknessUnit'}>thickness unit of measurement
+              htmlFor={'thickness'}>thickness unit of measurement
             </label>
             <Field
-              name='thicknessUnit'
-              id='thicknessUnit'
+              name='thickness'
+              id='thickness'
               component={renderSelectList}
               data={props.general.thickness}
               required />
@@ -84,7 +84,7 @@ export function InputAsideConfigGeneral (props) {
             </button>
             <button className='clearButton'
               type="button" disabled={props.pristine || props.submitting}
-              onClick={props.reset}>Clear Form
+              onClick={props.reset}>Reset
             </button>
           </div>
 
@@ -97,8 +97,13 @@ export function InputAsideConfigGeneral (props) {
 const mapStateToProps = state => ({
   general: state.general,
   display: state.display,
-  user: state.user,
-  project: state.project
+  project: state.project,
+  initialValues: {
+    area: state.project.general.area, 
+    volume: state.project.general.volume, 
+    thickness: state.project.general.thickness, 
+  },
+  enableReinitialize: true,
 });
 
 export default compose(

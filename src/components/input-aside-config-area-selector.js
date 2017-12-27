@@ -51,7 +51,6 @@ export function InputAsideConfigAreaSelector (props) {
             id='name'
             type='text'
             className='inputField'
-            placeholder='area name'
             component={renderDropdownList}
             data={listAreas}
             onChange={(value) => selectArea(value)} />
@@ -63,9 +62,7 @@ export function InputAsideConfigAreaSelector (props) {
 }
 
 const mapStateToProps = state => ({
-  general: state.general,
-  display: state.display,
-  user: state.user,
+  // general: state.general,
   project: state.project,
   initialValues: {name: state.project.areas[state.project.areas.focus].name},
   enableReinitialize: true,

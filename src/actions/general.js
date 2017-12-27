@@ -9,6 +9,18 @@ export const initialize = object => ({
   coverings: object.coverings,
 });
 
+export const SELECT_ET = 'SELECT_ET';
+export const selectEt = etTableName => ({
+  type: SELECT_ET,
+  etTableName,
+});
+
+export const SELECT_PRODUCT = 'SELECT_PRODUCT';
+export const selectProduct = productName => ({
+  type: SELECT_PRODUCT,
+  productName,
+});
+
 // @@@@@@@@@@@@@@@@@@@@
 
 export const stringArrayOfObjects=(array,key)=>{

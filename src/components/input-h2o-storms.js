@@ -21,7 +21,7 @@ export class InputH2OStorms extends React.Component {
   }
 
   handleSubmitButton = values => {
-    this.props.dispatch(actionsProject.placeholder())
+    this.props.dispatch(actionsProject.updateSavedStorms(values))
   }
 
   addLine() {

@@ -29,6 +29,9 @@ export const project = {
     controlledHi: 70,
     controlledLo: 0
   },
+  analysisSettings: {
+    xxx: 'xxx',
+  },
   areas: {
     focus: 0,        // area id primary key
     list: [ 'a','b' ],    // used for value lists
@@ -53,7 +56,7 @@ export const project = {
       etTable: 0,         // table id foreign key
     }, 
   },
-  products: {},    // copy of products used in areas 
+  products: {},    // copy of products used in areas for hash-type reference
   events: [1,2,3], // list of all events, generated at runtime, used for selection list
   storms: {
     totalMinutes: 0, // single-purpose value to summarize all values below,
@@ -71,6 +74,7 @@ export const general = {
   rainIntensityIncrements: 8,
   products: {
     list: ['',''], // used for value lists
+    focus: 0,
     0: {
       id: 0,
       name: 'a',
@@ -114,6 +118,7 @@ export const general = {
   },
   etTables: {
     list: ['',''], // used for value lists
+    focus: 0,
     0: {
       id: 0,
       name: '',

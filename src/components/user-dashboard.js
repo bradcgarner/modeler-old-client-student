@@ -10,12 +10,12 @@ import * as actionsProject from '../actions/project';
 export function UserDashboard (props) {
 
   const selectProject = id => {
-    props.dispatch(actionsProject.placeholder(id));
+    props.dispatch(actionsProject.fetchProject(id));
     props.history.push('/app/input/configure/general');
   }
 
   const addProject = () => {
-    props.dispatch(actionsProject.placeholder());
+    props.dispatch(actionsProject.addProject(props.user.id));
     // convert to a .then
     props.history.push('/app/input/configure/general');
   }

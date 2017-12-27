@@ -13,7 +13,7 @@ import StartEndDates from './start-end-dates';
 export function InputAsideH2oImport (props) {
 
   const handleSubmitButton = values => {
-    props.dispatch(actionsProject.placeholder())
+    props.dispatch(actionsProject.importStorms())
   }
   
   return (
