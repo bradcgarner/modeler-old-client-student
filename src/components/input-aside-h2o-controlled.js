@@ -26,11 +26,39 @@ export function InputAsideH2oControlled (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor={'title'}>xxxxxxx
+              htmlFor='controlledRate'>rate of controlled flow
             </label>
             <Field
-              name='xxxxx'
-              id='xxxx'
+              name='controlledRate'
+              id='controlledRate'
+              component='input'
+              type='text'
+              className='inputField'
+              required />
+          </div>
+          <div>discharge when vwc is between __ % and __ %</div>
+          <div>
+            <label
+              className='inputLabel'
+              htmlFor='controlledHi'>high
+            </label>
+            <Field
+              name='controlledHi'
+              id='controlledHi'
+              component='input'
+              type='text'
+              className='inputField'
+              required />
+          </div>
+
+          <div>
+            <label
+              className='inputLabel'
+              htmlFor='controlledLo'>low
+            </label>
+            <Field
+              name='controlledLo'
+              id='controlledLo'
               component='input'
               type='text'
               className='inputField'
@@ -61,5 +89,5 @@ const mapStateToProps = state => ({
 
 export default compose(
   connect(mapStateToProps),
-  reduxForm({form: 'xxxxxx'})
+  reduxForm({form: 'inputAsideH2oControlled'})
 )(InputAsideH2oControlled);

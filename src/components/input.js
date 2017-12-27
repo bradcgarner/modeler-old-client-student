@@ -9,7 +9,8 @@ import * as actionsProject from '../actions/project';
 // import InputAside from './input-aside';
 import InputConfig from './input-config';
 import InputProducts from './input-products';
-import InputH2O from './input-h2o';
+import InputH2OStorms from './input-h2o-storms';
+import InputH2OImport from './input-h2o-import';
 import InputET from './input-et';
 
 import InputAsideConfigGeneral from './input-aside-config-general';
@@ -29,7 +30,7 @@ export function Input (props) {
     <div>
       <h1>Input</h1>
       <aside>
-        <h4>aside</h4>
+        <h4>input aside</h4>
         <Switch>
           <Route exact path = '/app/input/configure/general'  component = {InputAsideConfigGeneral}/>
           <Route exact path = '/app/input/configure/areas'    component = {InputAsideConfigAreas}/>
@@ -42,10 +43,11 @@ export function Input (props) {
         </Switch>
       </aside>
       <Switch>
-        <Route path = '/app/input/configure' component = {InputConfig}/>
-        <Route path = '/app/input/products'  component = {InputProducts}/>
-        <Route path = '/app/input/h2o'       component = {InputH2O}/>
-        <Route path = '/app/input/et'        component = {InputET}/>
+        <Route path = '/app/input/configure'  component = {InputConfig}/>
+        <Route path = '/app/input/products'   component = {InputProducts}/>
+        <Route path = '/app/input/h2o/storms' component = {InputH2OStorms}/>
+        <Route path = '/app/input/h2o/import' component = {InputH2OImport}/>
+        <Route path = '/app/input/et'         component = {InputET}/>
       </Switch>    
     </div>
   )

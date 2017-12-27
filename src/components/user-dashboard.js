@@ -7,12 +7,28 @@ import * as actionsProject from '../actions/project';
 
 // form to create new user
 // route /user/create
-export function UserDashboard () {
+export function UserDashboard (props) {
+
+  const selectProject = id => {
+    props.dispatch(actionsProject.placeholder(id));
+    props.history.push('/app/input/configure/general');
+  }
+
+  const addProject = () => {
+    props.dispatch(actionsProject.placeholder());
+    // convert to a .then
+    props.history.push('/app/input/configure/general');
+  }
+
+  const projects = props.user.projects.map((project,index)=>{
+    return <li key={index} onClick={()=>selectProject(project.id)}>{project.name}</li>
+  })
   // create account 
   return (
     <article>
       <p>My Projects</p>
-      <p>list each</p>
+      <ul>{projects}</ul>
+      <button onClick={()=>addProject()}>add project</button>
     </article>
   )
 }

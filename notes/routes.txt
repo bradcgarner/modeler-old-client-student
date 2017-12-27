@@ -1,3 +1,15 @@
+area selector to toggle on change
+get storm inputs to subtotal before submitting
+confirm all measurements with JSON used by Python
+styling: table column widths and colors
+asides to show sources for ET and product efficiency
+get output events and dates to toggle and only submit 1 or the other
+get storm import to show map
+canvas to show 
+allow to upload background image for canvas
+form validation
+
+
 
 Componnent              Route                        Redirect    display.view
 App                                                  /home
@@ -14,11 +26,10 @@ App                                                  /home
   |                         |
   |_Input                   /input
   |   |_InputConfigure      |    /configure
-  |   |_InputH2O            v    /h2o
+  |   |_InputH2OStorms      v    /h2o/storms
+  |   |_InputH2OImport           /h2o/import
   |   |_InputEt                  /et
   |   |_InputProducts            /products
-  |                              |
-  |_InputAside                   |  
   |   |                          |
   |   |                          /configure
   |   |_InputAsideConfigGeneral  |         /general  /home       configGeneral
@@ -34,10 +45,9 @@ App                                                  /home
   |   |_InputAsideProducts  ^    /products           /home       products      project.product[0]
   |                         |
   |_Output                  /output
-  |   |_OutputAnalysis             /analysis                     configGeneral
-  |   |_OutputGraphs               /graphs                       configGeneral
-  |                                |
-  |_OutputAside                    |
+      |_OutputAnalysis             /analysis                     configGeneral
+      |_OutputGraphs               /graphs                       configGeneral
+      |                            |
       |_OutputAsideAnalysis        /analysis         /home       project.analysis...
-      |_OutputAsideGraphs          /graphs           /home       project.graphs...
+      |_OutputAsideRanges          /                 /home       project.graphs...
  

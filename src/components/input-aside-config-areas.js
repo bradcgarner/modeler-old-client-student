@@ -8,6 +8,7 @@ import DropdownList from 'react-widgets/lib/DropdownList'
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
+import InputAsideConfigAreaSelector from './input-aside-config-area-selector';
 
 // interior to inputAside. Input of areas.
 // route app/input/configure/areas
@@ -46,27 +47,23 @@ export function InputAsideConfigAreas (props) {
   const area = props.project.areas[areaNum];
 
   const areaName     = `areaName${areaNum}`;
-  const areaSize     = `areaSize${areaNum}`;
-  const areaCovering = `areaCovering${areaNum}`;
-  const areaDrainsTo = `areaDrainsTo${areaNum}`;
-  const areaCDAs     = `areaCDAs${areaNum}`;
-  const areaSlope    = `areaSlope${areaNum}`;
-  const areaET       = `areaET${areaNum}`;
+  const areaSize     = `area${areaNum}`;
+  const areaProduct  = `product${areaNum}`;
+  const areaRunoff   = `runoff${areaNum}`;
+  const areaCDAs     = `cda${areaNum}`;
+  const areaSlope    = `slope${areaNum}`;
+  const areaET       = `etTable${areaNum}`;
 
   const listAreas = props.project.areas.list;
-  const listCoverings = props.general.coverings.list;
-  const listET = props.general.et.list;
-
-  const areaSelector = [];
-  // areaSelector to list all areas, activate each with selectArea(id), and insert addArea() at end;
-
+  const listProducts = props.general.products.list;
+  const listEtTables = props.general.etTables.list;
 
   return (
     
     <div>
       <h4>aside configure areas</h4>
 
-      {areaSelector}
+      <InputAsideConfigAreaSelector/>
 
       <form className='asideInputForm'
           onSubmit={props.handleSubmit((values) => handleSubmitButton(values))}
@@ -90,7 +87,7 @@ export function InputAsideConfigAreas (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor={areaSize}>size ({'props.project.general.areas'})
+              htmlFor={areaSize}>size ({props.project.general.areas})
             </label>
             <Field
               name={areaSize}
@@ -98,24 +95,22 @@ export function InputAsideConfigAreas (props) {
               component='input'
               type='text'
               className='inputField'
-              placeholder='area name'
+              placeholder='size in units'
               required />
           </div>
 
           <div>
             <label
               className='inputLabel'
-              htmlFor={areaCovering}>covering
+              htmlFor={areaProduct}>covering
             </label>
             <Field
-              name={areaCovering}
-              id={areaCovering}
-              component='input'
+              name={areaProduct}
+              id={areaProduct}
               type='text'
               className='inputField'
-              placeholder='area name'
               component={renderMultiselect}
-              data={listCoverings}
+              data={listProducts}
               textField='type'
               valueField='type'
               required />
@@ -124,14 +119,13 @@ export function InputAsideConfigAreas (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor={areaDrainsTo}>drains to
+              htmlFor={areaRunoff}>drains to
             </label>
             <Field
-              name={areaDrainsTo}
-              id={areaDrainsTo}
+              name={areaRunoff}
+              id={areaRunoff}
               type='text'
               className='inputField'
-              placeholder='area name'
               component={renderDropdownList}
               valueField='type'
               textField='type'
@@ -146,7 +140,6 @@ export function InputAsideConfigAreas (props) {
             <Field
               name={areaCDAs}
               id={areaCDAs}
-              component='input'
               type='text'
               className='inputField'
               placeholder='area name'
@@ -179,14 +172,13 @@ export function InputAsideConfigAreas (props) {
             <Field
               name={areaET}
               id={areaET}
-              component='input'
               type='text'
               className='inputField'
               placeholder='area name'
               component={renderDropdownList}
               valueField='type'
               textField='type'
-              data={listET} />
+              data={listEtTables} />
           </div>
 
           <div>

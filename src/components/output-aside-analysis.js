@@ -16,7 +16,7 @@ export function OutputAsideAnalysis (props) {
   }
   
   return (
-    <aside>
+    <div>
       <h4>Output Aside Analysis</h4>
 
       <form className='asideInputForm'
@@ -26,7 +26,7 @@ export function OutputAsideAnalysis (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor={'title'}>xxxxxxx
+              htmlFor={'title'}>some analysis option...
             </label>
             <Field
               name='xxxxx'
@@ -49,7 +49,7 @@ export function OutputAsideAnalysis (props) {
 
         </form>
 
-    </aside>
+    </div>
   )
 }
 
@@ -61,5 +61,5 @@ const mapStateToProps = state => ({
 
 export default compose(
   connect(mapStateToProps),
-  reduxForm({form: 'xxxxxx'})
+  reduxForm({form: 'outputAsideAnalysis'})
 )(OutputAsideAnalysis);

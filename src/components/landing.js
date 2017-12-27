@@ -12,9 +12,9 @@ import Cover from './cover';
 export function Landing (props) {
   // image of USCG, set to 'cover'
   return (
-    <article>
+    <main>
       <LandingFooter/>
-    </article>
+    </main>
   )
 }
 

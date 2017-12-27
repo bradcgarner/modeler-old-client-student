@@ -18,11 +18,6 @@ export function UserLogin (props) {
 
   return (
     <article>
-      <p>Login</p>
-      <p>username</p>
-      <p>password</p>
-      <p>log in</p>
-      <p>create account</p>
       <form className='asideInputForm'
           onSubmit={props.handleSubmit((values) => handleSubmitButton(values))}
         >

@@ -10,14 +10,43 @@ import * as actionsProject from '../actions/project';
 // route app/input/products
 // 'aside' components have more specific controlling exact paths
 export function InputProducts (props) {
+
+  const selectedProductKey = 0;
+
+  const tableHeaders = [<th scope='row' key={0}></th>];
+  for (let cols = 1; 
+    cols <= props.general.rainIntensityIncrements; 
+    cols++ ) {
+      tableHeaders.push(<th key={cols}>{ props.general.rainIntensityIncrement * cols}</th>)
+    }
+
+  const tableBody = props.general.products[selectedProductKey].efficiency.map((row,index)=>{
+    const tableRow = row.map((cell,index)=>{
+      const classGroup = Math.floor(cell/10) || 0;
+      return <td className ={`effTableCell${classGroup}`} key={`${index}cell`}>{cell}</td>
+    });
+
+    const pct = index * props.general.vwcIncrementEff;
+    return <tr key={index}><th scope='row'>{pct}%</th>{tableRow}</tr>
+  })
+  
+  const productEff = <table>
+    <tbody>
+      <tr>{tableHeaders}</tr>
+      {tableBody}
+    </tbody>
+  </table>
+
   return (
-    <aside>
+    <section>
       <h4>Input Products</h4>
-    </aside>
+      {productEff}
+    </section>
   )
 }
 
 const mapStateToProps = state => ({
+  general: state.general,
   display: state.display,
   user: state.user,
   project: state.project

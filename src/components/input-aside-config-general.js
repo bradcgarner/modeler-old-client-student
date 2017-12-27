@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
+import DropdownList from 'react-widgets/lib/DropdownList'
+import SelectList from 'react-widgets/lib/SelectList'
 
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
@@ -14,6 +16,18 @@ export function InputAsideConfigGeneral (props) {
   const handleSubmitButton = values => {
     props.dispatch(actionsProject.placeholder())
   }
+
+  const renderDropdownList = ({ input, data, valueField, textField }) =>
+    <DropdownList {...input}
+      data={data}
+      valueField={valueField}
+      textField={textField}
+      onChange={input.onChange} />
+
+  const renderSelectList = ({ input, data }) =>
+    <SelectList {...input}
+      onBlur={() => input.onBlur()}
+      data={data} />
 
   return (
     <div>
@@ -31,10 +45,9 @@ export function InputAsideConfigGeneral (props) {
             <Field
               name='areaUnit'
               id='areaUnit'
-              component='input'
-              type='text'
+              component={renderSelectList}
+              data={props.general.area}
               className='inputField'
-              placeholder='sf'
               required />
           </div>
 
@@ -46,10 +59,9 @@ export function InputAsideConfigGeneral (props) {
             <Field
               name='volumeUnit'
               id='volumeUnit'
-              component='input'
-              type='text'
+              component={renderSelectList}
+              data={props.general.volume}
               className='inputField'
-              placeholder='gallons'
               required />
           </div>
 
@@ -61,10 +73,8 @@ export function InputAsideConfigGeneral (props) {
             <Field
               name='thicknessUnit'
               id='thicknessUnit'
-              component='input'
-              type='text'
-              className='inputField'
-              placeholder='inches'
+              component={renderSelectList}
+              data={props.general.thickness}
               required />
           </div>
 
@@ -85,6 +95,7 @@ export function InputAsideConfigGeneral (props) {
 }
 
 const mapStateToProps = state => ({
+  general: state.general,
   display: state.display,
   user: state.user,
   project: state.project

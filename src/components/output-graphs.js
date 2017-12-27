@@ -10,9 +10,9 @@ import * as actionsProject from '../actions/project';
 export function OutputGraphs (props) {
 
   return (
-    <div>
+    <section>
       <h1>Output Graph</h1>
-    </div>
+    </section>
   )
 }
 

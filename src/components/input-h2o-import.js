@@ -5,20 +5,22 @@ import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-// tabular data output
-// routes /output... 
-export function OutputAnalysis (props) {
+// interior to inputAside. Only input is selection of evapotransporation table (input by others).
+// route app/input/et
+export function InputH2OImport (props) {
+
+  
   return (
     <section>
-      <h1>Output Analysis</h1>
+      <h4>input h2o import (show a map)</h4>
+
     </section>
   )
 }
 
 const mapStateToProps = state => ({
   display: state.display,
-  user: state.user,
   project: state.project
 });
 
-export default connect(mapStateToProps)(OutputAnalysis);
+export default connect(mapStateToProps)(InputH2OImport);

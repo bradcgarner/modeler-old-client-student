@@ -26,11 +26,11 @@ export function InputAsideH2oStorms (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor={'cycleMins'}>minutes per cycle
+              htmlFor={'intervalMins'}>minutes per cycle
             </label>
             <Field
-              name='cycleMins'
-              id='cycleMins'
+              name='intervalMins'
+              id='intervalMins'
               component='input'
               type='text'
               className='inputField'
@@ -40,11 +40,11 @@ export function InputAsideH2oStorms (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor={'eventRestartCycles'}>new event starts after __ cycles without precipitation
+              htmlFor={'eventGapThreshold'}>new event starts after __ cycles without precipitation
             </label>
             <Field
-              name='eventRestartCycles'
-              id='eventRestartCycles'
+              name='eventGapThreshold'
+              id='eventGapThreshold'
               component='input'
               type='text'
               className='inputField'

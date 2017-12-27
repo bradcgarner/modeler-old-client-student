@@ -12,7 +12,7 @@ import InputH2OLine from './input-h2o-line';
 // interior to input. Will contain a form to allow user to input individual storms or storm segments.
 // route app/input/h2o
 // 'aside' components have more specific controlling exact paths
-export class InputH2O extends React.Component {
+export class InputH2OStorms extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -34,7 +34,7 @@ export class InputH2O extends React.Component {
 
   render() {
     return (
-      <div>
+      <section>
         <h4>Input H2O</h4>
         <form className='asideInputForm'
             onSubmit={this.props.handleSubmit((values) => this.handleSubmitButton(values))}
@@ -43,7 +43,8 @@ export class InputH2O extends React.Component {
           <div>precip rate minutes hours days total minutes</div>
           {this.state.lines}
           <button onClick={()=>this.addLine()}>add line</button>
-  
+          <div>total minutes total hours total days total minutes</div>
+
             <div>
               <button className='submitButton'
                 type="submit" disabled={this.props.pristine || this.props.submitting}>Save
@@ -56,7 +57,7 @@ export class InputH2O extends React.Component {
   
           </form>
   
-      </div>
+      </section>
     )
   }
   
@@ -70,5 +71,5 @@ const mapStateToProps = state => ({
 
 export default compose(
   connect(mapStateToProps),
-  reduxForm({form: 'xxxxxx'})
-)(InputH2O);
+  reduxForm({form: 'inputH2OStorms'})
+)(InputH2OStorms);

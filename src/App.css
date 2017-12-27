@@ -26,3 +26,34 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.etTableCell0, .effTableCell0 {
+  background-color: rgb(249, 249, 252);
+}
+.etTableCell1, .effTableCell1 {
+  background-color: rgb(166, 190, 226);
+}
+.etTableCell2, .effTableCell2 {
+  background-color: rgb(125, 191, 218);
+}
+.etTableCell3, .effTableCell3 {
+  background-color: rgb(99, 201, 204);
+}
+.etTableCell4, .effTableCell4 {
+  background-color: rgb(91, 203, 218);
+}
+.etTableCell5, .effTableCell5 {
+  background-color: rgb(79, 206, 163);
+}
+.etTableCell6, .effTableCell6 {
+  background-color: rgb(57, 206, 149);
+}
+.etTableCell7, .effTableCell7 {
+  background-color: rgb(52, 211, 91);
+}
+.etTableCell8, .effTableCell8 {
+  background-color: rgb(19, 224, 19);
+}
+.etTableCell9, .effTableCell9 {
+  background-color: rgb(26, 192, 11);
+}

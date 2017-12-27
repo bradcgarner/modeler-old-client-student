@@ -22,9 +22,9 @@ export function User (props) {
     </div>
   // create account 
   return (
-    <article>
+    <main>
       {loginForm}
-    </article>
+    </main>
   )
 }
 

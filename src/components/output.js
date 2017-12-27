@@ -9,7 +9,7 @@ import * as actionsProject from '../actions/project';
 import OutputGraphs from './output-graphs';
 import OutputAnalysis from './output-analysis';
 
-import OutputAsideGraphs from './output-aside-graphs';
+import OutputAsideRanges from './output-aside-ranges';
 import OutputAsideAnalysis from './output-aside-analysis';
 
 // container div for output. Serves no purpose other than routing and positioning.
@@ -20,16 +20,14 @@ export function Output (props) {
     <div>
       <h1>Output</h1>
       <aside>
-        <h4>aside</h4>
-        <Switch>
-          <Route exact path = '/app/output/graphs' component = {OutputAsideGraphs}/>
-          <Route exact path = '/app/output/analysis' component = {OutputAsideAnalysis}/>
-          <Redirect from = '*' to = '/home'/>
-        </Switch>
+        <h4>output aside</h4>
+         <OutputAsideRanges/>
+         <Route path = '/app/output/analysis' component = {OutputAsideAnalysis}/>
       </aside>
       <Switch>
-        <Route path = '/output/graphs' component = {OutputGraphs}/>
-        <Route path = '/output/analysis' component = {OutputAnalysis}/>
+        <Route path = '/app/output/graphs' component = {OutputGraphs}/>
+        <Route path = '/app/output/analysis' component = {OutputAnalysis}/>
+        <Redirect from = '*' to = '/home'/>
       </Switch>
     </div>
   )

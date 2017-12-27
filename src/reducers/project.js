@@ -21,6 +21,11 @@ export const reducer = (state = initialState, action) => {
     return {...state, areas };
   }
 
+  else if (action.type === 'PLACEHOLDER') {
+    console.log('placeholder dispatched')
+    return state;
+  }
+
   else {
     return state;
   }

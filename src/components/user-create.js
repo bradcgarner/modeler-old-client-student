@@ -18,15 +18,6 @@ export function UserCreate (props) {
   // create account 
   return (
     <article>
-      <p>Create Account</p>
-      <p>first name</p>
-      <p>last name</p>
-      <p>organization</p>
-      <p>email</p>
-      <p>username</p>
-      <p>password</p>
-      <p>confirm password</p>
-      <p>create account</p>
 
       <form className='asideInputForm'
           onSubmit={props.handleSubmit((values) => handleSubmitButton(values))}
@@ -71,6 +62,21 @@ export function UserCreate (props) {
               name='organization'
               id='organization'
               placeholder='organization'
+              component='input'
+              type='text'
+              className='inputField'
+              required />
+          </div>
+          
+          <div>
+            <label
+              className='inputLabel'
+              htmlFor={'email'}>email
+            </label>
+            <Field
+              name='email'
+              id='email'
+              placeholder='email'
               component='input'
               type='text'
               className='inputField'

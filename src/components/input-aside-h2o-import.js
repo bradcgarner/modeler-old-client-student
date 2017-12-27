@@ -6,6 +6,7 @@ import { reduxForm, Field } from 'redux-form';
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
+import StartEndDates from './start-end-dates';
 
 // interior to inputAside. Input of precipitation overall variables and settings.
 // route app/input/h2o/storms
@@ -51,61 +52,7 @@ export function InputAsideH2oImport (props) {
               required />
           </div>
 
-          <div>
-            <label
-              className='inputLabel'
-              htmlFor={'startMonth'}>start month
-            </label>
-            <Field
-              name='startMonth'
-              id='startMonth'
-              component='input'
-              type='text'
-              className='inputField'
-              required />
-          </div>
-
-          <div>
-            <label
-              className='inputLabel'
-              htmlFor={'startDay'}>start day
-            </label>
-            <Field
-              name='startDay'
-              id='startDay'
-              component='input'
-              type='text'
-              className='inputField'
-              required />
-          </div>
-
-          <div>
-            <label
-              className='inputLabel'
-              htmlFor={'endMonth'}>end month
-            </label>
-            <Field
-              name='endMonth'
-              id='endMonth'
-              component='input'
-              type='text'
-              className='inputField'
-              required />
-          </div>
-
-          <div>
-            <label
-              className='inputLabel'
-              htmlFor={'endDay'}>end day
-            </label>
-            <Field
-              name='endDay'
-              id='endDay'
-              component='input'
-              type='text'
-              className='inputField'
-              required />
-          </div>
+          <StartEndDates/>
 
           <div>
             <button className='submitButton'

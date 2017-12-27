@@ -2,39 +2,64 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
+import DropdownList from 'react-widgets/lib/DropdownList'
 
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
+import StartEndDates from './start-end-dates';
 
 // inside outputAside.  Input for managing graph data (e.g. run graphc for certain dates)
 // route /output/graphs
-export function OutputAsideGraphs (props) {
+export function OutputAsideRanges (props) {
 
   const handleSubmitButton = values => {
     props.dispatch(actionsProject.placeholder())
   }
+
+  // set this so that we toggle between date ranges and event ranges, not both
+
+  const renderDropdownList = ({ input, data, valueField, textField }) =>
+  <DropdownList {...input}
+    data={data}
+    valueField={valueField}
+    textField={textField}
+    onChange={input.onChange} />
   
   return (
-    <aside>
-      <h4>Output Aside graphs</h4>
+    <div>
+      <h4>Output Aside ranges</h4>
 
       <form className='asideInputForm'
           onSubmit={props.handleSubmit((values) => handleSubmitButton(values))}
         >
 
+          <StartEndDates/>
+          
+          <div>
+          <label 
+            className='inputLabel' 
+            htmlFor={'startEvent'}>from event
+          </label>
+          <Field
+            name='startEvent'
+            id='startEvent'
+            component={renderDropdownList}
+            data={props.project.events}
+            className='inputField'/>              
+          </div>
+
           <div>
             <label
               className='inputLabel'
-              htmlFor={'title'}>xxxxxxx
+              htmlFor={'endEvent'}>to event
             </label>
             <Field
-              name='xxxxx'
-              id='xxxx'
-              component='input'
-              type='text'
-              className='inputField'
-              required />
+              name='endEvent'
+              id='endEvent'
+              component={renderDropdownList}
+              data={props.project.events}
+              className='inputField' />
           </div>
 
           <div>
@@ -49,7 +74,7 @@ export function OutputAsideGraphs (props) {
 
         </form>
 
-    </aside>
+    </div>
   )
 }
 
@@ -61,5 +86,5 @@ const mapStateToProps = state => ({
 
 export default compose(
   connect(mapStateToProps),
-  reduxForm({form: 'xxxxxx'})
-)(OutputAsideGraphs);
+  reduxForm({form: 'outputAsideRanges'})
+)(OutputAsideRanges);

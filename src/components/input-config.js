@@ -11,9 +11,9 @@ import * as actionsProject from '../actions/project';
 // 'aside' components have more specific controlling exact paths
 export function InputConfig (props) {
   return (
-    <aside>
+    <section>
       <h4>Input Configure</h4>
-    </aside>
+    </section>
   )
 }
 

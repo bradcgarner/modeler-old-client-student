@@ -9,14 +9,36 @@ import * as actionsProject from '../actions/project';
 // route app/input/et
 // 'aside' components have more specific controlling exact paths
 export function InputET (props) {
+
+  const selectedEtTable = 0;
+
+  const tableHeaders = props.general.etTableTime.map((time,index)=>{
+    <th key={index + 1}>{time}</th>
+  });
+  tableHeaders.unshift(<th scope='row' key={0}></th>);
+
+  const tableGroup = props.general.etTables[selectedEtTable].table.map((table,index)=>{
+    const tableBody = table.map((row,index)=>{
+      const tableRow = row.map((cell,index)=>{
+        const classGroup = Math.floor(cell/0.0001) || 0;
+        return <td className ={`etTableCell${classGroup}`} key={`${index}cell`}>{cell}</td>
+      });
+      const pct = (index +1) * props.general.vwcIncrementEt;
+      return <tr key={index}><th scope='row'>{pct}%</th>{tableRow}</tr>
+    });
+    return <table key={index}><tbody><tr>{tableHeaders}</tr>{tableBody}</tbody></table>;
+  });
+
   return (
-    <aside>
+    <section>
       <h4>Input ET</h4>
-    </aside>
+      {tableGroup}
+    </section>
   )
 }
 
 const mapStateToProps = state => ({
+  general: state.general,
   display: state.display,
   user: state.user,
   project: state.project
