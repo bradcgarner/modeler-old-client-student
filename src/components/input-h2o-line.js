@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field } from 'redux-form';
+import { connect } from 'react-redux';
 
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
@@ -7,7 +8,7 @@ import * as actionsProject from '../actions/project';
 
 // interior to inputAside. Input of precipitation overall variables and settings.
 // route app/input/h2o/storms
-export default class InputH2oLine extends React.Component {
+export class InputH2oLine extends React.Component {
   constructor(){
     super();
     this.state = {
@@ -18,20 +19,26 @@ export default class InputH2oLine extends React.Component {
     }
   }
 
-  updateTotal(key,value){
-    console.log(key, value)
-    this.setState({
-      [key]: this.state[key] + value
-    });
-    const totalMinutes = this.state.minutes + 
-      ( this.state.hours * 60 ) +
-      ( this.state.days * 60 * 24 );
-    this.setState({
-      totalMinutes: totalMinutes,
-    })
-  }
+  updateTotal(key, value){
+    // console.log('');
+    // console.log(value)
+    const intValue = typeof value.nativeEvent.target.value === 'string' ? parseInt(value.nativeEvent.target.value) : 0 ;
+    // console.log(intValue);
+    // console.log(this.state.minutes, this.state.hours, this.state.days, this.state.totalMinutes)
+    const newMinutes = key === 'minutes' ? intValue : this.state.minutes ;
+    const newHours = key === 'hours' ? intValue : this.state.hours ;
+    const newDays = key === 'days' ? intValue : this.state.days ;
+    
+    const totalMinutes = newMinutes + ( newHours * 60 ) + ( newDays * 60 * 24 );
 
-  // https://redux-form.com/6.6.0/examples/selectingformvalues/
+    this.setState({
+      [key]: intValue,
+      totalMinutes: totalMinutes,
+    });
+
+    this.props.dispatch(actionsProject.updateAreaMinutes({id: this.props.index, value: totalMinutes}))
+
+  }
 
   render() {
 
@@ -42,41 +49,49 @@ export default class InputH2oLine extends React.Component {
 
     return (
 
-      <li key={this.props.index}>
-        <Field
+      <tr key={this.props.index}>
+
+        <th context='row'>{this.props.index}</th>
+        
+        <td><Field
           name={precipRate}
           id={precipRate}
           component='input'
           type='text'
           className='inputField' />
-  
-        <Field
+        </td>
+        <td><Field
           name={minutes}
           id={minutes}
           component='input'
           type='text'
           className='inputField'
           ref={input => this.input = input}
-          onChange={()=>this.updateTotal('minutes',this)} />
-  
-        <Field
+          onChange={(value)=>this.updateTotal('minutes',value)} />
+        </td>
+        <td><Field
           name={hours}
           id={hours}
           component='input'
           type='text'
-          className='inputField'/>
-  
-        <Field
+          className='inputField'
+          onChange={(value)=>this.updateTotal('hours',value)} />
+          </td>
+        <td><Field
           name={days}
           id={days}
           component='input'
           type='text'
-          className='inputField' />
+          className='inputField'
+          onChange={(value)=>this.updateTotal('days',value)} />
+          </td>
+
+        <td>{this.state.totalMinutes}</td>
   
-        {this.totalMinutes}
-  
-      </li>
+      </tr>
     )
   }
   
 }
+
+export default connect()(InputH2oLine)

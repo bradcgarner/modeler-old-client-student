@@ -36,14 +36,31 @@ export class InputH2OStorms extends React.Component {
     return (
       <section>
         <h4>Input H2O</h4>
-        <form className='asideInputForm'
+        <form className='inputForm'
             onSubmit={this.props.handleSubmit((values) => this.handleSubmitButton(values))}
           >
-  
-          <div>precip rate minutes hours days total minutes</div>
-          {this.state.lines}
+          <table>
+            <tbody>
+              <tr>
+                <th>line</th>
+                <th>precip rate</th>
+                <th>minutes</th>
+                <th>hours</th>
+                <th>days</th>
+                <th>total minutes</th>
+              </tr>
+              {this.state.lines}
+              <tr>
+                <th context='row'>totals</th>
+                <td>n/a</td>
+                <td>{this.props.project.storms.totalMinutes}</td>
+                <td>{this.props.project.storms.totalHours}</td>
+                <td>{this.props.project.storms.totalDays}</td>
+                <td>{this.props.project.storms.allMinutes}</td>
+              </tr>
+            </tbody>
+          </table>
           <button onClick={()=>this.addLine()}>add line</button>
-          <div>total minutes total hours total days total minutes</div>
 
             <div>
               <button className='submitButton'

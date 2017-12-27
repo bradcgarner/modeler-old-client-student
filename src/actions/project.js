@@ -21,6 +21,13 @@ export const addArea = area => ({
   area,
 });
 
+export const UPDATE_AREA_MINUTES = 'UPDATE_AREA_MINUTES';
+export const updateAreaMinutes = area => ({
+  type: UPDATE_AREA_MINUTES,
+  id: area.id,
+  value: area.value,
+});
+
 export const placeholder = (project) => ({
   type: 'PLACEHOLDER',
   name: 'xxxxx',

@@ -21,6 +21,22 @@ export const reducer = (state = initialState, action) => {
     return {...state, areas };
   }
 
+  else if (action.type === actions.UPDATE_AREA_MINUTES) {
+    const minuteTracker = {...state.storms.minuteTracker, [action.id]:action.value};
+    let allMinutes = 0;
+    for(let key in minuteTracker) {
+      allMinutes += minuteTracker[key]
+    }
+    const totalDays         = Math.floor(allMinutes / 1440);
+    const grandTotalHours   = allMinutes % 1440 ;
+    const totalHours        = Math.floor(grandTotalHours / 60);
+    const grandTotalMinutes = grandTotalHours % 60 ;
+    const totalMinutes      = Math.floor(grandTotalMinutes);
+    const storms = {...state.storms, minuteTracker, totalDays, totalHours, totalMinutes, allMinutes };
+
+    return {...state, storms };
+  }
+
   else if (action.type === 'PLACEHOLDER') {
     console.log('placeholder dispatched')
     return state;

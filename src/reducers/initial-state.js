@@ -44,7 +44,14 @@ export const project = {
     }, 
   },
   products: {},    // copy of products used in areas 
-  events: [1,2,3]
+  events: [1,2,3], // list of all events, generated at runtime, used for selection list
+  storms: {
+    totalMinutes: 0, // single-purpose value to summarize all values below,
+    minuteTracker: { // single-purpose object to add up all minutes on the form; used at input, ignored at submission
+      0: 0,
+      1: 0,
+    }
+  }
 };
 
 export const general = {
