@@ -11,7 +11,7 @@ import * as actionsProject from '../actions/project';
 // 'aside' components have more specific controlling exact paths
 export function InputProducts (props) {
 
-  const selectedProductKey = 0;
+  const selectedProductKey = 0; // change to read from state
 
   const tableHeaders = [<th scope='row' key={0}></th>];
   for (let cols = 1; 
@@ -30,7 +30,7 @@ export function InputProducts (props) {
     return <tr key={index}><th scope='row'>{pct}%</th>{tableRow}</tr>
   })
   
-  const productEff = <table>
+  const productEff = <table style={{width: '100%'}}>
     <tbody>
       <tr>{tableHeaders}</tr>
       {tableBody}

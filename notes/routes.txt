@@ -2,11 +2,11 @@ form validation
     auto-corect invalid date
 get output events and dates to toggle and only submit 1 or the other
 show name of project at top
+table formatting
 TESTS!!!
 asides to show sources for ET and product efficiency
 
 confirm all measurements with JSON used by Python
-styling: table column widths and colors
 get storm import to show map
 canvas to show 
 allow to upload background image for canvas

@@ -84,7 +84,8 @@ nav {
   display: flex;
   width: 100%;
   position: fixed;
-  height: 50px; }
+  height: 50px;
+  background-color: white; }
   nav ul {
     display: flex;
     flex: 1;
@@ -125,50 +126,58 @@ section {
 
 /* @@@@@@@@@@@@@@@@  @@@@@@@@@@@@ */
 .etTableCell0, .effTableCell0 {
-  background-color: #f9f9fc; }
+  background-color: #f6faf5; }
 
 .etTableCell1, .effTableCell1 {
-  background-color: #a6bee2; }
+  background-color: #e4eee3; }
 
 .etTableCell2, .effTableCell2 {
-  background-color: #7dbfda; }
+  background-color: #dbeedb; }
 
 .etTableCell3, .effTableCell3 {
-  background-color: #63c9cc; }
+  background-color: #cceace; }
 
 .etTableCell4, .effTableCell4 {
-  background-color: #5bcbda; }
+  background-color: #bce5bd; }
 
 .etTableCell5, .effTableCell5 {
-  background-color: #4fcea3; }
+  background-color: #8fd49b; }
 
 .etTableCell6, .effTableCell6 {
-  background-color: #39ce95; }
+  background-color: #65c071; }
 
 .etTableCell7, .effTableCell7 {
-  background-color: #34d35b; }
+  background-color: #37a850; }
 
 .etTableCell8, .effTableCell8 {
-  background-color: #13e013; }
+  background-color: #259e3f; }
 
 .etTableCell9, .effTableCell9 {
-  background-color: #1ac00b; }
+  background-color: #139b30; }
+
+.etTableContainer {
+  margin-top: 15px; }
+  .etTableContainer h3 {
+    text-align: center; }
+
+td {
+  font-family: monospace; }
 
 /* @@@@@@@@@@@@@@ TOOLTIPS @@@@@@@@@@@@ */
 .tooltip {
-  position: relative; }
+  position: relative;
+  margin: 5px; }
   .tooltip .popover {
     display: none;
     padding: 5px;
-    border-radius: 8px;
     position: absolute;
     left: 50%;
-    margin-left: -50px;
-    width: 100px;
+    margin-left: -30px;
+    width: 60px;
     top: 125%;
-    background-color: #eee;
-    color: #4a487f;
-    opacity: .94;
+    background-color: #333;
+    color: #ebebf5;
+    opacity: .74;
     border: 1px solid #52524e;
     -moz-box-shadow: 7px 7px 7px -5px #999;
     -webkit-box-shadow: 7px 7px 7px -5px #999;
@@ -195,7 +204,7 @@ section {
   pointer-events: none; }
 
 .popover:after {
-  border-bottom-color: #eee;
+  border-bottom-color: #333;
   border-width: 7px;
   margin-left: -7px; }
 
@@ -203,6 +212,9 @@ section {
   border-bottom-color: black;
   border-width: 7px;
   margin-left: -7px; }
+
+.iconWrapper {
+  display: flex; }
 
 /* @@@@@@@@@@@@@@ GENERAL OVERRIDES @@@@@@@@@@@@ */
 .center {
