@@ -2,6 +2,18 @@ $fontColorMain: #333;
 $aside-background-color: #888;
 $section-background-color: #888;
 $footer-background-color: #888;
+$liTooltipZIndex: 999;
+$fontColorInactive: #888;
+$shadow: #999;
+$fontColorTooltip: #4a487f;
+$lines: #52524e;
+$tooltipBackgroundColor: #eee;
+
+$portraitPhoneWide: 375px;
+$landscapePhone: 576px;
+$portraitTablet: 768px;
+$landscapeTablet: 992px;
+$laptopPlus: 1200px;
 
 /* @@@@@@@@@@@@@@  END VARIABLES - START RESET @@@@@@@@@@@@@@@@@@@@ */
 
@@ -176,4 +188,77 @@ section {
 }
 .etTableCell9, .effTableCell9 {
   background-color: rgb(26, 192, 11);
+}
+
+/* @@@@@@@@@@@@@@ TOOLTIPS @@@@@@@@@@@@ */
+
+// Tooltip container
+.tooltip { // add .tooltip to any element that has a child of .tooltipText
+  position: relative;
+  .popover {
+    display: none;
+
+    padding: 5px;
+    border-radius: 8px;
+
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    width: 100px;
+    top: 125%;
+    background-color: $tooltipBackgroundColor;
+    color: $fontColorTooltip;
+    opacity: .94;
+    border: 1px solid $lines;
+    -moz-box-shadow: 7px 7px 7px -5px $shadow;
+    -webkit-box-shadow: 7px 7px 7px -5px $shadow;
+    box-shadow: 7px 7px 7px -5px $shadow;
+    z-index: $liTooltipZIndex;   
+    
+    margin-top: 3px;
+    font-size: 12px;
+    text-align: left;
+  }
+}
+.tooltip:hover {
+  .popover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.popover:after, .popover:before {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  pointer-events: none; }
+
+.popover:after {
+  border-bottom-color: $tooltipBackgroundColor;
+  border-width: 7px;
+  margin-left: -7px; }
+
+.popover:before {
+  border-bottom-color: black;
+  border-width: 7px;
+  margin-left: -7px; }
+
+
+/* @@@@@@@@@@@@@@ GENERAL OVERRIDES @@@@@@@@@@@@ */
+
+.center { text-align: center; }
+.left   { text-align: left; }
+.right  { text-align: right; }
+
+.inactive {
+  color: $fontColorInactive;
+}
+
+.hidden {
+  display: none;
 }

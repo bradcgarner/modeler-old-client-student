@@ -15,6 +15,15 @@ export function Landing (props) {
     <div className='landingContainer'>
       <div className='landing'>
         <h1>Landing</h1>
+        <i className="fa fa-home tooltip" aria-hidden="true"><div className='popover'>Home</div></i>
+        <i className="fa fa-sign-in tooltip" aria-hidden="true"><div className='popover'>Sign in</div></i>
+        <i className="fa fa-sign-out tooltip" aria-hidden="true"><div className='popover'>Sign out</div></i>
+
+        <i className="fa fa-download tooltip" aria-hidden="true"><div className='popover'>Download</div></i>
+        <i className="fa fa-plus tooltip" aria-hidden="true"><div className='popover'>Add</div></i>
+        <i className="fa fa-undo tooltip" aria-hidden="true"><div className='popover'>Reset to prior save</div></i>
+        <i className="fa fa-floppy-o tooltip" aria-hidden="true"><div className='popover'>Save</div></i>
+
       </div>
       <LandingFooter/>
     </div>
