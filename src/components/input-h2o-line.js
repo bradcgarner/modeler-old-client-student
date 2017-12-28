@@ -37,7 +37,6 @@ export class InputH2oLine extends React.Component {
     });
 
     this.props.dispatch(actionsProject.updateAreaMinutes({id: this.props.index, value: totalMinutes}))
-
   }
 
   render() {
@@ -66,7 +65,7 @@ export class InputH2oLine extends React.Component {
           component='input'
           type='text'
           className='inputField'
-          ref={input => this.input = input}
+          // ref={input => this.input = input}
           onChange={(value)=>this.updateTotal('minutes',value)} />
         </td>
         <td><Field

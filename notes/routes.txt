@@ -1,7 +1,5 @@
-drop-down lists for months and days
-    toggle days based on month
-    auto-corect invalid date
 form validation
+    auto-corect invalid date
 get output events and dates to toggle and only submit 1 or the other
 show name of project at top
 TESTS!!!
