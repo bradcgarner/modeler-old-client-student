@@ -19,7 +19,6 @@ export function MainApp (props) {
         <Route path = '/app/output' component = {Output}/>
         <Redirect from = '*' to = '/home'/>
       </Switch>
-      <NavBar/>
     </main>
   )
 }

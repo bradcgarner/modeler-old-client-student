@@ -9,7 +9,7 @@ import * as actionsProject from '../actions/project';
 // routes /home, /user/login, /user/create
 export function Cover (props) {
   return (
-    <div>
+    <div className='cover'>
       <h1>GRSWM</h1>
       <h4>Green Roof Stormwater Modeler</h4>
     </div>

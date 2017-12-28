@@ -12,18 +12,15 @@ import UserDashboard from './user-dashboard';
 // container for user login or user create. Serves no purpose other than routing and positioning.
 // routes /user
 export function User (props) {
-  const loginForm = <div>
-    <Switch>
-      <Route exact path = '/user/login' component = {UserLogin}/>
-      <Route exact path = '/user/create' component = {UserCreate}/>
-      <Route exact path = '/user/dashboard' component = {UserDashboard}/>
-      <Redirect from = '*' to = '/user/login'/>
-    </Switch>
-    </div>
   // create account 
   return (
     <main>
-      {loginForm}
+      <Switch>
+        <Route exact path = '/user/login' component = {UserLogin}/>
+        <Route exact path = '/user/create' component = {UserCreate}/>
+        <Route exact path = '/user/dashboard' component = {UserDashboard}/>
+        <Redirect from = '*' to = '/user/login'/>
+      </Switch>
     </main>
   )
 }

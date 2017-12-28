@@ -15,17 +15,18 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="App">
+        <div className="outerContainer">
           <Switch>
             <Route exact path = '/home' component = {Landing}/>
             <Route path =       '/user' component = {User}/>
             <Route path =       '/app'  component = {MainApp}/>
             <Redirect from = '*' to = '/home'/>
           </Switch>
-          <Route path ='/home' component = {Cover}/>
-          <Route path ='/user' component = {Cover}/>
-          <Route path ='/home' component = {NavBar}/>
-          <Route path ='/user' component = {NavBar}/>
+          <Route path ='/home'           component = {Cover}/>
+          <Route path ='/user/login'     component = {Cover}/>
+          <Route path ='/user/create'    component = {Cover}/>
+          <Route path ='/user/dashboard' component = {NavBar}/>
+          <Route path ='/app'            component = {NavBar}/>
         </div>
       </BrowserRouter>
     );

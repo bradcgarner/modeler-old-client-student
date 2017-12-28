@@ -68,7 +68,7 @@ export class InputH2OStorms extends React.Component {
               </button>
               <button className='clearButton'
                 type="button" disabled={this.props.pristine || this.props.submitting}
-                onClick={this.props.reset}>Clear Form
+                onClick={this.props.reset}>Reset
               </button>
             </div>
   

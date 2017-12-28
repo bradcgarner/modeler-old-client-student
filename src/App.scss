@@ -1,4 +1,10 @@
+$fontColorMain: #333;
+$aside-background-color: #888;
+$section-background-color: #888;
+$footer-background-color: #888;
+
 /* @@@@@@@@@@@@@@  END VARIABLES - START RESET @@@@@@@@@@@@@@@@@@@@ */
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -8,50 +14,49 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 16px;
-  /* was 100% */
-  font-family: 'Oxygen', sans-serif;
-  /* Brad added */
+	margin: 0;
+	padding: 0;
+	border: 0;
+  font-size: 16px; /* was 100% */
+  font-family: 'Oxygen', sans-serif; /* Brad added */ 
   /*font: inherit;*/
-  color: #333;
-  /* Brad added */
-  vertical-align: baseline; }
-
+  color: $fontColorMain; /* Brad added */
+	vertical-align: baseline;
+}
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
+article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-  display: flex; }
-
+	display: flex; // was block
+}
 body {
-  line-height: 1; }
-
+	line-height: 1;
+}
 ol, ul, li {
-  list-style: none; }
-
+	list-style: none;
+}
 blockquote, q {
-  quotes: none; }
-
+	quotes: none;
+}
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: '';
-  content: none; }
-
+	content: '';
+	content: none;
+}
 table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 * {
-  box-sizing: border-box;
-  /* Brad added */ }
-
+  box-sizing: border-box; /* Brad added */
+}
 /* @@@@@@@@@@@@@@@@ END RESET - START GENERAL @@@@@@@@@@@@ */
+
+$nav-ht: 50px;
+
 .landingContainer {
   width: 100vw;
   height: 100vh;
@@ -59,49 +64,63 @@ table {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: flex-end; 
   background-color: #777;
-  position: fixed; }
-  .landingContainer .landing {
+  position: fixed;
+  .landing {
     width: 100%;
     height: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    background-color: #daa1a1; }
-  .landingContainer footer {
+    align-items: center; 
+    background-color: rgb(218, 161, 161);
+    // position: fixed;
+  };
+  footer {
     width: 100vw;
-    height: 50px;
-    background-color: #888; }
+    height: $nav-ht;
+    background-color: $footer-background-color;
+  }
+}
 
 .cover {
   position: absolute;
-  background-color: #dfdacb; }
+  background-color: rgb(223, 218, 203);
+}
 
 nav {
   display: flex;
   width: 100%;
   position: fixed;
-  height: 50px; }
-  nav ul {
+  height: $nav-ht;
+  ul{
     display: flex;
     flex: 1;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start; }
+    align-items: flex-start; 
+    li{
 
+    } 
+  }
+}
 .outerContainer, main, .innerContainer {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  position: relative; }
-
+  position: relative;
+}
+.outerContainer {
+}
 main {
-  margin-top: 50px; }
+  margin-top: $nav-ht;
+}
+.innerContainer {
+}
 
 aside, section {
   border-radius: 10px;
@@ -111,47 +130,50 @@ aside, section {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start; }
+  align-items: flex-start;
+}
 
 aside {
   width: 20%;
-  background-color: #888;
-  margin-right: 5px; }
+  background-color: $aside-background-color;
+  margin-right: 5px;
+}
 
 section {
   width: 80%;
-  background-color: #888;
-  margin-left: 5px; }
+  background-color: $section-background-color;
+  margin-left: 5px;
+}
 
 /* @@@@@@@@@@@@@@@@  @@@@@@@@@@@@ */
+
 .etTableCell0, .effTableCell0 {
-  background-color: #f9f9fc; }
-
+  background-color: rgb(249, 249, 252);
+}
 .etTableCell1, .effTableCell1 {
-  background-color: #a6bee2; }
-
+  background-color: rgb(166, 190, 226);
+}
 .etTableCell2, .effTableCell2 {
-  background-color: #7dbfda; }
-
+  background-color: rgb(125, 191, 218);
+}
 .etTableCell3, .effTableCell3 {
-  background-color: #63c9cc; }
-
+  background-color: rgb(99, 201, 204);
+}
 .etTableCell4, .effTableCell4 {
-  background-color: #5bcbda; }
-
+  background-color: rgb(91, 203, 218);
+}
 .etTableCell5, .effTableCell5 {
-  background-color: #4fcea3; }
-
+  background-color: rgb(79, 206, 163);
+}
 .etTableCell6, .effTableCell6 {
-  background-color: #39ce95; }
-
+  background-color: rgb(57, 206, 149);
+}
 .etTableCell7, .effTableCell7 {
-  background-color: #34d35b; }
-
+  background-color: rgb(52, 211, 91);
+}
 .etTableCell8, .effTableCell8 {
-  background-color: #13e013; }
-
+  background-color: rgb(19, 224, 19);
+}
 .etTableCell9, .effTableCell9 {
-  background-color: #1ac00b; }
-
-/*# sourceMappingURL=App.css.map */
+  background-color: rgb(26, 192, 11);
+}

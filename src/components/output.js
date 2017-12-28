@@ -17,8 +17,7 @@ import OutputAsideAnalysis from './output-aside-analysis';
 // 'aside' components have more specific controlling exact paths
 export function Output (props) {
   return (
-    <div>
-      <h1>Output</h1>
+    <div className='innerContainer'>
       <aside>
         <h4>output aside</h4>
          <OutputAsideRanges/>

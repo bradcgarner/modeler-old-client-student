@@ -21,7 +21,6 @@ export function NavBar (props) {
   return (
     <nav>
       <h1>GRSWM</h1>
-
       <ul>
         <li><Link to='/home'>home</Link></li>
         <li><Link to='/user/login'>login</Link></li>

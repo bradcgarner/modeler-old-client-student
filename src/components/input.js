@@ -11,6 +11,7 @@ import InputConfig from './input-config';
 import InputProducts from './input-products';
 import InputH2OStorms from './input-h2o-storms';
 import InputH2OImport from './input-h2o-import';
+import InputH2OControlled from './input-h2o-controlled';
 import InputET from './input-et';
 
 import InputAsideConfigGeneral from './input-aside-config-general';
@@ -27,8 +28,7 @@ import InputAsideET from './input-aside-et';
 export function Input (props) {
   // inputMain will be 1 of the following, based on props.display.main
   return (
-    <div>
-      <h1>Input</h1>
+    <div className='innerContainer'>
       <aside>
         <h4>input aside</h4>
         <Switch>
@@ -43,11 +43,12 @@ export function Input (props) {
         </Switch>
       </aside>
       <Switch>
-        <Route path = '/app/input/configure'  component = {InputConfig}/>
-        <Route path = '/app/input/products'   component = {InputProducts}/>
-        <Route path = '/app/input/h2o/storms' component = {InputH2OStorms}/>
-        <Route path = '/app/input/h2o/import' component = {InputH2OImport}/>
-        <Route path = '/app/input/et'         component = {InputET}/>
+        <Route path = '/app/input/configure'      component = {InputConfig}/>
+        <Route path = '/app/input/products'       component = {InputProducts}/>
+        <Route path = '/app/input/h2o/storms'     component = {InputH2OStorms}/>
+        <Route path = '/app/input/h2o/controlled' component = {InputH2OControlled}/>
+        <Route path = '/app/input/h2o/import'     component = {InputH2OImport}/>
+        <Route path = '/app/input/et'             component = {InputET}/>
       </Switch>    
     </div>
   )
