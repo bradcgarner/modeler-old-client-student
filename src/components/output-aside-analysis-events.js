@@ -3,17 +3,15 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 import DropdownList from 'react-widgets/lib/DropdownList'
-
 import * as actionsDisplay from '../actions/display';
 import * as actionsProject from '../actions/project';
-import StartEndDates from './start-end-dates';
 
 // inside outputAside.  Input for managing graph data (e.g. run graphc for certain dates)
 // route /output/graphs
-export function OutputAsideRanges (props) {
+export function OutputAsideAnalysisEvents (props) {
 
   const handleSubmitButton = values => {
-    props.dispatch(actionsProject.loadAnalysisSettings(values))
+    props.dispatch(actionsProject.createOrEditProject({...values, id: props.project.id}, 'analysisSettings', props.user.authToken))
   }
 
   // set this so that we toggle between date ranges and event ranges, not both
@@ -27,13 +25,10 @@ export function OutputAsideRanges (props) {
   
   return (
     <div>
-      <h4>Output Aside ranges</h4>
+      <h4>Output Aside events</h4>
 
-      <form className='asideInputForm'
-          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))}
-        >
-
-          <StartEndDates/>
+      <form className='outputAsideAnalysisEvents'
+          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
           
           <div>
           <label 
@@ -65,10 +60,6 @@ export function OutputAsideRanges (props) {
             <button className='submitButton'
               type="submit" disabled={props.pristine || props.submitting}>Save
             </button>
-            <button className='clearButton'
-              type="button" disabled={props.pristine || props.submitting}
-              onClick={props.reset}>Clear Form
-            </button>
           </div>
 
         </form>
@@ -79,11 +70,12 @@ export function OutputAsideRanges (props) {
 
 const mapStateToProps = state => ({
   display: state.display,
+  general: state.general,
   user: state.user,
   project: state.project
 });
 
 export default compose(
   connect(mapStateToProps),
-  reduxForm({form: 'outputAsideRanges'})
-)(OutputAsideRanges);
+  reduxForm({form: 'outputAsideAnalysisEvents'})
+)(OutputAsideAnalysisEvents);

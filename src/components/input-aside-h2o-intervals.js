@@ -11,7 +11,7 @@ import * as actionsProject from '../actions/project';
 export function InputAsideH2oIntervals (props) {
 
   const handleSubmitButton = values => {
-    props.dispatch(actionsProject.createOrEditProject(values, 'intervals', props.user.authToken))
+    props.dispatch(actionsProject.createOrEditProject({...values, id: props.project.id}, 'intervals', props.user.authToken))
   }
   
   return (

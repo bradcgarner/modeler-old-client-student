@@ -18,8 +18,11 @@ export const loadUser = (user) => ({
 // @@@@@@@@@@@@@@@ ASYNC @@@@@@@@@@@@@@@@@
 
 export const userAPICall = (url, init, callback) => dispatch => {
-
+  console.log(url, init, callback);
+  return;
   // console.log('just before',init)
+  dispatch(actionsDisplay.changeView('loading'));
+
   return fetch(url, init)   
   .then(user=>{ 
     if (!user.ok) { 
@@ -47,8 +50,6 @@ export const userAPICall = (url, init, callback) => dispatch => {
 
 export const login = user => dispatch => {
   // console.log('user at login',{user})
-
-  dispatch(actionsDisplay.changeView('loading'));
   
   const url = `${REACT_APP_BASE_URL}/api/auth/login`;
   const userObject = {
@@ -68,13 +69,11 @@ export const login = user => dispatch => {
     isNew: false,
     originalUser: null,
   }
-  // console.log('login', url, init, userObject, callback);
   return dispatch(userAPICall(url, init, callback));
 }
 
 export const createOrEditUser = (user, isNew) => dispatch => {
   
-  dispatch(actionsDisplay.changeView('loading'));
   const originalUser = {username: user.username, password: user.password};
 
   user.organization = user.organization ? user.organization : null ;
@@ -99,25 +98,5 @@ export const createOrEditUser = (user, isNew) => dispatch => {
     isNew,
     originalUser,
   }
-  // console.log('login dispatch')
-  return dispatch(userAPICall(url, init, callback));}
-
-export const fetchUser = (userId, authToken) => dispatch => {   // state location options = 'user' and 'userViewed'
-
-  dispatch(actionsDisplay.changeView('loading'));
-  
-  const url = `${REACT_APP_BASE_URL}/api/users/${userId}`;
-  const headers = {
-    'content-type': 'application/json',
-    'Authorization': `Bearer ${authToken}`, 
-  }; 
-  const init = { 
-    method: 'GET',
-    headers,
-  };
-  const callback = {
-    isNew: false,
-    originalUser: null,
-  }
   return dispatch(userAPICall(url, init, callback));
-}
+};

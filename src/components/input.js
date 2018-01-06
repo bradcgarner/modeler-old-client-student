@@ -1,11 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route, Switch }  from 'react-router-dom';
-
 import * as actionsDisplay from '../actions/display';
 import * as actionsProject from '../actions/project';
 
-// import InputAside from './input-aside';
 import InputConfig from './input-config';
 import InputCoverings from './input-coverings';
 import InputH2OStorms from './input-h2o-storms';

@@ -11,7 +11,7 @@ import * as actionsProject from '../actions/project';
 export function InputAsideConfigUnits (props) {
 
   const handleSubmitButton = values => {
-    props.dispatch(actionsProject.createOrEditProject(values, 'units', props.user.authToken))
+    props.dispatch(actionsProject.createOrEditProject({...values, id: props.project.id}, 'units', props.user.authToken))
   }
 
   const renderSelectList = ({ input, data }) =>
@@ -85,6 +85,7 @@ export function InputAsideConfigUnits (props) {
 
 const mapStateToProps = state => ({
   general: state.general,
+  user: state.user,
   display: state.display,
   project: state.project,
   initialValues: state.project.units,

@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 import { Link }  from 'react-router-dom';
-
-
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 
@@ -13,7 +11,7 @@ import * as actionsUser from '../actions/user';
 export function UserLogin (props) {
 
   const handleSubmitButton = values => {
-    props.dispatch(actionsUser.loadUser())
+    props.dispatch(actionsUser.login(values))
   }
 
   return (

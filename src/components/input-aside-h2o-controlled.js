@@ -11,7 +11,7 @@ import * as actionsProject from '../actions/project';
 export function InputAsideH2oControlled (props) {
 
   const handleSubmitButton = values => {
-    props.dispatch(actionsProject.createOrEditProject(values, 'controlled', props.user.authToken))
+    props.dispatch(actionsProject.createOrEditProject({...values, id: props.project.id}, 'controlled', props.user.authToken))
   }
 
   return (

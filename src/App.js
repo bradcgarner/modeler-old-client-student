@@ -12,6 +12,7 @@ import 'react-widgets/dist/css/react-widgets.css'
 // edit routes below so that non-logged-in users are redirected to home or login
 
 class App extends Component {
+
   render() {
     return (
       <BrowserRouter>

@@ -50,6 +50,7 @@ export function InputAsideCoverings (props) {
 }
 
 const mapStateToProps = state => ({
+  user: state.user,
   general: state.general,
   project: state.project,
 });

@@ -8,11 +8,9 @@ import * as actionsProject from '../actions/project';
 // route app/input/et
 export function InputH2OImport (props) {
 
-  
   return (
     <section>
       <h4>input h2o import (show a map)</h4>
-
     </section>
   )
 }

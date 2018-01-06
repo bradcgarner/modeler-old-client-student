@@ -13,6 +13,10 @@ export const loadInitialize = general => ({
 // @@@@@@@@@@@@@@@ ASYNC @@@@@@@@@@@@@@@@@
 
 export const generalAPICall = (url, init, callback) => dispatch => {
+  console.log(url, init, callback);
+  // dispatch(loadInitialize({}))
+  return;
+  dispatch(actionsDisplay.changeView('loading'));
 
   // console.log('just before',init)
   return fetch(url, init)   
@@ -51,8 +55,6 @@ export const generalAPICall = (url, init, callback) => dispatch => {
 
 export const initialize = () => dispatch => {   // state location options = 'user' and 'userViewed'
 
-  dispatch(actionsDisplay.changeView('loading'));
-  
   const url = `${REACT_APP_BASE_URL}/api/initialize`;
   const headers = {
     'content-type': 'application/json',

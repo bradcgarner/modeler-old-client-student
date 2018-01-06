@@ -1,5 +1,6 @@
 import 'whatwg-fetch';
 import { REACT_APP_BASE_URL } from '../config'
+import * as helpers from './helpers';
 
 export const CHANGE_VIEW = 'CHANGE_VIEW';
 export const changeView = (view) => ({
@@ -55,8 +56,11 @@ export const loadStormsImported = storms => ({
 // @@@@@@@@@@@@@@@ ASYNC @@@@@@@@@@@@@@@@@
 
 export const displayAPICall = (url, init, callback) => dispatch => {
-
+  console.log(url, init, callback);
+  return;
   // console.log('just before',init)
+  dispatch(changeView('loading'));
+  
   return fetch(url, init)   
   .then(display=>{ 
     if (!display.ok) { 
@@ -82,17 +86,18 @@ export const displayAPICall = (url, init, callback) => dispatch => {
 
 export const importStorms = (values, authToken) => dispatch => {
   console.log('values in import storm', values)
-  /* input: source: storms.source,
-  location: storms.location,
-  startMonth: storms.startMonth,
-  startDay: storms.startDay,
-  endMonth: storms.endMonth,
-  endDay: storms.endDay, */
-  /* output: same + fetched key of stormData */
- 
-  dispatch(changeView('loading'));
-  
-  const url = `${REACT_APP_BASE_URL}/api/users/??????`;
+  let id = ''
+  let {source, location, startMonth, startDay, endMonth, endDay} = values;
+  if (source && location && startMonth && endMonth) {
+    startDay = startDay ? startDay : helpers.getDaysOfMonth(startMonth);
+    endDay = endDay ? endDay : helpers.getDaysOfMonth(endMonth);
+  } else if (typeof values === 'number') {
+    id = values;
+  } else {
+    return dispatch(toggleModal(true, 'invalid selection'));
+  }
+    
+  const url = `${REACT_APP_BASE_URL}/api/storms/${id}`;
   const headers = {
     'content-type': 'application/json',
     'Authorization': `Bearer ${authToken}`, 
@@ -102,8 +107,7 @@ export const importStorms = (values, authToken) => dispatch => {
     headers,
   };
   const callback = {
-    isNew: false,
-    originalUser: null,
+    loadTo: 'stormsImported',
   }
   return dispatch(displayAPICall(url, init, callback));
 }

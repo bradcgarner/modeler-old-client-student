@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Field } from 'redux-form';
 import DropdownList from 'react-widgets/lib/DropdownList'
+import * as helpers from '../actions/helpers';
 
 export class StartEndDates extends React.Component {
   constructor(props){
@@ -20,20 +21,7 @@ export class StartEndDates extends React.Component {
   }
 
   setDays(theMonth) {
-    let monthDays;
-    switch (theMonth) {
-      case 'Feb':
-        monthDays = 28;
-      break;
-      case 'Apr':
-      case 'Jun':
-      case 'Sep':
-      case 'Nov':
-        monthDays = 30;
-        break;
-      default:
-        monthDays = 31;
-    }
+    const monthDays = helpers.getDaysOfMonth(theMonth);
     const daysList = [];
     for (let i = 1; i<= monthDays; i++) {
       daysList.push(i.toString());

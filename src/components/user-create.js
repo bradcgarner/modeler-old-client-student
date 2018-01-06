@@ -12,7 +12,7 @@ import * as actionsUser from '../actions/user';
 export function UserCreate (props) {
 
   const handleSubmitButton = values => {
-    props.dispatch(actionsUser.loadUser())
+    props.dispatch(actionsUser.createOrEditUser(values, true))
   }
 
   // create account 
@@ -140,7 +140,7 @@ export function UserCreate (props) {
 
         </form>
 
-        <Link to='/user/create'>I Already Have An Account</Link>
+        <Link to='/user/login'>I Already Have An Account</Link>
 
     </article>
   )

@@ -1,15 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route, Switch }  from 'react-router-dom';
-
 import * as actionsDisplay from '../actions/display';
 import * as actionsProject from '../actions/project';
 
 import OutputGraphs from './output-graphs';
 import OutputAnalysis from './output-analysis';
-
-import OutputAsideRanges from './output-aside-ranges';
-import OutputAsideAnalysis from './output-aside-analysis';
+import OutputAsideAnalysisDates from './output-aside-analysis-dates';
+import OutputAsideAnalysisEvents from './output-aside-analysis-events';
 
 // container div for output. Serves no purpose other than routing and positioning.
 // routes /app/output...
@@ -19,9 +17,9 @@ export function Output (props) {
     <div className='innerContainer'>
       <aside>
         <h4>output aside</h4>
-         <OutputAsideRanges/>
-         <Route path = '/app/output/analysis' component = {OutputAsideAnalysis}/>
-      </aside>
+        <OutputAsideAnalysisDates/>
+        <OutputAsideAnalysisEvents/>
+        </aside>
       <Switch>
         <Route path = '/app/output/graphs' component = {OutputGraphs}/>
         <Route path = '/app/output/analysis' component = {OutputAnalysis}/>

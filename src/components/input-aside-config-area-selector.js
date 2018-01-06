@@ -18,7 +18,24 @@ export function InputAsideConfigAreaSelector (props) {
   }
 
   const addArea = () => {
-    props.dispatch(actionsProject.addArea())
+    let hiKey = 0;
+    for (let key in props.project.areas) {
+      const intKey = parseInt(key,10);
+      hiKey = ( typeof intKey === 'number' && intKey > hiKey ) ? intKey : hiKey ;
+    }
+    const area = {
+      id: hiKey + 1,
+      name: '',
+      area: null,
+      covering: props.project.areas[props.display.focusArea].covering,
+      runoff: null,
+      cda: [],
+      slope: props.project.areas[props.display.focusArea].slope,
+      etTable: props.project.areas[props.display.focusArea].etTable,
+    };
+    props.dispatch(actionsProject.addArea(area))
+    props.dispatch(actionsDisplay.focusArea(area.id))
+
   }
 
   const renderDropdownList = ({ input, data, valueField, textField }) =>
@@ -54,7 +71,8 @@ export function InputAsideConfigAreaSelector (props) {
 }
 
 const mapStateToProps = state => ({
-  // general: state.general,
+  user: state.user,
+  display: state.display,
   project: state.project,
   initialValues: {name: state.project.areas[state.project.areas.focus].name},
   enableReinitialize: true,

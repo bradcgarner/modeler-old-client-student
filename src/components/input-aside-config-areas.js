@@ -18,7 +18,7 @@ export function InputAsideConfigAreas (props) {
   
   const handleSubmitButton = values => {
     // edit this to send all project areas
-    props.dispatch(actionsProject.createOrEditProject(values, 'areas', props.user.authToken))
+    props.dispatch(actionsProject.createOrEditProject({...values, id: props.project.id}, 'areas', props.user.authToken))
   }
 
   const renderMultiselect = ({ input, data, valueField, textField }) =>
@@ -40,9 +40,11 @@ export function InputAsideConfigAreas (props) {
   // const areaNum = props.project.areas.focus;
   // const area = props.project.areas[areaNum];
 
-  const listOtherAreas = props.project.areas.list.filter(area=>area!==props.project.areas[props.project.areas.focus].name);
-  const listCoverings = props.general.coverings.list;
-  const listEtTables = props.general.etTables.list;
+  const listOtherAreas = Array.isArray(props.project.areas.list) ? 
+    props.project.areas.list.filter(area=>area!==props.project.areas[props.project.areas.focus].name) :
+    [];
+  const listCoverings = Array.isArray(props.general.coverings.list) ? props.general.coverings.list : [];
+  const listEtTables = Array.isArray(props.general.etTables.list) ? props.general.etTables.list : [];
 
   return (
     
@@ -95,7 +97,7 @@ export function InputAsideConfigAreas (props) {
               id='covering'
               type='text'
               className='inputField'
-              component={renderMultiselect}
+              component={renderDropdownList}
               data={listCoverings}
               required />
           </div>

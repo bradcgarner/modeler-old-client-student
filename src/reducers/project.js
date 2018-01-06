@@ -21,21 +21,7 @@ export const project = (state = initialState, action) => {
   }
 
   if (action.type === actions.ADD_AREA) {
-    let hiKey = 0;
-    for (let key in state.areas) {
-      hiKey = ( typeof key === 'number' && key > hiKey ) ? key : hiKey ;
-    }
-    const area = {
-      id: hiKey + 1,
-      name: '',
-      area: null,
-      covering: state.areas[state.areas.focus].covering,
-      runoff: null,
-      cda: [],
-      slope: state.areas[state.areas.focus].slope,
-      etTable: state.areas[state.areas.focus].etTable,
-    };
-    const areas = {...state.areas, hiKey: area};
+    const areas = {...state.areas, [action.area.id]: action.area};
     return {...state, areas };
   }
 
@@ -68,14 +54,7 @@ export const project = (state = initialState, action) => {
   }
 
   if (action.type === actions.LOAD_ANALYSIS_SETTINGS) {
-    const rangeSettings = {...state.rangeSettings, 
-      startMonth: action.startMonth,
-      startDay: action.startDay,
-      endMonth: action.endMonth,
-      endDay: action.endDay,
-      startEvent: action.startEvent,
-      endEvent: action.endEvent,    }
-    return {...state, rangeSettings };
+    return {...state, analysisSettings: action.analysisSettings };
   }
 
   else {

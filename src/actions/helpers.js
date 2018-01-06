@@ -47,3 +47,22 @@ export const queryObject = (query, object, searchInKey, returnKey) => {
   }
   return focusId;
 }
+
+export const getDaysOfMonth = month => {
+  let monthDays;
+  switch (month) {
+    case 'Feb':
+      monthDays = 28;
+    break;
+    case 'Apr':
+    case 'Jun':
+    case 'Sep':
+    case 'Nov':
+      monthDays = 30;
+      break;
+    default:
+      monthDays = 31;
+    } 
+  return monthDays;
+}
+

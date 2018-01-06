@@ -1,36 +1,48 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import * as actionsDisplay from '../actions/display';
 import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
+import ProjectAdd from './project-add';
 
 // form to create new user
 // route /user/create
-export function UserDashboard (props) {
-
-  const selectProject = id => {
-    props.dispatch(actionsProject.fetchProject(id));
-    props.history.push('/app/input/configure/general');
+export class UserDashboard extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      adding: false,
+    }
   }
 
-  const addProject = () => {
-    props.dispatch(actionsProject.createOrEditProject('XXXXX FIX ARGUMENTS XXX',props.user.id));
-    // convert to a .then
-    props.history.push('/app/input/configure/general');
+  selectProject (id) {
+    this.props.dispatch(actionsProject.fetchProject(id, this.props.user.authToken));
+    this.props.history.push('/app/input/configure/units');
   }
 
-  const projects = props.user.projects.map((project,index)=>{
-    return <li key={index} onClick={()=>selectProject(project.id)}>{project.name}</li>
-  })
-  // create account 
-  return (
-    <article>
-      <p>My Projects</p>
-      <ul>{projects}</ul>
-      <button onClick={()=>addProject()}>add project</button>
-    </article>
-  )
+  toggleAddProject = () => {
+    this.setState({
+      adding: !this.state.adding
+    })
+  }
+
+  render() {
+    const projects = this.props.user.projects.map((project,index)=>{
+      return <li key={index} onClick={()=>this.selectProject(project.id)}>{project.name}</li>
+    })
+    const adding = this.state.adding ? <ProjectAdd history={this.props.history}/> : null;
+
+    // create account 
+    return (
+      <article>
+        <p>My Projects</p>
+        <ul>{projects}</ul>
+        <button onClick={()=>this.toggleAddProject()}>add project</button>
+        {adding}
+      </article>
+    )
+  }
+
 }
 
 const mapStateToProps = state => ({

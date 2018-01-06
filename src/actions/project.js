@@ -23,8 +23,9 @@ export const loadAreas = areas => ({
 });
 
 export const ADD_AREA = 'ADD_AREA';
-export const addArea = () => ({
+export const addArea = area => ({
   type: ADD_AREA,
+  area
 });
 
 export const LOAD_UNITS = 'LOAD_UNITS';
@@ -70,81 +71,19 @@ export const loadRanStormSettings = stormSettings => ({ // all keys for full pro
 });
 
 export const LOAD_ANALYSIS_SETTINGS = 'LOAD_ANALYSIS_SETTINGS';
-export const loadAnalysisSettings = settings => ({
+export const loadAnalysisSettings = analysisSettings => ({
   type: LOAD_ANALYSIS_SETTINGS,
-  startMonth: settings.startMonth,
-  startDay: settings.startDay,
-  endMonth: settings.endMonth,
-  endDay: settings.endDay,
-  startEvent: settings.startEvent,
-  endEvent: settings.endEvent,
+  analysisSettings,
 });
-
-// @@@@@@@@@@@@@@@ TEMP FAKER OPTIONS @@@@@@@@@@@@@@@@@
-
-
-const tempProject = {
-  name: 'fetched project',
-  general: {
-    intervalMins: 5,
-    eventGapThreshold: 480,
-    area: 'sf', 
-    volume: 'gallons',
-    thickness: 'inches',
-    controlledRate: 0.002,
-    controlledHi: 70,
-    controlledLo: 0
-  },
-  areas: {
-    focus: 0,        // area id primary key
-    list: [ 'a','b','c' ],    // used for value lists
-    0: {             // area id primary key
-      id: 0,         // area id primary key
-      name: 'a',      // text name
-      area: 0,       // integer
-      covering: 0,   // covering id foreign key
-      runoff: 0,   // area id foreign key
-      cda: [0,0,0], // area ids foreign keys
-      slope: 0,      // integer %
-      etTable: 0,         // table id foreign key
-    }, 
-    1: {             // area id primary key
-      id: 1,         // area id primary key
-      name: 'b',      // text name
-      area: 0,       // integer
-      covering: 0,   // covering id foreign key
-      runoff: 0,   // area id foreign key
-      cda: [1], // area ids foreign keys
-      slope: 0,      // integer %
-      etTable: 0,         // table id foreign key
-    }, 
-    2: {             // area id primary key
-      id: 1,         // area id primary key
-      name: 'c',      // text name
-      area: 0,       // integer
-      covering: 0,   // covering id foreign key
-      runoff: 0,   // area id foreign key
-      cda: [1], // area ids foreign keys
-      slope: 0,      // integer %
-      etTable: 0,         // table id foreign key
-    }, 
-  },
-  coverings: {},    // copy of coverings used in areas for hash-type reference
-  events: [1,2,3], // list of all events, generated at runtime, used for selection list
-  storms: {
-    totalMinutes: 0, // single-purpose value to summarize all values below,
-    minuteTracker: { // single-purpose object to add up all minutes on the form; used at input, ignored at submission
-      0: 0,
-      1: 0,
-    }
-  }
-};
 
 // @@@@@@@@@@@@@@@ ASYNC @@@@@@@@@@@@@@@@@
 
 export const projectAPICall = (url, init, callback) => dispatch => {
-
+  console.log(url, init, callback);
+  return;
   // console.log('just before',init)
+  dispatch(actionsDisplay.changeView('loading'));
+
   return fetch(url, init)   
   .then(project=>{ 
     if (!project.ok) { 
@@ -199,6 +138,7 @@ export const projectAPICall = (url, init, callback) => dispatch => {
 
     switch (callback.loadto) {
       case 'project':
+      case 'create':
         dispatch(actionsDisplay.focusArea(focusArea));
         dispatch(actionsDisplay.focusEt(focusEt));
         dispatch(actionsDisplay.focusCovering(focusCovering));
@@ -250,8 +190,6 @@ export const projectAPICall = (url, init, callback) => dispatch => {
 
 
 export const fetchProject = (projectId, authToken) => dispatch => {
-
-  dispatch(actionsDisplay.changeView('loading'));
   
   const url = `${REACT_APP_BASE_URL}/api/projects/${projectId}`;
   const headers = {
@@ -266,14 +204,13 @@ export const fetchProject = (projectId, authToken) => dispatch => {
     isNew: false,
     originalUser: null,
   }
-
   dispatch(projectAPICall(url, init, callback));
 };
 
 export const createOrEditProject = (project, option, authToken) => dispatch => {
   // go to the user, add a project, return the id, then load it into state
 
-  const params = option === 'create' ? '' : '????' ;
+  const params = option === 'run' ? 'run' : '' ;
   const method = option === 'create' ? 'POST' : 'PUT';
 
   const url = `${REACT_APP_BASE_URL}/api/projects/${project.id}/${params}`;
@@ -281,7 +218,6 @@ export const createOrEditProject = (project, option, authToken) => dispatch => {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${authToken}`,
   };
-
   const init = { 
     method,
     body: JSON.stringify(project),
@@ -290,7 +226,6 @@ export const createOrEditProject = (project, option, authToken) => dispatch => {
   const callback = {
     loadTo: option,
   }
-
   dispatch(projectAPICall(url, init, callback));
 };
 

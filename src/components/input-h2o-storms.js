@@ -19,7 +19,7 @@ export class InputH2OStorms extends React.Component {
   }
 
   handleSubmitButton = values => {
-    this.props.dispatch(actionsProject.createOrEditProject(values, 'stormTableToRun', this.props.user.authToken))
+    this.props.dispatch(actionsProject.createOrEditProject({...values, id: this.props.project.id}, 'stormTableToRun', this.props.user.authToken))
   }
 
   addLine() {
