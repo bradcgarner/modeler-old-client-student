@@ -3,21 +3,20 @@ import { connect } from 'react-redux';
 import { Redirect, Route, Switch }  from 'react-router-dom';
 
 import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
 // import InputAside from './input-aside';
 import InputConfig from './input-config';
-import InputProducts from './input-products';
+import InputCoverings from './input-coverings';
 import InputH2OStorms from './input-h2o-storms';
 import InputH2OImport from './input-h2o-import';
 import InputH2OControlled from './input-h2o-controlled';
 import InputET from './input-et';
 
-import InputAsideConfigGeneral from './input-aside-config-general';
+import InputAsideConfigUnits from './input-aside-config-units';
 import InputAsideConfigAreas from './input-aside-config-areas';
-import InputAsideProducts from './input-aside-products';
-import InputAsideH2oStorms from './input-aside-h2o-storms';
+import InputAsideCoverings from './input-aside-coverings';
+import InputAsideH2oIntervals from './input-aside-h2o-intervals';
 import InputAsideH2oImport from './input-aside-h2o-import';
 import InputAsideH2oControlled from './input-aside-h2o-controlled';
 import InputAsideET from './input-aside-et';
@@ -32,10 +31,10 @@ export function Input (props) {
       <aside>
         <h4>input aside</h4>
         <Switch>
-          <Route exact path = '/app/input/configure/general'  component = {InputAsideConfigGeneral}/>
+          <Route exact path = '/app/input/configure/units'  component = {InputAsideConfigUnits}/>
           <Route exact path = '/app/input/configure/areas'    component = {InputAsideConfigAreas}/>
-          <Route exact path = '/app/input/products'           component = {InputAsideProducts}/>
-          <Route exact path = '/app/input/h2o/storms'         component = {InputAsideH2oStorms}/>
+          <Route exact path = '/app/input/coverings'          component = {InputAsideCoverings}/>
+          <Route exact path = '/app/input/h2o/intervals'      component = {InputAsideH2oIntervals}/>
           <Route exact path = '/app/input/h2o/import'         component = {InputAsideH2oImport}/>
           <Route exact path = '/app/input/h2o/controlled'     component = {InputAsideH2oControlled}/>
           <Route exact path = '/app/input/et'                 component = {InputAsideET}/>
@@ -44,7 +43,7 @@ export function Input (props) {
       </aside>
       <Switch>
         <Route path = '/app/input/configure'      component = {InputConfig}/>
-        <Route path = '/app/input/products'       component = {InputProducts}/>
+        <Route path = '/app/input/coverings'      component = {InputCoverings}/>
         <Route path = '/app/input/h2o/storms'     component = {InputH2OStorms}/>
         <Route path = '/app/input/h2o/controlled' component = {InputH2OControlled}/>
         <Route path = '/app/input/h2o/import'     component = {InputH2OImport}/>

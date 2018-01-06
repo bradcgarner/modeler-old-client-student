@@ -4,8 +4,6 @@ import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 
 import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
-import * as actionsProject from '../actions/project';
 import StartEndDates from './start-end-dates';
 
 // interior to inputAside. Input of precipitation overall variables and settings.
@@ -13,7 +11,7 @@ import StartEndDates from './start-end-dates';
 export function InputAsideH2oImport (props) {
 
   const handleSubmitButton = values => {
-    props.dispatch(actionsProject.importStorms())
+    props.dispatch(actionsDisplay.importStorms())
   }
   
   return (

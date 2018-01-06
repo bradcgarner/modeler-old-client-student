@@ -1,80 +1,17 @@
-
-export const display = {
-  about: false,
-  main: '',
-  aside: '',
-  newAcct: false,
-  view: 'landing',
-};
-
-export const user = {
-  id: 0,
-  firstName: '',
-  lastName: '',
-  username: '',
-  email: '',
-  authToken: '',
-  projects: [{name:'x', id: 0},{name:'y', id:1}],
-};
-
-export const project = {
-  name: '',
-  general: {
-    intervalMins: 5,
-    eventGapThreshold: 480,
-    area: 'sf', 
-    volume: 'gallons',
-    thickness: 'inches',
-    controlledRate: 0.002,
-    controlledHi: 70,
-    controlledLo: 0
-  },
-  analysisSettings: {
-    xxx: 'xxx',
-  },
-  areas: {
-    focus: 0,        // area id primary key
-    list: [ 'a','b' ],    // used for value lists
-    0: {             // area id primary key
-      id: 0,         // area id primary key
-      name: 'a',      // text name
-      area: 0,       // integer
-      product: 0,   // product id foreign key
-      runoff: 0,   // area id foreign key
-      cda: [0,0,0], // area ids foreign keys
-      slope: 0,      // integer %
-      etTable: 0,         // table id foreign key
-    }, 
-    1: {             // area id primary key
-      id: 1,         // area id primary key
-      name: 'b',      // text name
-      area: 0,       // integer
-      product: 0,   // product id foreign key
-      runoff: 0,   // area id foreign key
-      cda: [1], // area ids foreign keys
-      slope: 0,      // integer %
-      etTable: 0,         // table id foreign key
-    }, 
-  },
-  products: {},    // copy of products used in areas for hash-type reference
-  events: [1,2,3], // list of all events, generated at runtime, used for selection list
-  storms: {
-    totalMinutes: 0, // single-purpose value to summarize all values below,
-    minuteTracker: { // single-purpose object to add up all minutes on the form; used at input, ignored at submission
-      0: 0,
-      1: 0,
-    }
-  }
-};
+// initial state is in same order as endpoints in api
+// https://app.swaggerhub.com/api/Brad-Garner/GRSWM/ - be sure to use current version
 
 export const general = {
+  // data and settings that are not changed by the user, e.g. not changed by display or project
+  // includes fixed setitngs, and value lists that are fetched from the server on initialize  
+  // endpoints: api/initialize
   vwcIncrementEff: 5,
   vwcIncrementEt: 10,
   rainIntensityIncrement: 0.0009,
   rainIntensityIncrements: 8,
-  products: {
+  coverings: {
     list: ['',''], // used for value lists
-    focus: 0,
+    listId: [0,1], // used with value lists
     0: {
       id: 0,
       name: 'a',
@@ -118,7 +55,7 @@ export const general = {
   },
   etTables: {
     list: ['',''], // used for value lists
-    focus: 0,
+    listId: [0,1], // used with value lists
     0: {
       id: 0,
       name: '',
@@ -301,4 +238,137 @@ export const general = {
   ],
   months: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
 
+};
+
+export const user = {
+  // user who is currently logged in
+  // user is loaded at login
+  // user's list of projects is used for selection
+  // endpoints: api/users/...
+  id: 0,
+  username: '',
+  firstName: '',
+  lastName: '',
+  organization: '',
+  authToken: '',
+  projects: [{name:'x', id: 0},{name:'y', id:1}],
+};
+
+export const project = {
+  // project that is in focus; when project is selected, project is loaded into state
+  // only one project is in state at a time
+  // endpoints: api/projects/...
+  name: '',
+  locationCity: '',
+  locationState: '',
+  locationCountry: '',
+  areas: {
+    focus: 0,        // area id primary key
+    list: [ 'a','b' ],    // used for value lists
+    0: {             // area id primary key
+      id: 0,         // area id primary key
+      name: 'a',      // text name
+      area: 0,       // integer
+      covering: 0,   // covering id foreign key
+      runoff: 0,   // area id foreign key
+      cda: [0,0,0], // area ids foreign keys
+      slope: 0,      // integer %
+      etTable: 0,         // table id foreign key
+    }, 
+    1: {             // area id primary key
+      id: 1,         // area id primary key
+      name: 'b',      // text name
+      area: 0,       // integer
+      covering: 0,   // covering id foreign key
+      runoff: 0,   // area id foreign key
+      cda: [1], // area ids foreign keys
+      slope: 0,      // integer %
+      etTable: 0,         // table id foreign key
+    }, 
+  },
+  units: {
+    area: 'square feet', 
+    volume: 'gallons',
+    thickness: 'inches',
+  },
+  intervals: {
+    intervalMins: 5,
+    eventGapThreshold: 480,
+  },
+  controlled: {
+    controlledRate: 0.002,
+    controlledHi: 70,
+    controlledLo: 0
+  },
+  stormSettings: {
+    // information about storms saved for current project
+    // storm data is user input of storms, saved from Redux forms
+    // to be used at next runtime
+    source: '',
+    location: '',
+    startMonth: '',
+    startDay: '',
+    endMonth: '',
+    endDay: '',
+    stormData: [],
+  },
+  ranIntervals: {
+    intervalMins: 5,
+    eventGapThreshold: 480,
+  },
+  ranControlled: {
+    controlledRate: 0.002,
+    controlledHi: 70,
+    controlledLo: 0
+  },
+  ranStormSettings: {
+    // information about storms saved for current project as of last runtime
+    // populated only at end of runtime, by copying from 'storms' upon success
+    source: '',
+    location: '',
+    startMonth: '',
+    startDay: '',
+    endMonth: '',
+    endDay: '',
+    stormData: [],
+    events: [1,2,3], // list of all events, generated at runtime, used for selection list
+  },
+  analysisSettings: {
+    // settings used to filter graphs and tabular analysis
+    // settings are display properties for project only, but are saved in project vs display, as it filters project data (is not purely display)
+    // settings are saved to project record in SQL, just so user can see where they left off
+    startMonth: '',
+    startDay: '',
+    endMonth: '',
+    endDay: '',
+    startEvent: '',
+    endEvent: '',
+  }
+};
+
+export const display = {
+  // 
+  // main: '',
+  // aside: '',
+  // newAcct: false,
+  view: 'landing',
+  modal: false,
+  message: '',
+  focusArea: 0,
+  focusEt: 0,
+  focusCovering: 0,
+  storms: {
+    totalMinutes: 0, // single-purpose value to summarize all values below,
+    minuteTracker: { // single-purpose object to add up all minutes on the form; used at input, ignored at submission
+      0: 0,
+      1: 0,
+    },
+    totalDays: 0, 
+    totalHours: 0, 
+    allMinutes: 0,
+  },
+  stormsImported: {
+    header: '',
+    stormData: [],
+  },
 };

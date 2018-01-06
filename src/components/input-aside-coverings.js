@@ -5,22 +5,17 @@ import { reduxForm, Field } from 'redux-form';
 import DropdownList from 'react-widgets/lib/DropdownList'
 
 import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
-import * as actionsGeneral from '../actions/general';
+import * as helpers from '../actions/helpers';
 
-// interior to inputAside. No user input. Displays sources of product efficiency table data.
-// route app/input/products
-export function InputAsideProducts (props) {
+// interior to inputAside. No user input. Displays sources of covering efficiency table data.
+// route app/input/coverings
+export function InputAsideCoverings (props) {
 
-  const selectProduct = value => {
-    let selectedValue = value[0];
-    for (let key in value) {
-      if (key !== '0' && typeof value[key] === 'string') {
-        selectedValue += value[key];
-      }
-    }
-    props.dispatch(actionsGeneral.selectProduct(selectedValue))
+  const focusCovering = value => {
+    const selectedName = helpers.convertStringKeysToString(value);
+    const focusId = helpers.queryObject(selectedName, props.project.coverings, 'name', 'id')
+    props.dispatch(actionsDisplay.focusCovering(focusId))
   }
 
   const renderDropdownList = ({ input, data, valueField, textField }) =>
@@ -30,7 +25,7 @@ export function InputAsideProducts (props) {
     textField={textField}
     onChange={input.onChange} />
 
-  const productsList = props.general.products.list;
+  const coveringsList = props.general.coverings.list;
   
   return (
     <div>
@@ -38,7 +33,7 @@ export function InputAsideProducts (props) {
         <div>
           <label
             className='inputLabel'
-            htmlFor='name'>product
+            htmlFor='name'>covering
           </label>
           <Field
             name='name'
@@ -46,8 +41,8 @@ export function InputAsideProducts (props) {
             type='text'
             className='inputField'
             component={renderDropdownList}
-            data={productsList}
-            onChange={(value) => selectProduct(value)} />
+            data={coveringsList}
+            onChange={(value) => focusCovering(value)} />
         </div>
       </form>
     </div>
@@ -61,5 +56,5 @@ const mapStateToProps = state => ({
 
 export default compose(
   connect(mapStateToProps),
-  reduxForm({form: 'inputAsideProducts'})
-)(InputAsideProducts);
+  reduxForm({form: 'inputAsideCoverings'})
+)(InputAsideCoverings);

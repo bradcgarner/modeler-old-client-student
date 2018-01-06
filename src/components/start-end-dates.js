@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Field } from 'redux-form';
 import DropdownList from 'react-widgets/lib/DropdownList'
-import { SELECT_PRODUCT } from '../actions/general';
 
 export class StartEndDates extends React.Component {
   constructor(props){

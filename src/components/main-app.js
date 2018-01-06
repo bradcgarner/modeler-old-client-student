@@ -1,11 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, Switch}  from 'react-router-dom';
-
-import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
-import * as actionsProject from '../actions/project';
-import NavBar from './navbar'
 import Input from './input'
 import Output from './output'
 

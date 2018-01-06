@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { reduxForm, Field } from 'redux-form';
-
+import { reduxForm } from 'redux-form';
 import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
 import InputH2OLine from './input-h2o-line';
@@ -21,7 +19,7 @@ export class InputH2OStorms extends React.Component {
   }
 
   handleSubmitButton = values => {
-    this.props.dispatch(actionsProject.updateSavedStorms(values))
+    this.props.dispatch(actionsProject.createOrEditProject(values, 'stormTableToRun', this.props.user.authToken))
   }
 
   addLine() {
@@ -53,10 +51,10 @@ export class InputH2OStorms extends React.Component {
               <tr>
                 <th context='row'>totals</th>
                 <td>n/a</td>
-                <td>{this.props.project.storms.totalMinutes}</td>
-                <td>{this.props.project.storms.totalHours}</td>
-                <td>{this.props.project.storms.totalDays}</td>
-                <td>{this.props.project.storms.allMinutes}</td>
+                <td>{this.props.display.storms.totalMinutes}</td>
+                <td>{this.props.display.storms.totalHours}</td>
+                <td>{this.props.display.storms.totalDays}</td>
+                <td>{this.props.display.storms.allMinutes}</td>
               </tr>
             </tbody>
           </table>

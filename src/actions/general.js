@@ -1,52 +1,69 @@
 import 'whatwg-fetch';
-import { SubmissionError } from 'redux-form';
-import { REACT_APP_BASE_URL } from '../config'
+import { REACT_APP_BASE_URL } from '../config';
+import * as actionsDisplay from './display';
+import * as helpers from './helpers';
 
-export const INITIALIZE = 'INITIALIZE';
-export const initialize = object => ({
-  type: INITIALIZE,
-  et: object.et,
-  coverings: object.coverings,
+export const LOAD_INITIALIZE = 'LOAD_INITIALIZE';
+export const loadInitialize = general => ({
+  type: LOAD_INITIALIZE,
+  etTables: general.etTables,
+  coverings: general.coverings,
 });
 
-export const SELECT_ET = 'SELECT_ET';
-export const selectEt = etTableName => ({
-  type: SELECT_ET,
-  etTableName,
-});
+// @@@@@@@@@@@@@@@ ASYNC @@@@@@@@@@@@@@@@@
 
-export const SELECT_PRODUCT = 'SELECT_PRODUCT';
-export const selectProduct = productName => ({
-  type: SELECT_PRODUCT,
-  productName,
-});
+export const generalAPICall = (url, init, callback) => dispatch => {
 
-// @@@@@@@@@@@@@@@@@@@@
+  // console.log('just before',init)
+  return fetch(url, init)   
+  .then(general=>{ 
+    if (!general.ok) { 
+      return Promise.reject(general.statusText);
+    }
+    return general.json();
+  })
+  .then(general=>{
+    console.log('general returned', general)
+    if (callback.loadTo === 'initialize') {
+      const etTablesObj = helpers.arrayToObject(general.etTables, 'id');
+      const etTablesList = general.etTables.map(table=>table.name)
+      const etIdList = general.etTables.map(table=>table.id)
+      const etTables = {...etTablesObj, list: etTablesList, listId: etIdList};
 
-export const stringArrayOfObjects=(array,key)=>{
-  // input: [ {}, {} ]      output ['','']
-  if (Array.isArray(array)) {
-    return array.map(item=>item[key])
-  }
-  return [];
+      const coveringsObj = helpers.arrayToObject(general.coverings, 'id');
+      const coveringsList = general.coverings.map(covering=>covering.name)
+      const coveringsIdList = general.coverings.map(covering=>covering.id)
+      const coverings = {...coveringsObj, list: coveringsList, listId: coveringsIdList};
+
+      const formattedGeneral = {etTables, coverings};
+      dispatch(loadInitialize(formattedGeneral))
+    }
+    return dispatch(actionsDisplay.changeView('normal'));
+  })
+  .catch(error => {
+    // console.log('error',error);
+    dispatch(actionsDisplay.changeView('normal'));
+    return dispatch(actionsDisplay.toggleModal(true, error));
+  })
 }
 
-// initialize app
-// fetch general data
-// load to state
-let coverings = {};
-let et = {};
+// @@@@@@@@@@@@@@@ ASYNC HEADER/URL FORMATTING @@@@@@@@@@@@@@@@@
 
-const listCoverings = [];
-for(let key in coverings) {
-  if(typeof key === 'number'){
-    listCoverings.push({id: key.id, name: key.name})
-  }
-};
+export const initialize = () => dispatch => {   // state location options = 'user' and 'userViewed'
 
-const listET = [];
-for(let key in et) {
-  if(typeof key === 'number'){
-    listET.push({id: key.id, name: key.name})
+  dispatch(actionsDisplay.changeView('loading'));
+  
+  const url = `${REACT_APP_BASE_URL}/api/initialize`;
+  const headers = {
+    'content-type': 'application/json',
+  }; 
+  const init = { 
+    method: 'GET',
+    headers,
+  };
+  const callback = {
+    loadTo: 'initialize',
   }
-};
+  return dispatch(generalAPICall(url, init, callback));
+}
+

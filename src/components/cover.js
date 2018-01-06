@@ -1,13 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
-import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
-import * as actionsProject from '../actions/project';
 
 // app name and logo. 
 // routes /home, /user/login, /user/create
-export function Cover (props) {
+export default function Cover (props) {
   return (
     <div className='cover'>
       <h1>GRSWM</h1>
@@ -15,11 +10,3 @@ export function Cover (props) {
     </div>
   )
 }
-
-const mapStateToProps = state => ({
-  display: state.display,
-  user: state.user,
-  project: state.project
-});
-
-export default connect(mapStateToProps)(Cover);

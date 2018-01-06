@@ -2,16 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
-// interior to input. No user input.  Displays product efficiency tables. 
-// User selects products in configure/areas.
-// route app/input/products
+// interior to input. No user input.  Displays covering efficiency tables. 
+// User selects coverings in configure/areas.
+// route app/input/coverings
 // 'aside' components have more specific controlling exact paths
-export function InputProducts (props) {
+export function InputCoverings (props) {
 
-  const selectedProductKey = 0; // change to read from state
+  const selectedCoveringKey = 0; // change to read from state
 
   const tableHeaders = [<th scope='row' key={0}></th>];
   for (let cols = 1; 
@@ -20,7 +19,7 @@ export function InputProducts (props) {
       tableHeaders.push(<th key={cols}>{ props.general.rainIntensityIncrement * cols}</th>)
     }
 
-  const tableBody = props.general.products[selectedProductKey].efficiency.map((row,index)=>{
+  const tableBody = props.general.coverings[selectedCoveringKey].efficiency.map((row,index)=>{
     const tableRow = row.map((cell,index)=>{
       const classGroup = Math.floor(cell/10) || 0;
       return <td className ={`effTableCell${classGroup}`} key={`${index}cell`}>{cell}</td>
@@ -30,7 +29,7 @@ export function InputProducts (props) {
     return <tr key={index}><th scope='row'>{pct}%</th>{tableRow}</tr>
   })
   
-  const productEff = <table style={{width: '100%'}}>
+  const coveringEff = <table style={{width: '100%'}}>
     <tbody>
       <tr>{tableHeaders}</tr>
       {tableBody}
@@ -39,8 +38,8 @@ export function InputProducts (props) {
 
   return (
     <section>
-      <h4>Input Products</h4>
-      {productEff}
+      <h4>Input Coverings</h4>
+      {coveringEff}
     </section>
   )
 }
@@ -52,4 +51,4 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps)(InputProducts);
+export default connect(mapStateToProps)(InputCoverings);

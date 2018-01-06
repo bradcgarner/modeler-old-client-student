@@ -1,11 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
-import * as actionsProject from '../actions/project';
 import LandingFooter from './landing-footer';
-import Cover from './cover';
 
 // landing page prior to login
 // route /home
@@ -15,15 +11,14 @@ export function Landing (props) {
     <div className='landingContainer'>
       <div className='landing'>
         <h1>Landing</h1>
-        <div className='iconWrapper' ariaLabel='home'><i className="fa fa-home tooltip" aria-hidden="true"><div className='popover'>Home</div></i></div>
-        <div className='iconWrapper' ariaLabel='home'><i className="fa fa-sign-in tooltip" aria-hidden="true"><div className='popover'>Sign in</div></i></div>
-        <div className='iconWrapper' ariaLabel='home'><i className="fa fa-sign-out tooltip" aria-hidden="true"><div className='popover'>Sign out</div></i></div>
-        <div className='iconWrapper' ariaLabel='home'><i className="fa fa-user tooltip" aria-hidden="true"><div className='popover'>My account</div></i></div>
-
-        <div className='iconWrapper' ariaLabel='home'><i className="fa fa-download tooltip" aria-hidden="true"><div className='popover'>Download</div></i></div>
-        <div className='iconWrapper' ariaLabel='home'><i className="fa fa-plus tooltip" aria-hidden="true"><div className='popover'>Add</div></i></div>
-        <div className='iconWrapper' ariaLabel='home'><i className="fa fa-undo tooltip" aria-hidden="true"><div className='popover'>Reset to prior save</div></i></div>
-        <div className='iconWrapper' ariaLabel='home'><i className="fa fa-floppy-o tooltip" aria-hidden="true"><div className='popover'>Save</div></i></div>
+        <div className='iconWrapper' aria-label='home'><i className="fa fa-home tooltip" aria-hidden="true"><div className='popover'>Home</div></i></div>
+        <div className='iconWrapper' aria-label='home'><i className="fa fa-sign-in tooltip" aria-hidden="true"><div className='popover'>Sign in</div></i></div>
+        <div className='iconWrapper' aria-label='home'><i className="fa fa-sign-out tooltip" aria-hidden="true"><div className='popover'>Sign out</div></i></div>
+        <div className='iconWrapper' aria-label='home'><i className="fa fa-user tooltip" aria-hidden="true"><div className='popover'>My account</div></i></div>
+        <div className='iconWrapper' aria-label='home'><i className="fa fa-download tooltip" aria-hidden="true"><div className='popover'>Download</div></i></div>
+        <div className='iconWrapper' aria-label='home'><i className="fa fa-plus tooltip" aria-hidden="true"><div className='popover'>Add</div></i></div>
+        <div className='iconWrapper' aria-label='home'><i className="fa fa-undo tooltip" aria-hidden="true"><div className='popover'>Reset to prior save</div></i></div>
+        <div className='iconWrapper' aria-label='home'><i className="fa fa-floppy-o tooltip" aria-hidden="true"><div className='popover'>Save</div></i></div>
 
       </div>
       <LandingFooter/>

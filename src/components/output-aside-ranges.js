@@ -5,7 +5,6 @@ import { reduxForm, Field } from 'redux-form';
 import DropdownList from 'react-widgets/lib/DropdownList'
 
 import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 import StartEndDates from './start-end-dates';
 
@@ -14,7 +13,7 @@ import StartEndDates from './start-end-dates';
 export function OutputAsideRanges (props) {
 
   const handleSubmitButton = values => {
-    props.dispatch(actionsProject.loadRangeSettings(values))
+    props.dispatch(actionsProject.loadAnalysisSettings(values))
   }
 
   // set this so that we toggle between date ranges and event ranges, not both

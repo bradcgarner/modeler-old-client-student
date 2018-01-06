@@ -2,27 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
-import DropdownList from 'react-widgets/lib/DropdownList'
 import SelectList from 'react-widgets/lib/SelectList'
-
 import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
 // interior to inputAside. Input of general variables and settings.
 // route app/input/configure/general
-export function InputAsideConfigGeneral (props) {
+export function InputAsideConfigUnits (props) {
 
   const handleSubmitButton = values => {
-    props.dispatch(actionsProject.updateGeneralSettings(values))
+    props.dispatch(actionsProject.createOrEditProject(values, 'units', props.user.authToken))
   }
-
-  const renderDropdownList = ({ input, data, valueField, textField }) =>
-    <DropdownList {...input}
-      data={data}
-      valueField={valueField}
-      textField={textField}
-      onChange={input.onChange} />
 
   const renderSelectList = ({ input, data }) =>
     <SelectList {...input}
@@ -34,8 +24,7 @@ export function InputAsideConfigGeneral (props) {
       <h4>aside configure general</h4>
 
       <form className='asideInputForm'
-          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))}
-        >
+          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
 
           <div>
             <label
@@ -98,15 +87,11 @@ const mapStateToProps = state => ({
   general: state.general,
   display: state.display,
   project: state.project,
-  initialValues: {
-    area: state.project.general.area, 
-    volume: state.project.general.volume, 
-    thickness: state.project.general.thickness, 
-  },
+  initialValues: state.project.units,
   enableReinitialize: true,
 });
 
 export default compose(
   connect(mapStateToProps),
-  reduxForm({form: 'inputAsideConfigGeneral'})
-)(InputAsideConfigGeneral);
+  reduxForm({form: 'inputAsideConfigUnits'})
+)(InputAsideConfigUnits);

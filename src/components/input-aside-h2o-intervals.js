@@ -4,15 +4,14 @@ import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 
 import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
 // interior to inputAside. Input of precipitation overall variables and settings.
 // route app/input/h2o/storms
-export function InputAsideH2oStorms (props) {
+export function InputAsideH2oIntervals (props) {
 
   const handleSubmitButton = values => {
-    props.dispatch(actionsProject.updateStormSettings(values))
+    props.dispatch(actionsProject.createOrEditProject(values, 'intervals', props.user.authToken))
   }
   
   return (
@@ -71,14 +70,11 @@ const mapStateToProps = state => ({
   display: state.display,
   user: state.user,
   project: state.project,
-  initialValues: {
-    intervalMins: state.project.general.intervalMins, 
-    eventGapThreshold: state.project.general.eventGapThreshold
-  },
+  initialValues: state.project.intervals,
   enableReinitialize: true,
 });
 
 export default compose(
   connect(mapStateToProps),
-  reduxForm({form: 'inputAsideH2oStorms'})
-)(InputAsideH2oStorms);
+  reduxForm({form: 'inputAsideH2oIntervals'})
+)(InputAsideH2oIntervals);

@@ -6,7 +6,6 @@ import Multiselect from 'react-widgets/lib/Multiselect'
 import DropdownList from 'react-widgets/lib/DropdownList'
 
 import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 import InputAsideConfigAreaSelector from './input-aside-config-area-selector';
 
@@ -15,10 +14,11 @@ import InputAsideConfigAreaSelector from './input-aside-config-area-selector';
 export function InputAsideConfigAreas (props) {
 
   // add a link to show ET table
-  // add a link to show product details
+  // add a link to show covering details
   
   const handleSubmitButton = values => {
-    props.dispatch(actionsProject.updateArea(values))
+    // edit this to send all project areas
+    props.dispatch(actionsProject.createOrEditProject(values, 'areas', props.user.authToken))
   }
 
   const renderMultiselect = ({ input, data, valueField, textField }) =>
@@ -40,10 +40,8 @@ export function InputAsideConfigAreas (props) {
   // const areaNum = props.project.areas.focus;
   // const area = props.project.areas[areaNum];
 
-
-  const listAreas = props.project.areas.list;
   const listOtherAreas = props.project.areas.list.filter(area=>area!==props.project.areas[props.project.areas.focus].name);
-  const listProducts = props.general.products.list;
+  const listCoverings = props.general.coverings.list;
   const listEtTables = props.general.etTables.list;
 
   return (
@@ -75,7 +73,7 @@ export function InputAsideConfigAreas (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor='area'>size ({props.project.general.area})
+              htmlFor='area'>size ({props.project.units.area})
             </label>
             <Field
               name='area'
@@ -90,15 +88,15 @@ export function InputAsideConfigAreas (props) {
           <div>
             <label
               className='inputLabel'
-              htmlFor='product'>covering
+              htmlFor='covering'>covering
             </label>
             <Field
-              name='product'
-              id='product'
+              name='covering'
+              id='covering'
               type='text'
               className='inputField'
               component={renderMultiselect}
-              data={listProducts}
+              data={listCoverings}
               required />
           </div>
 
@@ -184,7 +182,7 @@ const mapStateToProps = state => ({
   display: state.display,
   user: state.user,
   project: state.project,
-  initialValues: state.project.areas[state.project.areas.focus],
+  initialValues: state.project.areas[state.display.focusArea],
   enableReinitialize: true,
 });
 

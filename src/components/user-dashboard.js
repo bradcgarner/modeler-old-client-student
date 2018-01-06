@@ -15,7 +15,7 @@ export function UserDashboard (props) {
   }
 
   const addProject = () => {
-    props.dispatch(actionsProject.addProject(props.user.id));
+    props.dispatch(actionsProject.createOrEditProject('XXXXX FIX ARGUMENTS XXX',props.user.id));
     // convert to a .then
     props.history.push('/app/input/configure/general');
   }

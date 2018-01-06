@@ -3,7 +3,6 @@ import { Field } from 'redux-form';
 import { connect } from 'react-redux';
 
 import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
 // interior to inputAside. Input of precipitation overall variables and settings.
@@ -22,7 +21,7 @@ export class InputH2oLine extends React.Component {
   updateTotal(key, value){
     // console.log('');
     // console.log(value)
-    const intValue = typeof value.nativeEvent.target.value === 'string' ? parseInt(value.nativeEvent.target.value) : 0 ;
+    const intValue = typeof value.nativeEvent.target.value === 'string' ? parseInt((value.nativeEvent.target.value),10) : 0 ;
     // console.log(intValue);
     // console.log(this.state.minutes, this.state.hours, this.state.days, this.state.totalMinutes)
     const newMinutes = key === 'minutes' ? intValue : this.state.minutes ;
@@ -36,7 +35,7 @@ export class InputH2oLine extends React.Component {
       totalMinutes: totalMinutes,
     });
 
-    this.props.dispatch(actionsProject.updateAreaMinutes({id: this.props.index, value: totalMinutes}))
+    this.props.dispatch(actionsDisplay.updateStormMinutes({id: this.props.index, value: totalMinutes}))
   }
 
   render() {

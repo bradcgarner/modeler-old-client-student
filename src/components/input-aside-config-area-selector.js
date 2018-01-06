@@ -2,31 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
-import Multiselect from 'react-widgets/lib/Multiselect'
 import DropdownList from 'react-widgets/lib/DropdownList'
 
 import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
-
+import * as helpers from '../actions/helpers';
 // interior to inputAside. Input of areas.
 // route app/input/configure/areas
 export function InputAsideConfigAreaSelector (props) {
 
-  const selectArea = value => {
-    let selectedValue = value[0];
-    for (let key in value) {
-      if (key !== '0' && typeof value[key] === 'string') {
-        selectedValue += value[key];
-      }
-    }
-    props.dispatch(actionsProject.selectArea(selectedValue));
+  const focusArea = value => {
+    const selectedName = helpers.convertStringKeysToString(value);
+    const focusId = helpers.queryObject(selectedName, props.project.areas, 'name', 'id')
+    props.dispatch(actionsDisplay.focusArea(focusId));
   }
 
   const addArea = () => {
     props.dispatch(actionsProject.addArea())
   }
-
 
   const renderDropdownList = ({ input, data, valueField, textField }) =>
   <DropdownList {...input}
@@ -34,7 +27,6 @@ export function InputAsideConfigAreaSelector (props) {
     valueField={valueField}
     textField={textField}
     onChange={input.onChange} />
-
 
   const listAreas = props.project.areas.list;
 
@@ -53,7 +45,7 @@ export function InputAsideConfigAreaSelector (props) {
             className='inputField'
             component={renderDropdownList}
             data={listAreas}
-            onChange={(value) => selectArea(value)} />
+            onChange={(value) => focusArea(value)} />
         </div>
       </form>
       <button onClick={()=>addArea()}>add area</button>

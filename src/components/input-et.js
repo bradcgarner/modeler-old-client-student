@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
 // interior to input. No user input. Displays ET tables. User selects ET table in aside.
@@ -31,9 +30,9 @@ export function InputET (props) {
       const pct = (index +1) * props.general.vwcIncrementEt;
       return <tr key={index}><th scope='row'>{pct}%</th>{tableRow}</tr>
     });
-    return <div className='etTableContainer'>
+    return <div className='etTableContainer' key={index}>
       <h3>{props.general.months[index]}</h3>
-      <table key={index} style={{width: '100%'}}>
+      <table style={{width: '100%'}}>
         <tbody>
           <tr>{tableHeaders}</tr>
           {tableBody}

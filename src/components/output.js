@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Redirect, Route, Switch }  from 'react-router-dom';
 
 import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
 import OutputGraphs from './output-graphs';

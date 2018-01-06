@@ -4,7 +4,6 @@ import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 
 import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
 
 // interior to inputAside. Input of controlled water input.
@@ -12,7 +11,7 @@ import * as actionsProject from '../actions/project';
 export function InputAsideH2oControlled (props) {
 
   const handleSubmitButton = values => {
-    props.dispatch(actionsProject.updateControlledSettings(values))
+    props.dispatch(actionsProject.createOrEditProject(values, 'controlled', props.user.authToken))
   }
 
   return (
@@ -85,10 +84,7 @@ const mapStateToProps = state => ({
   display: state.display,
   user: state.user,
   project: state.project,
-  initialValues: {
-    controlledRate: state.general.controlledRate,
-    controlledHi: state.general.controlledHi,
-    controlledLo: state.general.controlledLo,  },
+  initialValues: state.controlled,
   enableReinitialize: true,
 });
 

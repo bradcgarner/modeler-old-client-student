@@ -5,22 +5,17 @@ import { reduxForm, Field } from 'redux-form';
 import DropdownList from 'react-widgets/lib/DropdownList'
 
 import * as actionsDisplay from '../actions/display';
-import * as actionsUser from '../actions/user';
 import * as actionsProject from '../actions/project';
-import * as actionsGeneral from '../actions/general';
+import * as helpers from '../actions/helpers';
 
 // interior to inputAside. Only input is selection of evapotransporation table (input by others).
 // route app/input/et
 export function InputAsideET (props) {
 
-  const selectEt = value => {
-    let selectedValue = value[0];
-    for (let key in value) {
-      if (key !== '0' && typeof value[key] === 'string') {
-        selectedValue += value[key];
-      }
-    }
-    props.dispatch(actionsGeneral.selectEt(selectedValue))
+  const focusEt = value => {
+    const selectedName = helpers.convertStringKeysToString(value);
+    const focusId = helpers.queryObject(selectedName, props.project.areas, 'name', 'id')
+  props.dispatch(actionsDisplay.focusEt(focusId))
   }
 
   const renderDropdownList = ({ input, data, valueField, textField }) =>
@@ -48,7 +43,7 @@ export function InputAsideET (props) {
             className='inputField'
             component={renderDropdownList}
             data={listEtTables}
-            onChange={(value) => selectEt(value)} />
+            onChange={(value) => focusEt(value)} />
         </div>
       </form>
     </div>
