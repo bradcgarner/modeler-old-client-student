@@ -18,16 +18,16 @@ class App extends Component {
       <BrowserRouter>
         <div className="outerContainer">
           <Switch>
-            <Route exact path = '/home' component = {Landing}/>
-            <Route path =       '/user' component = {User}/>
-            <Route path =       '/app'  component = {MainApp}/>
+            <Route exact path = '/home' component={Landing}/>
+            <Route path =       '/user' component={User}/>
+            <Route path =       '/app'  component={MainApp}/>
             <Redirect from = '*' to = '/home'/>
           </Switch>
-          <Route path ='/home'           component = {Cover}/>
-          <Route path ='/user/login'     component = {Cover}/>
-          <Route path ='/user/create'    component = {Cover}/>
-          <Route path ='/user/dashboard' component = {NavBar}/>
-          <Route path ='/app'            component = {NavBar}/>
+          <Route path ='/home'           component={Cover}/>
+          <Route path ='/user/login'     component={Cover}/>
+          <Route path ='/user/create'    component={Cover}/>
+          <Route path ='/user/dashboard' component={NavBar}/>
+          <Route path ='/app'            component={NavBar}/>
         </div>
       </BrowserRouter>
     );

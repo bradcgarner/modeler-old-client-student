@@ -24,9 +24,9 @@ export function InputAsideConfigUnits (props) {
       <h4>aside configure general</h4>
 
       <form className='asideInputForm'
-          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
+        onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor={'area'}>area unit of measurement
@@ -40,7 +40,7 @@ export function InputAsideConfigUnits (props) {
               required />
           </div>
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor={'volume'}>volume unit of measurement
@@ -54,7 +54,7 @@ export function InputAsideConfigUnits (props) {
               required />
           </div>
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor={'thickness'}>thickness unit of measurement
@@ -67,7 +67,7 @@ export function InputAsideConfigUnits (props) {
               required />
           </div>
 
-          <div>
+          <div className='buttonContainer'>
             <button className='submitButton'
               type="submit" disabled={props.pristine || props.submitting}>Save
             </button>

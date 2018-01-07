@@ -30,7 +30,7 @@ export function OutputAsideAnalysisEvents (props) {
       <form className='outputAsideAnalysisEvents'
           onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
           
-          <div>
+          <div className='labelFieldPair'>
           <label 
             className='inputLabel' 
             htmlFor={'startEvent'}>from event
@@ -43,7 +43,7 @@ export function OutputAsideAnalysisEvents (props) {
             className='inputField'/>              
           </div>
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor={'endEvent'}>to event
@@ -56,11 +56,9 @@ export function OutputAsideAnalysisEvents (props) {
               className='inputField' />
           </div>
 
-          <div>
-            <button className='submitButton'
-              type="submit" disabled={props.pristine || props.submitting}>Save
-            </button>
-          </div>
+          <button className='submitButton'
+            type="submit" disabled={props.pristine || props.submitting}>Save
+          </button>
 
         </form>
 

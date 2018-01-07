@@ -37,11 +37,9 @@ export function OutputAsideAnalysisDates (props) {
 
           <StartEndDates/>
           
-          <div>
-            <button className='submitButton'
-              type="submit" disabled={props.pristine || props.submitting}>Save
-            </button>
-          </div>
+          <button className='submitButton'
+            type="submit" disabled={props.pristine || props.submitting}>Save
+          </button>
 
         </form>
 

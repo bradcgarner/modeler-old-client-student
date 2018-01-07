@@ -54,10 +54,9 @@ export function InputAsideConfigAreas (props) {
       <InputAsideConfigAreaSelector/>
 
       <form className='asideInputForm' 
-        onSubmit={props.handleSubmit((values) => handleSubmitButton(values))}
-      >
+        onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor='name'>area name
@@ -72,7 +71,7 @@ export function InputAsideConfigAreas (props) {
               required />
           </div>
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor='area'>size ({props.project.units.area})
@@ -87,7 +86,7 @@ export function InputAsideConfigAreas (props) {
               required />
           </div>
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor='covering'>covering
@@ -102,7 +101,7 @@ export function InputAsideConfigAreas (props) {
               required />
           </div>
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor='runoff'>drains to
@@ -116,7 +115,7 @@ export function InputAsideConfigAreas (props) {
               data={listOtherAreas} />
           </div>
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor='cda'>contributing drainage areas
@@ -133,7 +132,7 @@ export function InputAsideConfigAreas (props) {
               data={listOtherAreas} />
           </div>
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor='slope'>slope (percent)
@@ -148,7 +147,7 @@ export function InputAsideConfigAreas (props) {
               required />
           </div>
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor='etTable'>evapotranspiration table
@@ -163,7 +162,7 @@ export function InputAsideConfigAreas (props) {
               data={listEtTables} />
           </div>
 
-          <div>
+          <div className='buttonContainer'>
             <button className='submitButton'
               type="submit" disabled={props.pristine || props.submitting}>Save
             </button>

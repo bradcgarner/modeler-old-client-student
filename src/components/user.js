@@ -16,9 +16,9 @@ export function User (props) {
   return (
     <main className='mainUser'>
       <Switch>
-        <Route exact path = '/user/login' component = {UserLogin}/>
-        <Route exact path = '/user/create' component = {UserCreate}/>
-        <Route exact path = '/user/dashboard' component = {UserDashboard}/>
+        <Route exact path = '/user/login' component={UserLogin}/>
+        <Route exact path = '/user/create' component={UserCreate}/>
+        <Route exact path = '/user/dashboard' component={UserDashboard}/>
         <Redirect from = '*' to = '/user/login'/>
       </Switch>
     </main>

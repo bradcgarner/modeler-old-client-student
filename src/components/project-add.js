@@ -31,7 +31,7 @@ export function ProjectAdd (props) {
   return (
     <div>
       <form className='projectAddForm' onSubmit={props.handleSubmit(values=>addProject(values))}>
-        <div>
+        <div className='labelFieldPair'>
           <label
             className='inputLabel'
             htmlFor='name'>Project Name
@@ -44,7 +44,7 @@ export function ProjectAdd (props) {
             placeholder='Project Name'
             className='inputField' />
         </div>
-        <div>
+        <div className='labelFieldPair'>
           <label
             className='inputLabel'
             htmlFor='locationCity'>City
@@ -57,7 +57,7 @@ export function ProjectAdd (props) {
             placeholder='Project City'
             className='inputField' />
         </div>
-        <div>
+        <div className='labelFieldPair'>
           <label
             className='inputLabel'
             htmlFor='locationState'>State
@@ -70,7 +70,7 @@ export function ProjectAdd (props) {
             component={renderDropdownList}
             data={stateList} />
         </div>
-        <div>
+        <div className='labelFieldPair'>
           <label
             className='inputLabel'
             htmlFor='locationCountry'>Country

@@ -19,10 +19,9 @@ export function InputAsideH2oImport (props) {
       <h4>aside import</h4>
 
       <form className='asideInputForm'
-          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))}
-        >
+          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor={'source'}>source
@@ -36,7 +35,7 @@ export function InputAsideH2oImport (props) {
               required />
           </div>
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor={'location'}>location
@@ -52,7 +51,7 @@ export function InputAsideH2oImport (props) {
 
           <StartEndDates/>
 
-          <div>
+          <div className='buttonContainer'>
             <button className='submitButton'
               type="submit" disabled={props.pristine || props.submitting}>Save
             </button>

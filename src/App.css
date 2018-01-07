@@ -122,9 +122,10 @@ section {
   margin-left: 5px; }
 
 /* @@@@@@@@@@@@@@ FORMS @@@@@@@@@@@@ */
-label {
+.inputLabel {
   text-align: right;
-  padding: 5px; }
+  padding: 5px;
+  font-size: 11px; }
 
 input {
   padding: 3px;
@@ -144,6 +145,12 @@ button {
     cursor: pointer;
     background-color: #bad3df;
     color: #333; }
+
+.labelFieldPair {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: baseline; }
 
 /* @@@@@@@@@@@@@@ GENERAL OVERRIDES @@@@@@@@@@@@ */
 .center {

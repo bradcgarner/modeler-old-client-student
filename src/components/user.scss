@@ -11,9 +11,9 @@ main {
 }
 
 article {
-  margin-top: $cover-ht;
+  // margin-top: $cover-ht - $nav-ht;
 }
-.userLogin {
+.userLogin, .userCreate {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -21,11 +21,20 @@ article {
   padding-right: 100px;
   width: 100%;
 }
-.formWrapper {
+.userForm {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: space-between;
+}
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   align-items: flex-start;
+  width: 285px;
+  height: 325px;
 }
 .inputAsideForm {
   display: flex;
@@ -33,9 +42,10 @@ article {
   justify-content: flex-end;
   align-items: flex-start;
 }
-.submitButton {
+.submitButton, .clearButton {
   width: 100%;
   margin: 5px 0;
+  padding: 5px;
 }
 .createAccount {
   margin-top: 15px;

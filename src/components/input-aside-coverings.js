@@ -30,7 +30,7 @@ export function InputAsideCoverings (props) {
   return (
     <div>
       <form className='asideInputForm'>
-        <div>
+        <div className='labelFieldPair'>
           <label
             className='inputLabel'
             htmlFor='name'>covering

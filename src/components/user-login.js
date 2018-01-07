@@ -12,15 +12,17 @@ export function UserLogin (props) {
 
   const handleSubmitButton = values => {
     props.dispatch(actionsUser.login(values))
+    console.log('CHANGE THIS TO A .THEN')
+    props.history.push('/user/dashboard');
   }
 
   return (
     <article className='userLogin'>
       <div className='formWrapper'>
-        <form className='asideInputForm'
+        <form className='userForm'
           onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor={'username'}>username
@@ -35,7 +37,7 @@ export function UserLogin (props) {
               required />
           </div>
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor={'password'}>password
@@ -50,7 +52,7 @@ export function UserLogin (props) {
               required />
           </div>
 
-          <div>
+          <div className='buttonContainer'>
             <button className='submitButton'
               type="submit" disabled={props.pristine || props.submitting}>Log In
             </button>

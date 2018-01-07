@@ -18,12 +18,11 @@ export function UserCreate (props) {
   // create account 
   return (
     <article className='userCreate'>
+      <div className='formWrapper'>
+        <form className='userForm'
+          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
 
-      <form className='asideInputForm'
-          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))}
-        >
-
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor={'firstName'}>first name
@@ -38,7 +37,7 @@ export function UserCreate (props) {
               required />
           </div>
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor={'lastName'}>last name
@@ -53,7 +52,7 @@ export function UserCreate (props) {
               required />
           </div>
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor={'organization'}>organization
@@ -68,7 +67,7 @@ export function UserCreate (props) {
               required />
           </div>
           
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor={'email'}>email
@@ -83,7 +82,7 @@ export function UserCreate (props) {
               required />
           </div>
           
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor={'username'}>username
@@ -98,7 +97,7 @@ export function UserCreate (props) {
               required />
           </div>
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor={'password'}>password
@@ -113,7 +112,7 @@ export function UserCreate (props) {
               required />
           </div>
 
-          <div>
+          <div className='labelFieldPair'>
             <label
               className='inputLabel'
               htmlFor={'password2'}>re-type password
@@ -128,7 +127,7 @@ export function UserCreate (props) {
               required />
           </div>
 
-          <div>
+          <div className='buttonContainer'>
             <button className='submitButton'
               type="submit" disabled={props.pristine || props.submitting}>Save
             </button>
@@ -140,8 +139,8 @@ export function UserCreate (props) {
 
         </form>
 
-        <Link to='/user/login'>I Already Have An Account</Link>
-
+        <button className='createAccount submitButton'><Link to='/user/login'>I Already Have An Account</Link></button>
+      </div>
     </article>
   )
 }

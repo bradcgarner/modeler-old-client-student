@@ -141,9 +141,10 @@ section {
 /* @@@@@@@@@@@@@@ FORMS @@@@@@@@@@@@ */
 
 
-label {
+.inputLabel {
   text-align: right;
   padding: 5px;
+  font-size: $input-label-font-size;
 }
 input {
   padding: 3px;
@@ -165,6 +166,12 @@ button {
     background-color: $button-color-hover;
     color: $button-color-font-hover;
   }
+}
+.labelFieldPair {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: baseline;
 }
 
 /* @@@@@@@@@@@@@@ GENERAL OVERRIDES @@@@@@@@@@@@ */

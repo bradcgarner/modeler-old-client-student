@@ -64,7 +64,7 @@ export class StartEndDates extends React.Component {
     return (
       <div>
   
-        <div>
+        <div className='labelFieldPair'>
           <label
             className='inputLabel'
             htmlFor={'startMonth'}>start month
@@ -79,7 +79,7 @@ export class StartEndDates extends React.Component {
             required />
         </div>
   
-        <div>
+        <div className='labelFieldPair'>
           <label
             className='inputLabel'
             htmlFor={'startDay'}>start day
@@ -94,7 +94,7 @@ export class StartEndDates extends React.Component {
             required />
         </div>
   
-        <div>
+        <div className='labelFieldPair'>
           <label
             className='inputLabel'
             htmlFor={'endMonth'}>end month
@@ -109,7 +109,7 @@ export class StartEndDates extends React.Component {
             required />
         </div>
   
-        <div>
+        <div className='labelFieldPair'>
           <label
             className='inputLabel'
             htmlFor={'endDay'}>end day

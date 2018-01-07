@@ -60,7 +60,7 @@ export class InputH2OStorms extends React.Component {
           </table>
           <button onClick={()=>this.addLine()}>add line</button>
 
-            <div>
+            <div className='buttonContainer'>
               <button className='submitButton'
                 type="submit" disabled={this.props.pristine || this.props.submitting}>Save
               </button>
