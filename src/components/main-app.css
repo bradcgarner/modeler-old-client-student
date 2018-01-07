@@ -1,0 +1,9 @@
+main {
+  margin-top: 50px; }
+
+.main-app {
+  background-image: url("../images/splash.jpg");
+  background-size: cover;
+  background-attachment: fixed; }
+
+/*# sourceMappingURL=main-app.css.map */

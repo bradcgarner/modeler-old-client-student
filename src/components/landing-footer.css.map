@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,MAAO;EACL,KAAK,EAAE,KAAK;EACZ,MAAM,ECcC,IAAI;EDbX,gBAAgB,ECFQ,IAAI",
+"sources": ["landing-footer.scss","../variables.scss"],
+"names": [],
+"file": "landing-footer.css"
+}

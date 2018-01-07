@@ -1,0 +1,10 @@
+@import '../variables';
+
+main {
+  margin-top: $nav-ht;
+}
+.main-app {
+  background-image: url('../images/splash.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}

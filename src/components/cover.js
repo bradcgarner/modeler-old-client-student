@@ -1,4 +1,5 @@
 import React from 'react';
+import './cover.css';
 
 // app name and logo. 
 // routes /home, /user/login, /user/create

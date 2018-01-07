@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import * as actionsDisplay from '../actions/display';
 import * as actionsProject from '../actions/project';
+import './tables.css';
 
 // interior to input. No user input. Displays ET tables. User selects ET table in aside.
 // route app/input/et

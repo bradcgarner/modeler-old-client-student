@@ -17,7 +17,7 @@ time, mark, audio, video {
   border: 0;
   font-size: 16px;
   /* was 100% */
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Cairo', sans-serif;
   /* Brad added */
   /*font: inherit;*/
   color: #333;
@@ -70,15 +70,14 @@ table {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: #daa1a1; }
+    background-image: url("./images/uscg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: fixed; }
   .landingContainer footer {
     width: 100vw;
     height: 50px;
     background-color: #888; }
-
-.cover {
-  position: absolute;
-  background-color: #dfdacb; }
 
 nav {
   display: flex;
@@ -101,9 +100,6 @@ nav {
   align-items: flex-start;
   position: relative; }
 
-main {
-  margin-top: 50px; }
-
 aside, section {
   border-radius: 10px;
   padding: 10px;
@@ -123,98 +119,6 @@ section {
   width: 80%;
   background-color: #888;
   margin-left: 5px; }
-
-/* @@@@@@@@@@@@@@@@  @@@@@@@@@@@@ */
-.etTableCell0, .effTableCell0 {
-  background-color: #f6faf5; }
-
-.etTableCell1, .effTableCell1 {
-  background-color: #e4eee3; }
-
-.etTableCell2, .effTableCell2 {
-  background-color: #dbeedb; }
-
-.etTableCell3, .effTableCell3 {
-  background-color: #cceace; }
-
-.etTableCell4, .effTableCell4 {
-  background-color: #bce5bd; }
-
-.etTableCell5, .effTableCell5 {
-  background-color: #8fd49b; }
-
-.etTableCell6, .effTableCell6 {
-  background-color: #65c071; }
-
-.etTableCell7, .effTableCell7 {
-  background-color: #37a850; }
-
-.etTableCell8, .effTableCell8 {
-  background-color: #259e3f; }
-
-.etTableCell9, .effTableCell9 {
-  background-color: #139b30; }
-
-.etTableContainer {
-  margin-top: 15px; }
-  .etTableContainer h3 {
-    text-align: center; }
-
-td {
-  font-family: monospace; }
-
-/* @@@@@@@@@@@@@@ TOOLTIPS @@@@@@@@@@@@ */
-.tooltip {
-  position: relative;
-  margin: 5px; }
-  .tooltip .popover {
-    display: none;
-    padding: 5px;
-    position: absolute;
-    left: 50%;
-    margin-left: -30px;
-    width: 60px;
-    top: 125%;
-    background-color: #333;
-    color: #ebebf5;
-    opacity: .74;
-    border: 1px solid #52524e;
-    -moz-box-shadow: 7px 7px 7px -5px #999;
-    -webkit-box-shadow: 7px 7px 7px -5px #999;
-    box-shadow: 7px 7px 7px -5px #999;
-    z-index: 999;
-    margin-top: 3px;
-    font-size: 12px;
-    text-align: left; }
-
-.tooltip:hover .popover {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-
-.popover:after, .popover:before {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  pointer-events: none; }
-
-.popover:after {
-  border-bottom-color: #333;
-  border-width: 7px;
-  margin-left: -7px; }
-
-.popover:before {
-  border-bottom-color: black;
-  border-width: 7px;
-  margin-left: -7px; }
-
-.iconWrapper {
-  display: flex; }
 
 /* @@@@@@@@@@@@@@ GENERAL OVERRIDES @@@@@@@@@@@@ */
 .center {

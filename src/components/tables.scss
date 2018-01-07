@@ -1,0 +1,44 @@
+@import './variables';
+
+.etTableCell0, .effTableCell0 {
+  background-color: #f6faf5;
+}
+.etTableCell1, .effTableCell1 {
+  background-color: #e4eee3;
+}
+.etTableCell2, .effTableCell2 {
+  background-color: #dbeedb;
+}
+.etTableCell3, .effTableCell3 {
+  background-color: #cceace;
+}
+.etTableCell4, .effTableCell4 {
+  background-color: #bce5bd;
+}
+.etTableCell5, .effTableCell5 {
+  background-color: #8fd49b;
+}
+.etTableCell6, .effTableCell6 {
+  background-color: #65c071;
+}
+.etTableCell7, .effTableCell7 {
+  background-color: #37a850;
+}
+.etTableCell8, .effTableCell8 {
+  background-color: #259e3f;
+}
+.etTableCell9, .effTableCell9 {
+  background-color: #139b30;
+}
+
+.etTableContainer {
+  margin-top: 15px;
+  h3 {
+    text-align: center;
+  }
+}
+
+td {
+  // text-align: right;
+  font-family: monospace;
+}

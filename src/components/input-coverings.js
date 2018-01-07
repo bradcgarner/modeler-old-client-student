@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import * as actionsDisplay from '../actions/display';
 import * as actionsProject from '../actions/project';
+import './tables.css';
 
 // interior to input. No user input.  Displays covering efficiency tables. 
 // User selects coverings in configure/areas.

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actionsDisplay from '../actions/display';
 import LandingFooter from './landing-footer';
+import './tooltips.css';
 
 // landing page prior to login
 // route /home
@@ -19,7 +20,6 @@ export function Landing (props) {
         <div className='iconWrapper' aria-label='home'><i className="fa fa-plus tooltip" aria-hidden="true"><div className='popover'>Add</div></i></div>
         <div className='iconWrapper' aria-label='home'><i className="fa fa-undo tooltip" aria-hidden="true"><div className='popover'>Reset to prior save</div></i></div>
         <div className='iconWrapper' aria-label='home'><i className="fa fa-floppy-o tooltip" aria-hidden="true"><div className='popover'>Save</div></i></div>
-
       </div>
       <LandingFooter/>
     </div>
