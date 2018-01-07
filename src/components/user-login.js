@@ -15,10 +15,10 @@ export function UserLogin (props) {
   }
 
   return (
-    <article>
-      <form className='asideInputForm'
-          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))}
-        >
+    <article className='userLogin'>
+      <div className='formWrapper'>
+        <form className='asideInputForm'
+          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
 
           <div>
             <label
@@ -54,16 +54,12 @@ export function UserLogin (props) {
             <button className='submitButton'
               type="submit" disabled={props.pristine || props.submitting}>Log In
             </button>
-            <button className='clearButton'
-              type="button" disabled={props.pristine || props.submitting}
-              onClick={props.reset}>Clear Form
-            </button>
           </div>
 
         </form>
 
-        <Link to='/user/create'>Create Account</Link>
-      
+        <button className='createAccount submitButton'><Link to='/user/create'>Create Account</Link></button>
+      </div>
     </article>
   )
 }

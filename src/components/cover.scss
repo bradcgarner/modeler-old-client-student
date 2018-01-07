@@ -1,15 +1,16 @@
+@import '../variables';
+
 .cover {
   position: absolute;
   padding: 40px;
-  height: 150px; }
-
+  height: $cover-ht;
+}
 .cover h1 {
   font-size: 54px;
   opacity: 0.75;
   letter-spacing: 10px;
-  font-family: 'Archivo Black', sans-serif; }
-
+  font-family: 'Archivo Black', sans-serif;
+}
 .cover h4 {
-  font-size: 34px; }
-
-/*# sourceMappingURL=cover.css.map */
+  font-size: 34px;
+}

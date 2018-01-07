@@ -34,7 +34,7 @@ export class UserDashboard extends React.Component {
 
     // create account 
     return (
-      <article>
+      <article className='userDashboard'>
         <p>My Projects</p>
         <ul>{projects}</ul>
         <button onClick={()=>this.toggleAddProject()}>add project</button>

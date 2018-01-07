@@ -30,10 +30,10 @@ App                                                  /home
   |   |_InputH2OStorms      v    /h2o/storms
   |   |_InputH2OImport           /h2o/import
   |   |_InputEt                  /et
-  |   |_InputProducts            /products
+  |   |_InputProducts            /coverings
   |   |                          |
   |   |                          /configure
-  |   |_InputAsideConfigGeneral  |         /general  /home       configGeneral
+  |   |_InputAsideConfigUnits    |         /units    /home       configGeneral
   |   |_InputAsideConfigAreas    |         /areas    /home       configAreas
   |   |                          |
   |   |                          /h2o
@@ -43,12 +43,11 @@ App                                                  /home
   |   |                          |
   |   |_InputAsideEt             /et                 /home       project.et[0]
   |   |                          |
-  |   |_InputAsideProducts  ^    /products           /home       products      project.product[0]
+  |   |_InputAsideCoverings ^    /products           /home       products      project.product[0]
   |                         |
   |_Output                  /output
       |_OutputAnalysis             /analysis                     configGeneral
       |_OutputGraphs               /graphs                       configGeneral
       |                            |
       |_OutputAsideAnalysis        /analysis         /home       project.analysis...
-      |_OutputAsideRanges          /                 /home       project.graphs...
  

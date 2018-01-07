@@ -1,7 +1,68 @@
 @import '../variables';
 
+$slide-speed: 1s;
+@mixin slide {
+	-webkit-transition: $slide-speed;
+	-moz-transition: $slide-speed;
+	-ms-transition: $slide-speed;
+	-o-transition: $slide-speed;
+	transition: $slide-speed;
+}
+
 footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-start;
   width: 100vw;
   height: $nav-ht;
+  position: relative;
+}
+.labelDiv {
+  height: $nav-ht;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+h3 {
+  font-size: 22px;
+  cursor: pointer;
+  &:hover {
+    color: $font-color-hover;
+  }
+}
+.aboutContainer, .aboutContainerOpen, .getStartedContainer {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   background-color: $footer-background-color;
+  margin-bottom: 0;
+}
+.aboutContainer, .aboutContainerOpen {
+  left: 0;
+  height: 500px;
+  padding-left: $nav-ht;
+  padding-right: $nav-ht;
+  padding-bottom: $nav-ht;
+  @include slide;
+}
+.aboutContainerOpen {
+  top: -500px + $nav-ht;
+}
+.getStartedContainer {
+  right: 0;
+  height: 110%;
+}
+.aboutContents {
+  width: 100%;
+  height: 100%;
+  margin-top: 5px;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid black;
 }

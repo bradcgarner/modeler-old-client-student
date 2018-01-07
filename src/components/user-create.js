@@ -17,7 +17,7 @@ export function UserCreate (props) {
 
   // create account 
   return (
-    <article>
+    <article className='userCreate'>
 
       <form className='asideInputForm'
           onSubmit={props.handleSubmit((values) => handleSubmitButton(values))}

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,MAAO;EACL,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,IAAI;EACb,MAAM,ECoBG,KAAK;;ADlBhB,SAAU;EACR,SAAS,EAAE,IAAI;EACf,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,IAAI;EACpB,WAAW,EAAE,2BAA2B;;AAE1C,SAAU;EACR,SAAS,EAAE,IAAI",
+"sources": ["cover.scss","../variables.scss"],
+"names": [],
+"file": "cover.css"
+}

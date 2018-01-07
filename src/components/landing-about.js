@@ -6,11 +6,18 @@ import * as actionsProject from '../actions/project';
 // modal for about to slide up over landing
 // route /home
 export function About (props) {
-  // Click on About slides up from footer; changing display slides back down
-  // About can include text and a GIF
+
+  const about = props.display.view === 'about' ? 'landing' : 'about';
+  const aboutClass = props.display.view === 'about' ? 'aboutContainerOpen' : 'aboutContainer' ;
+  
   return (
-    <div>
-      <h3>About</h3>
+    <div className={aboutClass}>
+      <div className='labelDiv'>
+        <h3 onClick={()=>props.dispatch(actionsDisplay.changeView(about))}>About</h3>
+      </div>
+      <div className='aboutContents'>
+        <p>Some text</p>
+      </div>
     </div>
   )
 }

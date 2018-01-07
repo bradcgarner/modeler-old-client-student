@@ -1,7 +1,7 @@
 $fontColorMain: #333;
 $aside-background-color: #888;
 $section-background-color: #888;
-$footer-background-color: #888;
+$footer-background-color: rgba(199, 195, 195, 0.5);
 $liTooltipZIndex: 999;
 $fontColorInactive: #888;
 $shadow: #999;
@@ -9,6 +9,12 @@ $fontColorTooltip: #ebebf5;
 $lines: #52524e;
 $tooltipBackgroundColor: #333;
 $nav-background-color: white;
+$font-color-hover: #555;
+
+$button-color: #d1e5ee;
+$button-color-font: #144677;
+$button-color-hover: #bad3df;
+$button-color-font-hover: #333;
 
 $portraitPhoneWide: 375px;
 $landscapePhone: 576px;
@@ -17,3 +23,7 @@ $landscapeTablet: 992px;
 $laptopPlus: 1200px;
 
 $nav-ht: 50px;
+$cover-ht: 150px;
+
+$input-color-hover: #d1e5ee;
+$input-color: white;

@@ -19,9 +19,9 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
   font-size: 16px; /* was 100% */
-  font-family: 'Cairo', sans-serif; /* Brad added */
+  // font-family: 'Cairo', sans-serif; /* Brad added */
 
-  // font-family: 'Oxygen', sans-serif; /* Brad added */ 
+  font-family: 'Oxygen', sans-serif; /* Brad added */ 
   /*font: inherit;*/
   color: $fontColorMain; /* Brad added */
 	vertical-align: baseline;
@@ -52,6 +52,12 @@ table {
 * {
   box-sizing: border-box; /* Brad added */
 }
+a { /* Brad added */
+  text-decoration: none; 
+  &:hover {
+    cursor: pointer;
+  }
+}
 /* @@@@@@@@@@@@@@@@ END RESET - START GENERAL @@@@@@@@@@@@ */
 
 .landingContainer {
@@ -62,7 +68,11 @@ table {
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end; 
-  background-color: #777;
+  background-image:url('./images/uscg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: fixed;
+  // background-color: #777;
   position: fixed;
   .landing {
     width: 100%;
@@ -72,16 +82,7 @@ table {
     flex-direction: row;
     justify-content: center;
     align-items: center; 
-    background-image:url('./images/uscg.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: fixed;
   };
-  footer {
-    width: 100vw;
-    height: $nav-ht;
-    background-color: $footer-background-color;
-  }
 }
 
 nav {
@@ -136,6 +137,34 @@ section {
   width: 80%;
   background-color: $section-background-color;
   margin-left: 5px;
+}
+/* @@@@@@@@@@@@@@ FORMS @@@@@@@@@@@@ */
+
+
+label {
+  text-align: right;
+  padding: 5px;
+}
+input {
+  padding: 3px;
+  margin: 5px 0;
+  width: 150px;
+  background-color: $input-color;
+  &:hover {
+    background-color: $input-color-hover;
+  }
+}
+.submitButton {
+  width: 100px;
+}
+button {
+  background-color: $button-color;
+  color: $button-color-font;
+  &:hover {
+    cursor: pointer;
+    background-color: $button-color-hover;
+    color: $button-color-font-hover;
+  }
 }
 
 /* @@@@@@@@@@@@@@ GENERAL OVERRIDES @@@@@@@@@@@@ */

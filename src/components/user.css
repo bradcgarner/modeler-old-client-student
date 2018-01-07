@@ -1,0 +1,43 @@
+main {
+  margin-top: 50px; }
+
+.mainUser {
+  background-image: url("../images/wave.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh; }
+
+article {
+  margin-top: 150px; }
+
+.userLogin {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-right: 100px;
+  width: 100%; }
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; }
+
+.inputAsideForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start; }
+
+.submitButton {
+  width: 100%;
+  margin: 5px 0; }
+
+.createAccount {
+  margin-top: 15px; }
+  .createAccount a {
+    font-size: inherit;
+    color: inherit; }
+
+/*# sourceMappingURL=user.css.map */
