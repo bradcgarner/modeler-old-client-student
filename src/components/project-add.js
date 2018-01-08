@@ -30,6 +30,7 @@ export function ProjectAdd (props) {
   
   return (
     <div className='projectAddWrapper'>
+      <div class='projectAddBackground'></div>
       <form className='projectAddForm' onSubmit={props.handleSubmit(values=>addProject(values))}>
         <div className='labelFieldPair'>
           <label

@@ -1,6 +1,6 @@
 $fontColorMain: #333;
-$aside-background-color: #888;
-$section-background-color: #888;
+$aside-background-color: rgba(186,211,223,0.9); // #bad3df rgb(186,211,223)
+$section-background-color: $aside-background-color;
 $footer-background-color: rgba(199, 195, 195, 0.5);
 $liTooltipZIndex: 999;
 $fontColorInactive: #888;

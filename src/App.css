@@ -103,12 +103,12 @@ aside, section {
 
 aside {
   width: 20%;
-  background-color: #888;
+  background-color: rgba(186, 211, 223, 0.9);
   margin-right: 5px; }
 
 section {
   width: 80%;
-  background-color: #888;
+  background-color: rgba(186, 211, 223, 0.9);
   margin-left: 5px; }
 
 /* @@@@@@@@@@@@@@ FORMS @@@@@@@@@@@@ */

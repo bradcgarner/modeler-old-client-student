@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actionsDisplay from '../actions/display';
 import * as actionsGeneral from '../actions/general';
+import * as actionsProject from '../actions/project';
 import './navbar.css';
 
 // nav bar to main app, after login
@@ -13,6 +14,15 @@ export class NavBar extends React.Component {
       this.props.dispatch(actionsGeneral.initialize());
     }
   }
+
+  run() {
+    console.log('check for completion first!');
+    this.props.dispatch(actionsProject.createOrEditProject(
+      this.props.project,'run',this.props.user.authToken));
+    console.log('change to a .then()');
+    this.props.history.push('/app/output/analysis');
+  }
+
 
   render() {
     return (
@@ -81,6 +91,13 @@ export class NavBar extends React.Component {
               </i>
             </div>
           </li></Link>
+          <li onClick={()=>this.run()} className='navItem'>
+            <div className='iconWrapper' aria-label='create model'>
+              <i className="fa fa-arrow-right tooltip" aria-hidden="true">
+                <div className='popover'>Create Model</div>
+              </i>
+            </div>
+          </li>
           <Link to='/app/output/analysis'><li className='navItem'>
             <div className='iconWrapper' aria-label='analysis table'>
               <i className="fa fa-table tooltip" aria-hidden="true">
@@ -103,6 +120,8 @@ export class NavBar extends React.Component {
 
 const mapStateToProps = state => ({
   general: state.general,
+  project: state.project,
+  user: state.user,
 });
 
 export default connect(mapStateToProps)(NavBar);

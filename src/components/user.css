@@ -28,14 +28,25 @@ main {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 285px; }
+  width: 285px;
+  position: relative; }
 
 .projectAddForm {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
-  width: 100%; }
+  width: 100%;
+  z-index: 2; }
+
+.projectAddBackground {
+  position: absolute;
+  top: 0;
+  left: -5%;
+  width: 110%;
+  height: 105%;
+  background-color: rgba(255, 255, 255, 0.85);
+  z-index: 1; }
 
 .userDashboardList {
   display: flex;

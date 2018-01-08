@@ -24,4 +24,17 @@ nav {
   .fa:hover {
     color: #bad3df; }
 
+.fa-sign-out {
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1); }
+  .fa-sign-out .popover {
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1); }
+
 /*# sourceMappingURL=navbar.css.map */
