@@ -1,0 +1,11 @@
+@import '../variables';
+
+.areaSelector {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+.iconWrapper {
+  height: 25px;
+  margin-left: 5px;
+}

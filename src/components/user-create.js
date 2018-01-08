@@ -22,7 +22,7 @@ export function UserCreate (props) {
         <form className='userForm'
           onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
 
-          <div className='labelFieldPair'>
+          <div className='labelFieldPairHoriz'>
             <label
               className='inputLabel'
               htmlFor={'firstName'}>first name
@@ -37,7 +37,7 @@ export function UserCreate (props) {
               required />
           </div>
 
-          <div className='labelFieldPair'>
+          <div className='labelFieldPairHoriz'>
             <label
               className='inputLabel'
               htmlFor={'lastName'}>last name
@@ -52,7 +52,7 @@ export function UserCreate (props) {
               required />
           </div>
 
-          <div className='labelFieldPair'>
+          <div className='labelFieldPairHoriz'>
             <label
               className='inputLabel'
               htmlFor={'organization'}>organization
@@ -67,7 +67,7 @@ export function UserCreate (props) {
               required />
           </div>
           
-          <div className='labelFieldPair'>
+          <div className='labelFieldPairHoriz'>
             <label
               className='inputLabel'
               htmlFor={'email'}>email
@@ -82,7 +82,7 @@ export function UserCreate (props) {
               required />
           </div>
           
-          <div className='labelFieldPair'>
+          <div className='labelFieldPairHoriz'>
             <label
               className='inputLabel'
               htmlFor={'username'}>username
@@ -97,7 +97,7 @@ export function UserCreate (props) {
               required />
           </div>
 
-          <div className='labelFieldPair'>
+          <div className='labelFieldPairHoriz'>
             <label
               className='inputLabel'
               htmlFor={'password'}>password
@@ -112,7 +112,7 @@ export function UserCreate (props) {
               required />
           </div>
 
-          <div className='labelFieldPair'>
+          <div className='labelFieldPairHoriz'>
             <label
               className='inputLabel'
               htmlFor={'password2'}>re-type password

@@ -95,7 +95,7 @@ aside, section {
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
-  min-height: 80vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -112,10 +112,26 @@ section {
   margin-left: 5px; }
 
 /* @@@@@@@@@@@@@@ FORMS @@@@@@@@@@@@ */
-.inputLabel {
-  text-align: right;
-  padding: 5px;
-  font-size: 11px; }
+.asideContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex: 1; }
+
+.asideInputForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex: 1; }
+
+.formFieldWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 1; }
 
 input, .rw-widget {
   padding: 3px;
@@ -126,21 +142,61 @@ input, .rw-widget {
     background-color: #d1e5ee; }
 
 .submitButton {
-  width: 100px; }
-
-button {
+  width: 100px;
   background-color: #d1e5ee;
   color: #144677; }
-  button:hover {
+  .submitButton:hover {
     cursor: pointer;
     background-color: #bad3df;
     color: #333; }
 
+.iconWrap {
+  background-color: transparent;
+  border-color: transparent;
+  flex: 1; }
+  .iconWrap .fa {
+    color: #144677; }
+    .iconWrap .fa:hover {
+      cursor: pointer;
+      color: #333; }
+
+.buttonColumnBottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  flex: 1; }
+
+.buttonRowBottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; }
+
 .labelFieldPair {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  align-items: baseline;
+  width: 100%; }
+  .labelFieldPair .inputLabel {
+    text-align: right;
+    margin-bottom: 10px;
+    font-size: 14px; }
+
+.labelFieldPairHoriz {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: baseline; }
+  .labelFieldPairHoriz .inputLabel {
+    text-align: right;
+    padding: 5px;
+    font-size: 14px; }
+
+.rw-widget, .inputField {
+  width: 100%; }
 
 /* @@@@@@@@@@@@@@ GENERAL OVERRIDES @@@@@@@@@@@@ */
 .center {

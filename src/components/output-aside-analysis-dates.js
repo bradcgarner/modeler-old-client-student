@@ -19,6 +19,11 @@ export function OutputAsideAnalysisDates (props) {
     props.dispatch(actionsProject.createOrEditProject(correctedValues, 'analysisSettings', props.user.authToken))
   }
 
+  const download = () => {
+    console.log('get events from state on click')
+    props.dispatch(actionsProject.download());
+  }
+
   // set this so that we toggle between date ranges and event ranges, not both
 
   const renderDropdownList = ({ input, data, valueField, textField }) =>
@@ -29,20 +34,35 @@ export function OutputAsideAnalysisDates (props) {
     onChange={input.onChange} />
   
   return (
-    <div>
-      <h4>Output Aside dates</h4>
-
-      <form className='outputAsideAnalysisDates'
-          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
+    <div className='outputRangeSelector'>
+      <form className='outputAsideAnalysisForm'
+        onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
+        <div className='formFieldWrapper'>
 
           <StartEndDates/>
           
-          <button className='submitButton'
-            type="submit" disabled={props.pristine || props.submitting}>Save
-          </button>
+          <div className='buttonContainer buttonColumnBottom'>
+            <div className='buttonContainer buttonRowBottom'>
+              
+              <button className='iconWrap' aria-label='update'
+                type="submit" disabled={props.pristine || props.submitting}>
+                <i className="fa fa-arrow-circle-right tooltip" aria-hidden="true">
+                  <div className='popover'>Update Analysis</div>
+                </i>            
+              </button>
 
-        </form>
+              <button className='iconWrap' aria-label='download'
+                onClick={()=>download()}>
+                <i className="fa fa-download tooltip" aria-hidden="true">
+                  <div className='popover'>Download</div>
+                </i>            
+              </button>
 
+            </div>
+          </div>
+
+        </div>
+      </form>
     </div>
   )
 }

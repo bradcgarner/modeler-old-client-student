@@ -19,10 +19,14 @@ nav {
     flex: 1;
     flex-direction: row;
     justify-content: space-around;
-    align-items: flex-start; 
+    align-items: center; 
   }
 }
 
-.home, .navItem {
+.fa {
   color: $nav-font-color;
+  font-size: 24px;
+  &:hover {
+    color: $button-color-hover;
+  }
 }

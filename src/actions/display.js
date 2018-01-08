@@ -52,6 +52,11 @@ export const loadStormsImported = storms => ({
   endDay: storms.endDay,
 });
 
+export const TOGGLE_ANALYSIS_RANGE = 'TOGGLE_ANALYSIS_RANGE';
+export const toggleAnalysisRange = value => ({
+  type: TOGGLE_ANALYSIS_RANGE,
+  analysisRange: value,
+});
 
 // @@@@@@@@@@@@@@@ ASYNC @@@@@@@@@@@@@@@@@
 

@@ -47,129 +47,136 @@ export function InputAsideConfigAreas (props) {
   const listEtTables = Array.isArray(props.general.etTables.list) ? props.general.etTables.list : [];
 
   return (
-    
-    <div>
-      <h4>aside configure areas</h4>
-
+    <div className='asideContainer'>
       <InputAsideConfigAreaSelector/>
-
       <form className='asideInputForm' 
         onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
+          <div className='formFieldWrapper'>
 
-          <div className='labelFieldPair'>
-            <label
-              className='inputLabel'
-              htmlFor='name'>area name
-            </label>
-            <Field
-              name='name'
-              id='name'
-              component='input'
-              type='text'
-              className='inputField'
-              placeholder='area name'
-              required />
+            <div className='labelFieldPair'>
+              <label
+                className='inputLabel'
+                htmlFor='name'>area name
+              </label>
+              <Field
+                name='name'
+                id='name'
+                component='input'
+                type='text'
+                className='inputField'
+                placeholder='area name'
+                required />
+            </div>
+
+            <div className='labelFieldPair'>
+              <label
+                className='inputLabel'
+                htmlFor='area'>size ({props.project.units.area})
+              </label>
+              <Field
+                name='area'
+                id='area'
+                component='input'
+                type='text'
+                className='inputField'
+                placeholder='size in units'
+                required />
+            </div>
+
+            <div className='labelFieldPair'>
+              <label
+                className='inputLabel'
+                htmlFor='covering'>covering
+              </label>
+              <Field
+                name='covering'
+                id='covering'
+                type='text'
+                className='inputField'
+                component={renderDropdownList}
+                data={listCoverings}
+                required />
+            </div>
+
+            <div className='labelFieldPair'>
+              <label
+                className='inputLabel'
+                htmlFor='runoff'>drains to
+              </label>
+              <Field
+                name='runoff'
+                id='runoff'
+                type='text'
+                className='inputField'
+                component={renderDropdownList}
+                data={listOtherAreas} />
+            </div>
+
+            <div className='labelFieldPair'>
+              <label
+                className='inputLabel'
+                htmlFor='cda'>contributing drainage areas
+              </label>
+              <Field
+                name='cda'
+                id='cda'
+                type='text'
+                className='inputField'
+                placeholder='area name'
+                component={renderMultiselect}
+                valueField='type'
+                textField='type'
+                data={listOtherAreas} />
+            </div>
+
+            <div className='labelFieldPair'>
+              <label
+                className='inputLabel'
+                htmlFor='slope'>slope (percent)
+              </label>
+              <Field
+                name='slope'
+                id='slope'
+                component='input'
+                type='text'
+                className='inputField'
+                placeholder='2'
+                required />
+            </div>
+
+            <div className='labelFieldPair'>
+              <label
+                className='inputLabel'
+                htmlFor='etTable'>evapotranspiration table
+              </label>
+              <Field
+                name='etTable'
+                id='etTable'
+                type='text'
+                className='inputField'
+                placeholder='area name'
+                component={renderDropdownList}
+                data={listEtTables} />
+            </div>
           </div>
+          
+          <div className='buttonContainer buttonColumnBottom'>
+            <div className='buttonContainer buttonRowBottom'>
 
-          <div className='labelFieldPair'>
-            <label
-              className='inputLabel'
-              htmlFor='area'>size ({props.project.units.area})
-            </label>
-            <Field
-              name='area'
-              id='area'
-              component='input'
-              type='text'
-              className='inputField'
-              placeholder='size in units'
-              required />
-          </div>
-
-          <div className='labelFieldPair'>
-            <label
-              className='inputLabel'
-              htmlFor='covering'>covering
-            </label>
-            <Field
-              name='covering'
-              id='covering'
-              type='text'
-              className='inputField'
-              component={renderDropdownList}
-              data={listCoverings}
-              required />
-          </div>
-
-          <div className='labelFieldPair'>
-            <label
-              className='inputLabel'
-              htmlFor='runoff'>drains to
-            </label>
-            <Field
-              name='runoff'
-              id='runoff'
-              type='text'
-              className='inputField'
-              component={renderDropdownList}
-              data={listOtherAreas} />
-          </div>
-
-          <div className='labelFieldPair'>
-            <label
-              className='inputLabel'
-              htmlFor='cda'>contributing drainage areas
-            </label>
-            <Field
-              name='cda'
-              id='cda'
-              type='text'
-              className='inputField'
-              placeholder='area name'
-              component={renderMultiselect}
-              valueField='type'
-              textField='type'
-              data={listOtherAreas} />
-          </div>
-
-          <div className='labelFieldPair'>
-            <label
-              className='inputLabel'
-              htmlFor='slope'>slope (percent)
-            </label>
-            <Field
-              name='slope'
-              id='slope'
-              component='input'
-              type='text'
-              className='inputField'
-              placeholder='2'
-              required />
-          </div>
-
-          <div className='labelFieldPair'>
-            <label
-              className='inputLabel'
-              htmlFor='etTable'>evapotranspiration table
-            </label>
-            <Field
-              name='etTable'
-              id='etTable'
-              type='text'
-              className='inputField'
-              placeholder='area name'
-              component={renderDropdownList}
-              data={listEtTables} />
-          </div>
-
-          <div className='buttonContainer'>
-            <button className='submitButton'
-              type="submit" disabled={props.pristine || props.submitting}>Save
-            </button>
-            <button className='clearButton'
-              type="button" disabled={props.pristine || props.submitting}
-              onClick={props.reset}>Reset
-            </button>
+              <button className='iconWrap' aria-label='save'
+                type="submit" disabled={props.pristine || props.submitting}>
+                <i className="fa fa-floppy-o tooltip" aria-hidden="true">
+                  <div className='popover'>Save</div>
+                </i>            
+              </button>
+              <button className='iconWrap' aria-label='reset to prior save'
+                type="button" disabled={props.pristine || props.submitting}
+                onClick={props.reset}>
+                <i className="fa fa-undo tooltip" aria-hidden="true">
+                  <div className='popover'>Reset to prior save</div>
+                </i>
+              </button>
+            </div>
           </div>
 
         </form>

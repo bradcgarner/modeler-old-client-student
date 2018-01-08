@@ -22,7 +22,7 @@ export function UserLogin (props) {
         <form className='userForm'
           onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
 
-          <div className='labelFieldPair'>
+          <div className='labelFieldPairHoriz'>
             <label
               className='inputLabel'
               htmlFor={'username'}>username
@@ -37,7 +37,7 @@ export function UserLogin (props) {
               required />
           </div>
 
-          <div className='labelFieldPair'>
+          <div className='labelFieldPairHoriz'>
             <label
               className='inputLabel'
               htmlFor={'password'}>password

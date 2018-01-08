@@ -15,11 +15,11 @@ export function InputAsideH2oIntervals (props) {
   }
   
   return (
-    <div>
-      <h4>aside storms</h4>
+    <div className='asideContainer'>
 
       <form className='asideInputForm'
-          onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
+        onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
+        <div className='formFieldWrapper'>
 
           <div className='labelFieldPair'>
             <label
@@ -48,15 +48,25 @@ export function InputAsideH2oIntervals (props) {
               className='inputField'
               required />
           </div>
+        </div>
 
-          <div className='buttonContainer'>
-            <button className='submitButton'
-              type="submit" disabled={props.pristine || props.submitting}>Save
-            </button>
-            <button className='clearButton'
-              type="button" disabled={props.pristine || props.submitting}
-              onClick={props.reset}>Reset
-            </button>
+          <div className='buttonContainer buttonColumnBottom'>
+            <div className='buttonContainer buttonRowBottom'>
+
+              <button className='iconWrap' aria-label='save'
+                type="submit" disabled={props.pristine || props.submitting}>
+                <i className="fa fa-floppy-o tooltip" aria-hidden="true">
+                  <div className='popover'>Save</div>
+                </i>            
+              </button>
+              <button className='iconWrap' aria-label='reset form'
+                type="button" disabled={props.pristine || props.submitting}
+                onClick={props.reset}>
+                <i className="fa fa-undo tooltip" aria-hidden="true">
+                  <div className='popover'>Reset form</div>
+                </i>
+              </button>
+            </div>
           </div>
 
         </form>

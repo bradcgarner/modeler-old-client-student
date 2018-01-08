@@ -52,6 +52,10 @@ export const display = (state = initialState, action) => {
     return {...state, general };
   }
 
+  if(action.type ===  actions.TOGGLE_ANALYSIS_RANGE) {
+    return {...state, analysisRange: action.analysisRange}
+  }
+
   else {
     return state;
   }

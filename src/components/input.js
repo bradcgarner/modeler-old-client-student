@@ -27,7 +27,6 @@ export function Input (props) {
   return (
     <div className='innerContainer'>
       <aside>
-        <h4>input aside</h4>
         <Switch>
           <Route exact path = '/app/input/configure/units'  component = {InputAsideConfigUnits}/>
           <Route exact path = '/app/input/configure/areas'    component = {InputAsideConfigAreas}/>
@@ -42,7 +41,7 @@ export function Input (props) {
       <Switch>
         <Route path = '/app/input/configure'      component = {InputConfig}/>
         <Route path = '/app/input/coverings'      component = {InputCoverings}/>
-        <Route path = '/app/input/h2o/storms'     component = {InputH2OStorms}/>
+        <Route path = '/app/input/h2o/intervals'  component = {InputH2OStorms}/>
         <Route path = '/app/input/h2o/controlled' component = {InputH2OControlled}/>
         <Route path = '/app/input/h2o/import'     component = {InputH2OImport}/>
         <Route path = '/app/input/et'             component = {InputET}/>

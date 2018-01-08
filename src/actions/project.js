@@ -229,3 +229,6 @@ export const createOrEditProject = (project, option, authToken) => dispatch => {
   dispatch(projectAPICall(url, init, callback));
 };
 
+export const download = () => dispatch => {
+  console.log('write this function!!!')
+}

@@ -836,6 +836,7 @@ export const display = {
   // main: '',
   // aside: '',
   // newAcct: false,
+  analysisRange: 'dates',
   view: 'landing',
   modal: false,
   message: '',

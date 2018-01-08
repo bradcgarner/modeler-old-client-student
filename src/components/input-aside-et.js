@@ -29,21 +29,23 @@ export function InputAsideET (props) {
   const listEtTables = props.general.etTables.list;
   
   return (
-    <div>
+    <div className='asideContainer'>
       <form className='asideInputForm'>
-        <div className='labelFieldPair'>
-          <label
-            className='inputLabel'
-            htmlFor='name'>ET table
-          </label>
-          <Field
-            name='name'
-            id='name'
-            type='text'
-            className='inputField'
-            component={renderDropdownList}
-            data={listEtTables}
-            onChange={(value) => focusEt(value)} />
+        <div className='formFieldWrapper'>
+          <div className='labelFieldPair'>
+            <label
+              className='inputLabel'
+              htmlFor='name'>ET table
+            </label>
+            <Field
+              name='name'
+              id='name'
+              type='text'
+              className='inputField'
+              component={renderDropdownList}
+              data={listEtTables}
+              onChange={(value) => focusEt(value)} />
+          </div>
         </div>
       </form>
     </div>

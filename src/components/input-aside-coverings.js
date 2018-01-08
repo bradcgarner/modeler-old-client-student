@@ -28,21 +28,23 @@ export function InputAsideCoverings (props) {
   const coveringsList = props.general.coverings.list;
   
   return (
-    <div>
+    <div className='asideContainer'>
       <form className='asideInputForm'>
-        <div className='labelFieldPair'>
-          <label
-            className='inputLabel'
-            htmlFor='name'>covering
-          </label>
-          <Field
-            name='name'
-            id='name'
-            type='text'
-            className='inputField'
-            component={renderDropdownList}
-            data={coveringsList}
-            onChange={(value) => focusCovering(value)} />
+        <div className='formFieldWrapper'>
+          <div className='labelFieldPair'>
+            <label
+              className='inputLabel'
+              htmlFor='name'>covering
+            </label>
+            <Field
+              name='name'
+              id='name'
+              type='text'
+              className='inputField'
+              component={renderDropdownList}
+              data={coveringsList}
+              onChange={(value) => focusCovering(value)} />
+          </div>
         </div>
       </form>
     </div>

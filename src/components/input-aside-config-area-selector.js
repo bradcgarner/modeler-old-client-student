@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 import DropdownList from 'react-widgets/lib/DropdownList'
-
 import * as actionsDisplay from '../actions/display';
 import * as actionsProject from '../actions/project';
 import * as helpers from '../actions/helpers';
+import './input-aside-config-area-selector.css';
+
 // interior to inputAside. Input of areas.
 // route app/input/configure/areas
 export function InputAsideConfigAreaSelector (props) {
@@ -48,7 +49,7 @@ export function InputAsideConfigAreaSelector (props) {
   const listAreas = props.project.areas.list;
 
   return (
-    <div>
+    <div className='areaSelector'>
       <form className='asideInputForm'>
         <div className='labelFieldPair'>
           <label
@@ -65,10 +66,18 @@ export function InputAsideConfigAreaSelector (props) {
             onChange={(value) => focusArea(value)} />
         </div>
       </form>
-      <button onClick={()=>addArea()}>add area</button>
+      <div onClick={()=>addArea()} className='iconWrapper' aria-label='add area'>
+        <i className="fa fa-plus tooltip" aria-hidden="true">
+          <div className='popover'>Add Area</div>
+        </i>
+      </div>
     </div>
   )
 }
+
+{/* <button onClick={()=>addArea()}>
+add area
+</button> */}
 
 const mapStateToProps = state => ({
   user: state.user,

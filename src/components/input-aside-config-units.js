@@ -20,61 +20,72 @@ export function InputAsideConfigUnits (props) {
       data={data} />
 
   return (
-    <div>
-      <h4>aside configure general</h4>
+    <div className='asideContainer'>
 
       <form className='asideInputForm'
         onSubmit={props.handleSubmit((values) => handleSubmitButton(values))} >
+          <div className='formFieldWrapper'>
 
-          <div className='labelFieldPair'>
-            <label
-              className='inputLabel'
-              htmlFor={'area'}>area unit of measurement
-            </label>
-            <Field
-              name='area'
-              id='area'
-              component={renderSelectList}
-              data={props.general.area}
-              className='inputField'
-              required />
+            <div className='labelFieldPair'>
+              <label
+                className='inputLabel'
+                htmlFor={'area'}>area unit of measurement
+              </label>
+              <Field
+                name='area'
+                id='area'
+                component={renderSelectList}
+                data={props.general.area}
+                className='inputField'
+                required />
+            </div>
+
+            <div className='labelFieldPair'>
+              <label
+                className='inputLabel'
+                htmlFor={'volume'}>volume unit of measurement
+              </label>
+              <Field
+                name='volume'
+                id='volume'
+                component={renderSelectList}
+                data={props.general.volume}
+                className='inputField'
+                required />
+            </div>
+
+            <div className='labelFieldPair'>
+              <label
+                className='inputLabel'
+                htmlFor={'thickness'}>thickness unit of measurement
+              </label>
+              <Field
+                name='thickness'
+                id='thickness'
+                component={renderSelectList}
+                data={props.general.thickness}
+                required />
+            </div>
+
           </div>
+          
+          <div className='buttonContainer buttonColumnBottom'>
+            <div className='buttonContainer buttonRowBottom'>
 
-          <div className='labelFieldPair'>
-            <label
-              className='inputLabel'
-              htmlFor={'volume'}>volume unit of measurement
-            </label>
-            <Field
-              name='volume'
-              id='volume'
-              component={renderSelectList}
-              data={props.general.volume}
-              className='inputField'
-              required />
-          </div>
-
-          <div className='labelFieldPair'>
-            <label
-              className='inputLabel'
-              htmlFor={'thickness'}>thickness unit of measurement
-            </label>
-            <Field
-              name='thickness'
-              id='thickness'
-              component={renderSelectList}
-              data={props.general.thickness}
-              required />
-          </div>
-
-          <div className='buttonContainer'>
-            <button className='submitButton'
-              type="submit" disabled={props.pristine || props.submitting}>Save
-            </button>
-            <button className='clearButton'
-              type="button" disabled={props.pristine || props.submitting}
-              onClick={props.reset}>Reset
-            </button>
+              <button className='iconWrap' aria-label='save'
+                type="submit" disabled={props.pristine || props.submitting}>
+                <i className="fa fa-floppy-o tooltip" aria-hidden="true">
+                  <div className='popover'>Save</div>
+                </i>            
+              </button>
+              <button className='iconWrap' aria-label='reset to prior save'
+                type="button" disabled={props.pristine || props.submitting}
+                onClick={props.reset}>
+                <i className="fa fa-undo tooltip" aria-hidden="true">
+                  <div className='popover'>Reset to prior save</div>
+                </i>
+              </button>
+            </div>
           </div>
 
         </form>

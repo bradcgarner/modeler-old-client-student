@@ -16,9 +16,12 @@ nav {
     flex: 1;
     flex-direction: row;
     justify-content: space-around;
-    align-items: flex-start; }
+    align-items: center; }
 
-.home, .navItem {
-  color: white; }
+.fa {
+  color: white;
+  font-size: 24px; }
+  .fa:hover {
+    color: #bad3df; }
 
 /*# sourceMappingURL=navbar.css.map */

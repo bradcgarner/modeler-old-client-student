@@ -84,8 +84,6 @@ a { /* Brad added */
     align-items: center; 
   };
 }
-
-
 .outerContainer, main, .innerContainer {
   width: 100%;
   display: flex;
@@ -93,32 +91,27 @@ a { /* Brad added */
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
-
 }
 .outerContainer {
   min-height: 100vh;
 }
-
 .innerContainer {
 }
-
 aside, section {
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
-  min-height: 80vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
 }
-
 aside {
   width: 20%;
   background-color: $aside-background-color;
   margin-right: 5px;
 }
-
 section {
   width: 80%;
   background-color: $section-background-color;
@@ -126,12 +119,28 @@ section {
 }
 /* @@@@@@@@@@@@@@ FORMS @@@@@@@@@@@@ */
 
-
-.inputLabel {
-  text-align: right;
-  padding: 5px;
-  font-size: $input-label-font-size;
+.asideContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex: 1;
 }
+.asideInputForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex: 1;
+}
+.formFieldWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 1;
+}
+
 input, .rw-widget {
   padding: 3px;
   margin: 5px 0;
@@ -143,8 +152,6 @@ input, .rw-widget {
 }
 .submitButton {
   width: 100px;
-}
-button {
   background-color: $button-color;
   color: $button-color-font;
   &:hover {
@@ -153,11 +160,58 @@ button {
     color: $button-color-font-hover;
   }
 }
+.iconWrap {
+  background-color: transparent;
+  border-color: transparent;
+  flex: 1;
+  .fa {
+    color: $button-color-font;
+    &:hover {
+      cursor: pointer;
+      color: $button-color-font-hover;
+    }
+  }
+}
+.buttonColumnBottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  flex: 1;
+}
+.buttonRowBottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .labelFieldPair {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  align-items: baseline;
+  width: 100%;
+  .inputLabel {
+    text-align: right;
+    margin-bottom: 10px;
+    font-size: $input-label-font-size;
+  }
+}
+.labelFieldPairHoriz {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: baseline;
+  .inputLabel {
+    text-align: right;
+    padding: 5px;
+    font-size: $input-label-font-size;
+  }
+}
+.rw-widget, .inputField {
+  width: 100%;
 }
 
 /* @@@@@@@@@@@@@@ GENERAL OVERRIDES @@@@@@@@@@@@ */
