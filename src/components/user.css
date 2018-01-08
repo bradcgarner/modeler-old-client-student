@@ -63,6 +63,9 @@ main {
   justify-content: flex-start;
   align-items: space-between; }
 
+.inputField {
+  width: 190px; }
+
 .inputAsideForm {
   display: flex;
   flex-direction: column;

@@ -115,7 +115,7 @@ export function UserCreate (props) {
           <div className='labelFieldPairHoriz'>
             <label
               className='inputLabel'
-              htmlFor={'password2'}>re-type password
+              htmlFor={'password2'}>re-type...
             </label>
             <Field
               name='password2'
