@@ -13,9 +13,9 @@ export const loadInitialize = general => ({
 // @@@@@@@@@@@@@@@ ASYNC @@@@@@@@@@@@@@@@@
 
 export const generalAPICall = (url, init, callback) => dispatch => {
-  console.log(url, init, callback);
-  // dispatch(loadInitialize({}))
-  return;
+  // console.log(url, init, callback);
+  // // dispatch(loadInitialize({}))
+  // return;
   dispatch(actionsDisplay.changeView('loading'));
 
   // console.log('just before',init)
