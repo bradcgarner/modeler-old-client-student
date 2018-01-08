@@ -28,17 +28,19 @@ export class UserDashboard extends React.Component {
 
   render() {
     const projects = this.props.user.projects.map((project,index)=>{
-      return <li key={index} onClick={()=>this.selectProject(project.id)}>{project.name}</li>
+      return <li className='dashboardItem' key={index} onClick={()=>this.selectProject(project.id)}>{project.name}</li>
     })
     const adding = this.state.adding ? <ProjectAdd history={this.props.history}/> : null;
 
     // create account 
     return (
       <article className='userDashboard'>
-        <p>My Projects</p>
-        <ul>{projects}</ul>
-        <button onClick={()=>this.toggleAddProject()}>add project</button>
-        {adding}
+        <div className='userDashboardList'>
+          <h3 className='dashboardHeader'>My Projects</h3>
+          <ul className='dashboardList'>{projects}</ul>
+          <button className='submitButton' onClick={()=>this.toggleAddProject()}>add project</button>
+          {adding}
+        </div>
       </article>
     )
   }

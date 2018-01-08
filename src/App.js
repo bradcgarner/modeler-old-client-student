@@ -7,7 +7,7 @@ import User from './components/user'
 import MainApp from './components/main-app'
 import Cover from './components/cover'
 import NavBar from './components/navbar';
-import 'react-widgets/dist/css/react-widgets.css'
+import 'react-widgets/dist/css/react-widgets-modified.css'
 
 // edit routes below so that non-logged-in users are redirected to home or login
 

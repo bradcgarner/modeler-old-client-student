@@ -80,19 +80,6 @@ a {
     justify-content: center;
     align-items: center; }
 
-nav {
-  display: flex;
-  width: 100%;
-  position: fixed;
-  height: 50px;
-  background-color: white; }
-  nav ul {
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start; }
-
 .outerContainer, main, .innerContainer {
   width: 100%;
   display: flex;
@@ -100,6 +87,9 @@ nav {
   justify-content: flex-start;
   align-items: flex-start;
   position: relative; }
+
+.outerContainer {
+  min-height: 100vh; }
 
 aside, section {
   border-radius: 10px;
@@ -127,12 +117,12 @@ section {
   padding: 5px;
   font-size: 11px; }
 
-input {
+input, .rw-widget {
   padding: 3px;
   margin: 5px 0;
   width: 150px;
   background-color: white; }
-  input:hover {
+  input:hover, .rw-widget:hover {
     background-color: #d1e5ee; }
 
 .submitButton {

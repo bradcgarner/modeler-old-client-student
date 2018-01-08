@@ -29,7 +29,7 @@ export function ProjectAdd (props) {
   const countryList = props.general.countries;
   
   return (
-    <div>
+    <div className='projectAddWrapper'>
       <form className='projectAddForm' onSubmit={props.handleSubmit(values=>addProject(values))}>
         <div className='labelFieldPair'>
           <label

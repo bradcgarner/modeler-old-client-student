@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actionsDisplay from '../actions/display';
 import * as actionsGeneral from '../actions/general';
+import './navbar.css';
 
 // nav bar to main app, after login
 // routes /app...
@@ -15,30 +16,29 @@ export class NavBar extends React.Component {
 
   render() {
     const ultimateUl = <ul>
-    <li>Configure</li>
-    <li>Projects</li>
-    <li>Storms</li>
-    <li>Et</li>
-    <li>Hydrographs</li>
-    <li>Analysis</li>
+    <li className='navItem'>Configure</li>
+    <li className='navItem'>Projects</li>
+    <li className='navItem'>Storms</li>
+    <li className='navItem'>Et</li>
+    <li className='navItem'>Hydrographs</li>
+    <li className='navItem'>Analysis</li>
   </ul>;
     return (
       <nav>
-        <h1>GRSWM</h1>
         <ul>
-          <li><Link to='/home'>home</Link></li>
-          <li><Link to='/user/login'>login</Link></li>
-          <li><Link to='/user/create'>create</Link></li>
-          <li><Link to='/user/dashboard'>dashboard</Link></li>
-          <li><Link to='/app/input/configure/units'>general</Link></li>
-          <li><Link to='/app/input/configure/areas'>areas</Link></li>
-          <li><Link to='/app/input/h2o/intervals'>storms</Link></li>
-          <li><Link to='/app/input/h2o/import'>import</Link></li>
-          <li><Link to='/app/input/h2o/controlled'>controlled</Link></li>
-          <li><Link to='/app/input/et'>et</Link></li>
-          <li><Link to='/app/input/coverings'>coverings</Link></li>
-          <li><Link to='/app/output/analysis'>analysis</Link></li>
-          <li><Link to='/app/output/graphs'>graphs</Link></li>
+          <Link to='/home'><li className='home'>GRSWM</li></Link>
+          <Link to='/user/login'><li className='navItem'>login</li></Link>
+          <Link to='/user/create'><li className='navItem'>create</li></Link>
+          <Link to='/user/dashboard'><li className='navItem'>dashboard</li></Link>
+          <Link to='/app/input/configure/units'><li className='navItem'>general</li></Link>
+          <Link to='/app/input/configure/areas'><li className='navItem'>areas</li></Link>
+          <Link to='/app/input/h2o/intervals'><li className='navItem'>storms</li></Link>
+          <Link to='/app/input/h2o/import'><li className='navItem'>import</li></Link>
+          <Link to='/app/input/h2o/controlled'><li className='navItem'>controlled</li></Link>
+          <Link to='/app/input/et'><li className='navItem'>et</li></Link>
+          <Link to='/app/input/coverings'><li className='navItem'>coverings</li></Link>
+          <Link to='/app/output/analysis'><li className='navItem'>analysis</li></Link>
+          <Link to='/app/output/graphs'><li className='navItem'>graphs</li></Link>
         </ul>
       </nav>
     )

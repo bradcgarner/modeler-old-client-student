@@ -1,0 +1,28 @@
+@import '../variables';
+
+.home {
+  letter-spacing: 5px;
+  font-family: 'Archivo Black', sans-serif;
+}
+
+nav {
+  color: $nav-font-color;
+  background-color: $nav-background-color;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  height: $nav-ht;
+  ul{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start; 
+  }
+}
+
+.home, .navItem {
+  color: $nav-font-color;
+}

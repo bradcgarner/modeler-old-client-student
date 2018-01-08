@@ -7,20 +7,13 @@ main {
   background-attachment: fixed;
   height: 100vh; }
 
-.userLogin, .userCreate {
+.userLogin, .userCreate, .userDashboard {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: flex-start;
   padding-right: 100px;
   width: 100%; }
-
-.userForm {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: space-between; }
 
 .formWrapper {
   display: flex;
@@ -29,6 +22,35 @@ main {
   align-items: flex-start;
   width: 285px;
   height: 325px; }
+
+.projectAddWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 285px; }
+
+.projectAddForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100%; }
+
+.userDashboardList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 50px;
+  width: 285px; }
+
+.userForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: space-between; }
 
 .inputAsideForm {
   display: flex;
@@ -46,5 +68,22 @@ main {
   .createAccount a {
     font-size: inherit;
     color: inherit; }
+
+.dashboardHeader {
+  display: block;
+  width: 100%; }
+
+.dashboardList {
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px; }
+
+.dashboardItem {
+  width: 100%;
+  padding: 5px 0; }
+  .dashboardItem:hover {
+    cursor: pointer;
+    color: #555;
+    background-color: rgba(209, 229, 238, 0.75); }
 
 /*# sourceMappingURL=user.css.map */

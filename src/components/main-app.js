@@ -9,7 +9,7 @@ import './main-app.css';
 // routes /app... (controlled path via various grandchildren components)
 export function MainApp (props) {
   return (
-    <main className='main-app'>
+    <main className='mainApp'>
       <Switch>
         <Route path = '/app/input'  component = {Input}/>
         <Route path = '/app/output' component = {Output}/>

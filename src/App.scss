@@ -85,23 +85,7 @@ a { /* Brad added */
   };
 }
 
-nav {
-  display: flex;
-  width: 100%;
-  position: fixed;
-  height: $nav-ht;
-  background-color: $nav-background-color;
-  ul{
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start; 
-    li{
 
-    } 
-  }
-}
 .outerContainer, main, .innerContainer {
   width: 100%;
   display: flex;
@@ -109,8 +93,10 @@ nav {
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
+
 }
 .outerContainer {
+  min-height: 100vh;
 }
 
 .innerContainer {
@@ -146,7 +132,7 @@ section {
   padding: 5px;
   font-size: $input-label-font-size;
 }
-input {
+input, .rw-widget {
   padding: 3px;
   margin: 5px 0;
   width: 150px;

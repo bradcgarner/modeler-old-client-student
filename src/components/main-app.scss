@@ -3,8 +3,9 @@
 main {
   margin-top: $nav-ht;
 }
-.main-app {
+.mainApp {
   background-image: url('../images/splash.jpg');
   background-size: cover;
   background-attachment: fixed;
+  min-height: 100vh;
 }

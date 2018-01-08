@@ -13,20 +13,13 @@ main {
 article {
   // margin-top: $cover-ht - $nav-ht;
 }
-.userLogin, .userCreate {
+.userLogin, .userCreate, .userDashboard {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: flex-start;
   padding-right: 100px;
   width: 100%;
-}
-.userForm {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: space-between;
 }
 .formWrapper {
   display: flex;
@@ -35,6 +28,35 @@ article {
   align-items: flex-start;
   width: 285px;
   height: 325px;
+}
+.projectAddWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 285px;
+}
+.projectAddForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100%;
+}
+.userDashboardList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: $nav-ht;
+  width: 285px;
+}
+.userForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: space-between;
 }
 .inputAsideForm {
   display: flex;
@@ -52,5 +74,23 @@ article {
   a {
     font-size: inherit;
     color: inherit;
+  }
+}
+.dashboardHeader {
+  display: block;
+  width: 100%;
+}
+.dashboardList {
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.dashboardItem {
+  width: 100%;
+  padding: 5px 0;
+  &:hover {
+    cursor: pointer;
+    color: $font-color-hover;
+    background-color: rgba(209,229,238,0.75);
   }
 }
