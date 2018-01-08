@@ -34,63 +34,63 @@ export class NavBar extends React.Component {
           </li></Link>
           <Link to='/app/input/configure/units'><li className='navItem'>
             <div className='iconWrapper' aria-label='units of measurement'>
-              <i class="fa fa-arrows-h tooltip" aria-hidden="true">
+              <i className="fa fa-arrows-h tooltip" aria-hidden="true">
                 <div className='popover popoverWide1'>Units of Measurement</div>
               </i>
             </div>
           </li></Link>
           <Link to='/app/input/configure/areas'><li className='navItem'>
             <div className='iconWrapper' aria-label='project areas'>
-              <i class="fa fa-object-ungroup tooltip" aria-hidden="true">
+              <i className="fa fa-object-ungroup tooltip" aria-hidden="true">
                 <div className='popover'>Project Areas</div>
               </i>
             </div>
           </li></Link>
           <Link to='/app/input/h2o/intervals'><li className='navItem'>
             <div className='iconWrapper' aria-label='storms'>
-              <i class="fa fa-tint tooltip" aria-hidden="true">
+              <i className="fa fa-tint tooltip" aria-hidden="true">
                 <div className='popover'>Storms</div>
               </i>
             </div>
           </li></Link>
           <Link to='/app/input/h2o/import'><li className='navItem'>
             <div className='iconWrapper' aria-label='import historical storms'>
-              <i class="fa fa-upload tooltip" aria-hidden="true">
+              <i className="fa fa-upload tooltip" aria-hidden="true">
                 <div className='popover'>Import Historical Storms</div>
               </i>
             </div>
           </li></Link>
           <Link to='/app/input/h2o/controlled'><li className='navItem'>
             <div className='iconWrapper' aria-label='controlled input'>
-              <i class="fa fa-shower tooltip" aria-hidden="true">
+              <i className="fa fa-shower tooltip" aria-hidden="true">
                 <div className='popover popoverWide1'>Controlled Input</div>
               </i>
             </div>
           </li></Link>
           <Link to='/app/input/et'><li className='navItem'>
             <div className='iconWrapper' aria-label='evapotranspiration'>
-              <i class="fa fa-cloud-upload tooltip" aria-hidden="true">
+              <i className="fa fa-cloud-upload tooltip" aria-hidden="true">
                 <div className='popover popoverWide2'>Evapotranspiration</div>
               </i>
             </div>
           </li></Link>
           <Link to='/app/input/coverings'><li className='navItem'>
             <div className='iconWrapper' aria-label='vegetative coverings'>
-              <i class="fa fa-leaf tooltip" aria-hidden="true">
+              <i className="fa fa-leaf tooltip" aria-hidden="true">
                 <div className='popover popoverWide1'>Vegetative Coverings</div>
               </i>
             </div>
           </li></Link>
           <Link to='/app/output/analysis'><li className='navItem'>
             <div className='iconWrapper' aria-label='analysis table'>
-              <i class="fa fa-table tooltip" aria-hidden="true">
+              <i className="fa fa-table tooltip" aria-hidden="true">
                 <div className='popover'>Analysis Table</div>
               </i>
             </div>
           </li></Link>
           <Link to='/app/output/graphs'><li className='navItem'>
             <div className='iconWrapper' aria-label='analysis graphs'>
-              <i class="fa fa-line-chart tooltip" aria-hidden="true">
+              <i className="fa fa-line-chart tooltip" aria-hidden="true">
                 <div className='popover'>Analysis Graphs</div>
               </i>
             </div>

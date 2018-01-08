@@ -35,8 +35,7 @@ export class InputH2OStorms extends React.Component {
       <section>
         <h4>Input H2O</h4>
         <form className='inputForm'
-            onSubmit={this.props.handleSubmit((values) => this.handleSubmitButton(values))}
-          >
+            onSubmit={this.props.handleSubmit((values) => this.handleSubmitButton(values))} >
           <table>
             <tbody>
               <tr>
@@ -58,21 +57,36 @@ export class InputH2OStorms extends React.Component {
               </tr>
             </tbody>
           </table>
-          <button onClick={()=>this.addLine()}>add line</button>
 
-            <div className='buttonContainer'>
-              <button className='submitButton'
-                type="submit" disabled={this.props.pristine || this.props.submitting}>Save
-              </button>
-              <button className='clearButton'
-                type="button" disabled={this.props.pristine || this.props.submitting}
-                onClick={this.props.reset}>Reset
-              </button>
+          <div className='buttonContainer buttonColumnBottom'>
+            <div className='buttonContainer buttonRowBottom'>
+
+            <div onClick={()=>this.addLine()} className='iconWrapper' aria-label='add'>
+              <i className="fa fa-plus tooltip" aria-hidden="true">
+                <div className='popover'>Add</div>
+              </i>
             </div>
+
+            <button className='iconWrap' aria-label='save'
+              type="submit" disabled={this.props.pristine || this.props.submitting}>
+              <i className="fa fa-floppy-o tooltip" aria-hidden="true">
+                <div className='popover'>Save</div>
+              </i>            
+            </button>
+            <button className='iconWrap' aria-label='reset to prior save'
+              type="button" disabled={this.props.pristine || this.props.submitting}
+              onClick={this.props.reset}>
+              <i className="fa fa-undo tooltip" aria-hidden="true">
+                <div className='popover'>Reset to prior save</div>
+              </i>
+            </button>
+          </div>
+
+        </div>
   
-          </form>
+      </form>
   
-      </section>
+    </section>
     )
   }
   

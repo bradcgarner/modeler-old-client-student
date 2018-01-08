@@ -29,7 +29,7 @@ export function OutputAside(props) {
           </div>
           <div onClick={()=>toggleSelector('events')}
             className='iconWrapper' aria-label='filter analysis by events'>
-            <i class="fa fa-ellipsis-h tooltip" aria-hidden="true">
+            <i className="fa fa-ellipsis-h tooltip" aria-hidden="true">
               <div className='popover'>Filter Analysis by Events</div>
             </i>
           </div>

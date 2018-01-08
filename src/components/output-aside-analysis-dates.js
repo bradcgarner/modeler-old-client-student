@@ -51,7 +51,7 @@ export function OutputAsideAnalysisDates (props) {
                 </i>            
               </button>
 
-              <button className='iconWrap' aria-label='download'
+              <button type='button' className='iconWrap' aria-label='download'
                 onClick={()=>download()}>
                 <i className="fa fa-download tooltip" aria-hidden="true">
                   <div className='popover'>Download</div>
