@@ -80,7 +80,7 @@ export const loadAnalysisSettings = analysisSettings => ({
 
 export const projectAPICall = (url, init, callback) => dispatch => {
   console.log(url, init, callback);
-  return;
+  // return;
   // console.log('just before',init)
   dispatch(actionsDisplay.changeView('loading'));
 
@@ -93,43 +93,8 @@ export const projectAPICall = (url, init, callback) => dispatch => {
   })
   .then(project=>{
     console.log('project returned', project);
-    const {
-      name, locationCity, locationState, locationCountry,
-      areas, 
-      area, volume, thickness,
-      intervalMins, eventGapThreshold,
-      controlledRate, controlledHi, controlledLo,
-      source, location, startMonth, startDay, endMonth, endDay, stormData,
-      ranIntervalMins, ranEventGapThreshold,
-      ranControlledRate, ranControlledHi, ranControlledLo,
-      ranSource, ranLocation, ranStartMonth, ranStartDay, ranEndMonth, ranEndDay, ranStormData,
-      analysisStartMonth, analysisStartDay, analysisEndMonth, analysisEndDay, analysisStartEvent, analysisEndEvent,
-    } = project;
-
-    const units = {area, volume, thickness};
-    const areaObject = helpers.arrayToObject(project.areas, 'id');
-    const areasList = project.areas.map(area=>area.name);
-    areaObject.list = areasList;
-
-    const intervals = {intervalMins, eventGapThreshold}; 
-    const controlled = {controlledRate, controlledHi, controlledLo};
-    const stormSettings = {source, location, startMonth, startDay, endMonth, endDay, stormData};
-
-    const ranIntervals = {ranIntervalMins, ranEventGapThreshold}; 
-    const ranControlled = {ranControlledRate, ranControlledHi, ranControlledLo};
-    const ranStormSettings = {ranSource, ranLocation, ranStartMonth, ranStartDay, ranEndMonth, ranEndDay, ranStormData};
     
-    const analysisSettings = {analysisStartMonth, analysisStartDay, analysisEndMonth, analysisEndDay, analysisStartEvent, analysisEndEvent};
-
-    const formattedProject = {
-      name, 
-      locationCity, locationState, locationCountry,
-      units, 
-      areas: areaObject,
-      intervals,    controlled,    stormSettings,
-      ranIntervals, ranControlled, ranStormSettings,
-      analysisSettings,
-    };
+    const formattedProject = helpers.nestProject(project);
 
     let focus = project.areas.length > 0 ? project.areas[0] : null;
     let focusArea = focus ? focus.id : 0;

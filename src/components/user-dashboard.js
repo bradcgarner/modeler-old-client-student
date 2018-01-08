@@ -27,9 +27,9 @@ export class UserDashboard extends React.Component {
   }
 
   render() {
-    const projects = this.props.user.projects.map((project,index)=>{
+    const projects = Array.isArray(this.props.user.projects) ? this.props.user.projects.map((project,index)=>{
       return <li className='dashboardItem' key={index} onClick={()=>this.selectProject(project.id)}>{project.name}</li>
-    })
+    }) : [] ;
     const adding = this.state.adding ? <ProjectAdd history={this.props.history}/> : null;
 
     // create account 

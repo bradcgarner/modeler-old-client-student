@@ -19,7 +19,7 @@ export const loadUser = (user) => ({
 
 export const userAPICall = (url, init, callback) => dispatch => {
   console.log(url, init, callback);
-  return;
+  // return;
   // console.log('just before',init)
   dispatch(actionsDisplay.changeView('loading'));
 
@@ -56,7 +56,6 @@ export const login = user => dispatch => {
     username: user.username,
     password: user.password
   };
-
   const headers = {
     "Content-Type": "application/json"
   }; 

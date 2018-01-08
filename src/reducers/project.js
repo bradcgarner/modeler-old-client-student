@@ -4,16 +4,9 @@ import { project as initialState } from './initial-state';
 export const project = (state = initialState, action) => {
 
   if (action.type === actions.LOAD_PROJECT) {
-    return {...state, 
-      name: action.name,
-      units: action.units,
-      intervals: action.intervals,
-      controlled: action.controlled,
-      areas: action.areas,  
-      storms: action.storms,
-      events: action.events,
-      rangeSettings: action.rangeSettings,
-    };
+    const project = {...action};
+    delete project.type;
+    return {...state, project};
   }
 
   if (action.type === actions.LOAD_AREAS) {

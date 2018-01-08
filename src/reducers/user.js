@@ -4,7 +4,9 @@ import { user as initialState } from './initial-state';
 export const user = (state = initialState, action) => {
 
   if (action.type === actions.LOAD_USER) {
-    return {action};
+    const user = {...action};
+    delete user.type;
+    return {...state, user};
   }
 
   else {

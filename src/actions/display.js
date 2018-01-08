@@ -62,7 +62,7 @@ export const toggleAnalysisRange = value => ({
 
 export const displayAPICall = (url, init, callback) => dispatch => {
   console.log(url, init, callback);
-  return;
+  // return;
   // console.log('just before',init)
   dispatch(changeView('loading'));
   
@@ -92,6 +92,8 @@ export const displayAPICall = (url, init, callback) => dispatch => {
 export const importStorms = (values, authToken) => dispatch => {
   console.log('values in import storm', values)
   let id = ''
+  // format query
+  console.log('change this to new URL...')
   let {source, location, startMonth, startDay, endMonth, endDay} = values;
   if (source && location && startMonth && endMonth) {
     startDay = startDay ? startDay : helpers.getDaysOfMonth(startMonth);
