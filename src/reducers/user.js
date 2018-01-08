@@ -6,7 +6,8 @@ export const user = (state = initialState, action) => {
   if (action.type === actions.LOAD_USER) {
     const user = {...action};
     delete user.type;
-    return {...state, user};
+    console.log('user',user)
+    return {...user};
   }
 
   else {

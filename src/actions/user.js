@@ -35,6 +35,7 @@ export const userAPICall = (url, init, callback) => dispatch => {
     if (callback.isNew) {
       dispatch(login(callback.originalUser))
     } else {
+      console.log('user to send to action', user)
       dispatch(loadUser(user));
     }
     return dispatch(actionsDisplay.changeView('normal'));

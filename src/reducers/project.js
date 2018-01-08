@@ -6,7 +6,7 @@ export const project = (state = initialState, action) => {
   if (action.type === actions.LOAD_PROJECT) {
     const project = {...action};
     delete project.type;
-    return {...state, project};
+    return {...project};
   }
 
   if (action.type === actions.LOAD_AREAS) {
