@@ -192,7 +192,7 @@ export const createOrEditProject = (project, option, authToken) => dispatch => {
   const callback = {
     loadTo: option,
   }
-  dispatch(projectAPICall(url, init, callback));
+  return dispatch(projectAPICall(url, init, callback));
 };
 
 export const download = () => dispatch => {

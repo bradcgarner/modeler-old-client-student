@@ -17,7 +17,7 @@ export class NavBar extends React.Component {
 
   run() {
     console.log('check for completion first!');
-    this.props.dispatch(actionsProject.createOrEditProject(this.props.project,'run',this.props.user.authToken))
+    return this.props.dispatch(actionsProject.createOrEditProject(this.props.project,'run',this.props.user.authToken))
     .then(()=>{
       return this.props.history.push('/app/output/analysis');
     })
