@@ -27,6 +27,7 @@ class App extends Component {
           <Route path ='/user/login'     component={Cover}/>
           <Route path ='/user/create'    component={Cover}/>
           <Route path ='/app'            component={NavBar}/>
+          <Route path ='/user/dashboard' component={NavBar}/>
         </div>
       </BrowserRouter>
     );

@@ -83,7 +83,7 @@ const mapStateToProps = state => ({
   user: state.user,
   display: state.display,
   project: state.project,
-  initialValues: {name: state.project.areas[state.project.areas.focus].name},
+  initialValues: {name: state.project.areas[state.display.focusArea].name},
   enableReinitialize: true,
 });
 

@@ -33,7 +33,7 @@ export class InputH2OStorms extends React.Component {
   render() {
     return (
       <section>
-        <h4>Input H2O</h4>
+        <h4>Precipitation Settings</h4>
         <form className='inputForm'
             onSubmit={this.props.handleSubmit((values) => this.handleSubmitButton(values))} >
           <table>

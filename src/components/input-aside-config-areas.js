@@ -41,8 +41,11 @@ export function InputAsideConfigAreas (props) {
   // const area = props.project.areas[areaNum];
 
   const listOtherAreas = Array.isArray(props.project.areas.list) ? 
-    props.project.areas.list.filter(area=>area!==props.project.areas[props.project.areas.focus].name) :
-    [];
+    props.project.areas.list.filter(area=>{
+      if (props.display.focusArea !== area.id && typeof parseInt(area.id) == 'number') {
+        return area.name
+      }
+    }) : [];
   const listCoverings = Array.isArray(props.general.coverings.list) ? props.general.coverings.list : [];
   const listEtTables = Array.isArray(props.general.etTables.list) ? props.general.etTables.list : [];
 

@@ -8,7 +8,12 @@ import * as actionsProject from '../actions/project';
 export function OutputAnalysis (props) {
   return (
     <section>
-      <h1>Output Analysis</h1>
+      <h1>Analysis</h1>
+      <ul>
+        <li>build out same as graphs</li>
+        <li>this is tabular data; exact format TBD</li>
+        <li>create options to customize tabular data</li>
+      </ul>
     </section>
   )
 }

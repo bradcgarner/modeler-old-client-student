@@ -23,8 +23,10 @@ export class NavBar extends React.Component {
     })
   }
 
-
   render() {
+
+    console.log('this.props.match.url',this.props.match.url)
+
     return (
       <nav>
         <ul>
@@ -120,6 +122,7 @@ export class NavBar extends React.Component {
 
 const mapStateToProps = state => ({
   general: state.general,
+  display: state.display,
   project: state.project,
   user: state.user,
 });

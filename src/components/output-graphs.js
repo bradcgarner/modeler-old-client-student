@@ -9,7 +9,15 @@ export function OutputGraphs (props) {
 
   return (
     <section>
-      <h1>Output Graph</h1>
+      <h1>Graph</h1>
+        <ul>
+          <li>build out as...</li>
+          <li>when user clicks update at left, the graph on this screen updates</li>
+          <li>to start with, generate each graph on demand on the server, then send the url of the static graph image to the client</li>
+          <li>later allow multiple graphs to be generated and served up</li>
+          <li>as a default, when the user clicks to run the model, a singular default graph displays, and the settings at left are updated</li>
+          <li>settings at left are saved in the project profile, so if those are set at runtime, use them, if not, generate default settings</li>
+        </ul>
     </section>
   )
 }
