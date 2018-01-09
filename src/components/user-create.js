@@ -33,7 +33,7 @@ export function UserCreate (props) {
               placeholder='first name'
               component='input'
               type='text'
-              className='inputField'
+              className='inputField userInputField'
               required />
           </div>
 
@@ -48,7 +48,7 @@ export function UserCreate (props) {
               placeholder='last name'
               component='input'
               type='text'
-              className='inputField'
+              className='inputField userInputField'
               required />
           </div>
 
@@ -63,7 +63,7 @@ export function UserCreate (props) {
               placeholder='organization'
               component='input'
               type='text'
-              className='inputField'
+              className='inputField userInputField'
               required />
           </div>
           
@@ -78,7 +78,7 @@ export function UserCreate (props) {
               placeholder='email'
               component='input'
               type='text'
-              className='inputField'
+              className='inputField userInputField'
               required />
           </div>
           
@@ -93,7 +93,7 @@ export function UserCreate (props) {
               placeholder='username'
               component='input'
               type='text'
-              className='inputField'
+              className='inputField userInputField'
               required />
           </div>
 
@@ -108,7 +108,7 @@ export function UserCreate (props) {
               placeholder='password'
               component='input'
               type='password'
-              className='inputField'
+              className='inputField userInputField'
               required />
           </div>
 
@@ -123,7 +123,7 @@ export function UserCreate (props) {
               placeholder='re-type password'
               component='input'
               type='password'
-              className='inputField'
+              className='inputField userInputField'
               required />
           </div>
 

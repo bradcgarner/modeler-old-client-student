@@ -167,7 +167,7 @@ export const fetchProject = (projectId, authToken) => dispatch => {
   };
   const callback = {
     isNew: false,
-    originalUser: null,
+    loadTo: 'project',
   }
   dispatch(projectAPICall(url, init, callback));
 };
@@ -175,10 +175,11 @@ export const fetchProject = (projectId, authToken) => dispatch => {
 export const createOrEditProject = (project, option, authToken) => dispatch => {
   // go to the user, add a project, return the id, then load it into state
 
-  const params = option === 'run' ? 'run' : '' ;
+  const params = option === 'run' ? '/run' : '' ;
   const method = option === 'create' ? 'POST' : 'PUT';
+  const id = method === 'POST' ? '' : `/${project.id}`;
 
-  const url = `${REACT_APP_BASE_URL}/api/projects/${project.id}/${params}`;
+  const url = `${REACT_APP_BASE_URL}/api/projects${id}${params}`;
   const headers = { 
     'Content-Type': 'application/json',
     Authorization: `Bearer ${authToken}`,

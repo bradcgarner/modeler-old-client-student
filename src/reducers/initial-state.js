@@ -748,7 +748,6 @@ export const project = {
   locationState: '',
   locationCountry: '',
   areas: {
-    focus: 0,        // area id primary key
     list: [ 'a','b' ],    // used for value lists
     0: {             // area id primary key
       id: 0,         // area id primary key

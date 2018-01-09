@@ -80,10 +80,10 @@ export const createOrEditUser = (user, isNew) => dispatch => {
   user.firstName = user.firstName ? user.firstName : null ;
   user.lastName = user.lastName ? user.lastName : null ;
 
-  const params = isNew ? '' : user.id ;
+  const params = isNew ? '' : `/${user.id}` ;
   const method = isNew ? 'POST' : 'PUT';
 
-  const url = `${REACT_APP_BASE_URL}/api/users/${params}`;
+  const url = `${REACT_APP_BASE_URL}/api/users${params}`;
   const headers = { 
     'Content-Type': 'application/json',
   };

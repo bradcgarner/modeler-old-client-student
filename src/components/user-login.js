@@ -33,7 +33,7 @@ export function UserLogin (props) {
               placeholder='username'
               component='input'
               type='text'
-              className='inputField'
+              className='inputField userInputField'
               required />
           </div>
 
@@ -48,7 +48,7 @@ export function UserLogin (props) {
               placeholder='password'
               component='input'
               type='password'
-              className='inputField'
+              className='inputField userInputField'
               required />
           </div>
 
