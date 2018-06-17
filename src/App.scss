@@ -49,9 +49,13 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-* {
-  box-sizing: border-box; /* Brad added */
+html { 
+  box-sizing: border-box;  /* Brad added */
 }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 a { /* Brad added */
   text-decoration: none; 
   &:hover {
@@ -213,6 +217,10 @@ input, .rw-widget {
 .rw-widget, .inputField {
   width: 100%;
 }
+.iconWrapper {
+  display: flex;
+}
+
 
 /* @@@@@@@@@@@@@@ GENERAL OVERRIDES @@@@@@@@@@@@ */
 

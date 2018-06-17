@@ -93,7 +93,7 @@ export class NavBar extends React.Component {
               </i>
             </div>
           </li></Link>
-          <li onClick={()=>this.run()} className='navItem'>
+          <li onClick={()=>this.run()} className='navItem run'>
             <div className='iconWrapper' aria-label='create model'>
               <i className="fa fa-arrow-right tooltip" aria-hidden="true">
                 <div className='popover'>Create Model</div>

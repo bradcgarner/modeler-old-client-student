@@ -20,6 +20,14 @@ nav {
     flex-direction: row;
     justify-content: space-around;
     align-items: center; 
+    height: 100%;
+    a, .run {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
   }
 }
 

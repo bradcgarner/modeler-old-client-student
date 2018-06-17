@@ -12,7 +12,7 @@ canvas to show
 allow to upload background image for canvas
 
 
-Componnent              Route                        Redirect    display.view
+Component               Route                        Redirect    display.view
 App                                                  /home
 |
 |_Landing               /home                        /home       landing

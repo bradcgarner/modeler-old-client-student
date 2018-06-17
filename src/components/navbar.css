@@ -16,7 +16,14 @@ nav {
     flex: 1;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center; }
+    align-items: center;
+    height: 100%; }
+    nav ul a, nav ul .run {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      height: 100%; }
 
 .fa {
   color: white;
